@@ -9,7 +9,9 @@ require.config({
     jQuery: 'libs/jquery/jquery',
     Underscore: 'libs/underscore/underscore',
     Backbone: 'libs/backbone/backbone',
-    templates: '../templates'
+    templates: '../templates',
+    eve: 'libs/eve/eve.min',
+    Raphael: 'libs/raphael/raphael-min'
   }
 
 });
