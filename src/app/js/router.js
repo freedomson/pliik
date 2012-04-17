@@ -3,10 +3,7 @@ define([
   'jQuery',
   'Underscore',
   'Backbone',
-  'views/home/main',
-  'views/projects/list',
-  'views/users/list'
-], function($, _, Backbone, mainHomeView, projectListView, userListView ){
+], function($, _, Backbone ){
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
@@ -17,26 +14,56 @@ define([
       '*actions': 'defaultAction'
     },
     showProjects: function(){
-      // Call render on the module we loaded in via the dependency array
-      // 'views/projects/list'
-      projectListView.render();
+
+        require([
+            'views/page/main',
+            'views/projects/list'
+        ], function(mainPageView,projectListView){
+            mainPageView.render();
+            projectListView.render();
+        });
+      
     },
+    
+    
       // As above, call render on our loaded module
       // 'views/users/list'
     showUsers: function(){
-      userListView.render();
+        
+        require([
+            'views/page/main',
+            'views/users/list'
+        ], function(mainPageView,userListView){
+            mainPageView.render();
+            userListView.render();
+        });
+      
     },
+    
+    /**
+     * DEFAULT ROUTE
+     */
     defaultAction: function(actions){
-      // We have no matching route, lets display the home page 
-      mainHomeView.render(); 
+        
+        require([
+            'views/page/main',
+            'views/home/main'
+        ], function(mainPageView,mainHomeView){
+            mainPageView.render();
+            mainHomeView.render();
+        });
+        
     }
+    
   });
 
   var initialize = function(){
     var app_router = new AppRouter;
     Backbone.history.start();
   };
+  
   return { 
     initialize: initialize
   };
+  
 });

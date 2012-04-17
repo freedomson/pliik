@@ -12,7 +12,7 @@ define([
     render: function(){
       var data = {};
       var compiledTemplate = _.template( userListTemplate, data );
-      this.el.html( compiledTemplate ); 
+      $("#page").html( compiledTemplate ); 
     }
   });
   return new userListView;
