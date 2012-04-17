@@ -16,9 +16,8 @@ define([
         
         
       // this.el.html(mainHomeTemplate);
-      
-      // var jade = 
-
+  
+      // Using Jade Templating
       this.el.html(jade.compile(mainHomeTemplate));
 
       
