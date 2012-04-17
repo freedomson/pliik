@@ -11,7 +11,10 @@ require.config({
     Backbone: 'libs/backbone/backbone',
     templates: '../templates',
     eve: 'libs/eve/eve.min',
-    Raphael: 'libs/raphael/raphael-min'
+    Raphael: 'libs/raphael/raphael-min',
+    brequire: 'libs/brequire/brequire',
+    fs: 'libs/fs/fs',   
+    jade: 'libs/jade/jade'  
   }
 
 });

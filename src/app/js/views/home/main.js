@@ -4,14 +4,23 @@ define([
   'Backbone',
   'text!templates/home/main.html',
   'eve',
-  'Raphael'
+  'Raphael',
+  'brequire',
+  'fs',
+  'jade'
 ], function($, _, Backbone, mainHomeTemplate){
 
   var mainHomeView = Backbone.View.extend({
     el: $("#page"),
     render: function(){
         
-      this.el.html(mainHomeTemplate);
+        
+      // this.el.html(mainHomeTemplate);
+      
+      // var jade = 
+
+      this.el.html(jade.compile(mainHomeTemplate));
+
       
       var paper = Raphael("canvas", 640, 480);
       
