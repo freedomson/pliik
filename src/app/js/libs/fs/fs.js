@@ -1,3 +1,3 @@
-require.module('fs', function(module, exports, require) {
+brequire.module('fs', function(module, exports, brequire) {
 })
 

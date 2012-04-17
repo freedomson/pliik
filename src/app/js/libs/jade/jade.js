@@ -1,5 +1,5 @@
 
-require.module('jade/lib/compiler.js', function(module, exports, require) {
+brequire.module('jade/lib/compiler.js', function(module, exports, brequire) {
 // start module: jade/lib/compiler.js
 
 
@@ -13,11 +13,11 @@ require.module('jade/lib/compiler.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var nodes = require('./nodes')
-  , filters = require('./filters')
-  , doctypes = require('./doctypes')
-  , selfClosing = require('./self-closing')
-  , utils = require('./utils');
+var nodes = brequire('./nodes')
+  , filters = brequire('./filters')
+  , doctypes = brequire('./doctypes')
+  , selfClosing = brequire('./self-closing')
+  , utils = brequire('./utils');
 
 /**
  * Initialize `Compiler` with the given `node`.
@@ -334,7 +334,7 @@ function escape(html){
 });
 ;
 
-require.module('jade/lib/doctypes.js', function(module, exports, require) {
+brequire.module('jade/lib/doctypes.js', function(module, exports, brequire) {
 // start module: jade/lib/doctypes.js
 
 
@@ -360,7 +360,7 @@ module.exports = {
 });
 ;
 
-require.module('jade/lib/filters.js', function(module, exports, require) {
+brequire.module('jade/lib/filters.js', function(module, exports, brequire) {
 // start module: jade/lib/filters.js
 
 
@@ -386,7 +386,7 @@ module.exports = {
   
   sass: function(str){
     str = str.replace(/\\n/g, '\n');
-    var sass = require('sass').render(str).replace(/\n/g, '\\n');
+    var sass = brequire('sass').render(str).replace(/\n/g, '\\n');
     return '<style>' + sass + '</style>'; 
   },
   
@@ -397,7 +397,7 @@ module.exports = {
   stylus: function(str){
     var ret;
     str = str.replace(/\\n/g, '\n');
-    var stylus = require('stylus');
+    var stylus = brequire('stylus');
     stylus(str).render(function(err, css){
       if (err) throw err;
       ret = css.replace(/\n/g, '\\n');
@@ -412,7 +412,7 @@ module.exports = {
   less: function(str){
     var ret;
     str = str.replace(/\\n/g, '\n');
-    require('less').render(str, function(err, css){
+    brequire('less').render(str, function(err, css){
       if (err) throw err;
       ret = '<style>' + css.replace(/\n/g, '\\n') + '</style>';  
     });
@@ -428,13 +428,13 @@ module.exports = {
 
     // support markdown / discount
     try {
-      md = require('markdown');
+      md = brequire('markdown');
     } catch (err){
       try {
-        md = require('discount');
+        md = brequire('discount');
       } catch (err) {
         try {
-          md = require('markdown-js');
+          md = brequire('markdown-js');
         } catch (err) {
           throw new Error('Cannot find markdown library, install markdown or discount');
         }
@@ -451,7 +451,7 @@ module.exports = {
 
   coffeescript: function(str){
     str = str.replace(/\\n/g, '\n');
-    var js = require('coffee-script').compile(str).replace(/\n/g, '\\n');
+    var js = brequire('coffee-script').compile(str).replace(/\n/g, '\\n');
     return '<script type="text/javascript">\\n' + js + '</script>';
   }
 };
@@ -460,7 +460,7 @@ module.exports = {
 });
 ;
 
-require.module('jade/lib/index.js', function(module, exports, require) {
+brequire.module('jade/lib/index.js', function(module, exports, brequire) {
 // start module: jade/lib/index.js
 
 
@@ -474,9 +474,9 @@ require.module('jade/lib/index.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var Parser = require('./parser')
-  , Compiler = require('./compiler')
-  , fs = require('fs');
+var Parser = brequire('./parser')
+  , Compiler = brequire('./compiler')
+  , fs = brequire('fs');
 
 /**
  * Library version.
@@ -498,7 +498,7 @@ var cache = exports.cache = {};
  * @type Object
  */
 
-exports.selfClosing = require('./self-closing');
+exports.selfClosing = brequire('./self-closing');
 
 /**
  * Default supported doctypes.
@@ -506,7 +506,7 @@ exports.selfClosing = require('./self-closing');
  * @type Object
  */
 
-exports.doctypes = require('./doctypes');
+exports.doctypes = brequire('./doctypes');
 
 /**
  * Text filters.
@@ -514,7 +514,7 @@ exports.doctypes = require('./doctypes');
  * @type Object
  */
 
-exports.filters = require('./filters');
+exports.filters = brequire('./filters');
 
 /**
  * Utilities.
@@ -522,7 +522,7 @@ exports.filters = require('./filters');
  * @type Object
  */
 
-exports.utils = require('./utils');
+exports.utils = brequire('./utils');
 
 /**
  * Compiler.
@@ -538,7 +538,7 @@ exports.Compiler = Compiler;
  * @type Object
  */
 
-exports.nodes = require('./nodes');
+exports.nodes = brequire('./nodes');
 
 /**
  * Render the given attributes object.
@@ -699,7 +699,7 @@ exports.compile = function(str, options){
  *
  *   - `scope`     Evaluation scope (`this`)
  *   - `locals`    Local variable object
- *   - `filename`  Used in exceptions, and required by `cache`
+ *   - `filename`  Used in exceptions, and brequired by `cache`
  *   - `cache`     Cache intermediate JavaScript in memory keyed by `filename`
  *   - `compiler`  Compiler to replade jade's default
  *
@@ -726,7 +726,7 @@ exports.render = function(str, options){
         fn = cache[filename] = new Function('locals', parse(str, options));
       }
     } else {
-      throw new Error('filename is required when using the cache option');
+      throw new Error('filename is brequired when using the cache option');
     }
   } else {
     fn = new Function('locals', parse(str, options));
@@ -782,7 +782,7 @@ exports.renderFile = function(path, options, fn){
 });
 ;
 
-require.module('jade/lib/jade.js', function(module, exports, require) {
+brequire.module('jade/lib/jade.js', function(module, exports, brequire) {
 // start module: jade/lib/jade.js
 
 
@@ -796,9 +796,9 @@ require.module('jade/lib/jade.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var Parser = require('./parser')
-  , Compiler = require('./compiler')
-  , fs = require('fs');
+var Parser = brequire('./parser')
+  , Compiler = brequire('./compiler')
+  , fs = brequire('fs');
 
 /**
  * Library version.
@@ -820,7 +820,7 @@ var cache = exports.cache = {};
  * @type Object
  */
 
-exports.selfClosing = require('./self-closing');
+exports.selfClosing = brequire('./self-closing');
 
 /**
  * Default supported doctypes.
@@ -828,7 +828,7 @@ exports.selfClosing = require('./self-closing');
  * @type Object
  */
 
-exports.doctypes = require('./doctypes');
+exports.doctypes = brequire('./doctypes');
 
 /**
  * Text filters.
@@ -836,7 +836,7 @@ exports.doctypes = require('./doctypes');
  * @type Object
  */
 
-exports.filters = require('./filters');
+exports.filters = brequire('./filters');
 
 /**
  * Utilities.
@@ -844,7 +844,7 @@ exports.filters = require('./filters');
  * @type Object
  */
 
-exports.utils = require('./utils');
+exports.utils = brequire('./utils');
 
 /**
  * Compiler.
@@ -860,7 +860,7 @@ exports.Compiler = Compiler;
  * @type Object
  */
 
-exports.nodes = require('./nodes');
+exports.nodes = brequire('./nodes');
 
 /**
  * Render the given attributes object.
@@ -1021,7 +1021,7 @@ exports.compile = function(str, options){
  *
  *   - `scope`     Evaluation scope (`this`)
  *   - `locals`    Local variable object
- *   - `filename`  Used in exceptions, and required by `cache`
+ *   - `filename`  Used in exceptions, and brequired by `cache`
  *   - `cache`     Cache intermediate JavaScript in memory keyed by `filename`
  *   - `compiler`  Compiler to replade jade's default
  *
@@ -1048,7 +1048,7 @@ exports.render = function(str, options){
         fn = cache[filename] = new Function('locals', parse(str, options));
       }
     } else {
-      throw new Error('filename is required when using the cache option');
+      throw new Error('filename is brequired when using the cache option');
     }
   } else {
     fn = new Function('locals', parse(str, options));
@@ -1104,7 +1104,7 @@ exports.renderFile = function(path, options, fn){
 });
 ;
 
-require.module('jade/lib/lexer.js', function(module, exports, require) {
+brequire.module('jade/lib/lexer.js', function(module, exports, brequire) {
 // start module: jade/lib/lexer.js
 
 
@@ -1627,7 +1627,7 @@ Lexer.prototype = {
 });
 ;
 
-require.module('jade/lib/nodes/block-comment.js', function(module, exports, require) {
+brequire.module('jade/lib/nodes/block-comment.js', function(module, exports, brequire) {
 // start module: jade/lib/nodes/block-comment.js
 
 
@@ -1641,7 +1641,7 @@ require.module('jade/lib/nodes/block-comment.js', function(module, exports, requ
  * Module dependencies.
  */
 
-var Node = require('./node');
+var Node = brequire('./node');
 
 /**
  * Initialize a `BlockComment` with the given `block`.
@@ -1666,7 +1666,7 @@ BlockComment.prototype.__proto__ = Node.prototype;
 });
 ;
 
-require.module('jade/lib/nodes/block.js', function(module, exports, require) {
+brequire.module('jade/lib/nodes/block.js', function(module, exports, brequire) {
 // start module: jade/lib/nodes/block.js
 
 
@@ -1680,7 +1680,7 @@ require.module('jade/lib/nodes/block.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var Node = require('./node');
+var Node = brequire('./node');
 
 /**
  * Initialize a new `Block` with an optional `node`.
@@ -1704,7 +1704,7 @@ Block.prototype.__proto__ = Node.prototype;
 });
 ;
 
-require.module('jade/lib/nodes/code.js', function(module, exports, require) {
+brequire.module('jade/lib/nodes/code.js', function(module, exports, brequire) {
 // start module: jade/lib/nodes/code.js
 
 
@@ -1718,7 +1718,7 @@ require.module('jade/lib/nodes/code.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var Node = require('./node');
+var Node = brequire('./node');
 
 /**
  * Initialize a `Code` node with the given code `val`.
@@ -1747,7 +1747,7 @@ Code.prototype.__proto__ = Node.prototype;
 });
 ;
 
-require.module('jade/lib/nodes/comment.js', function(module, exports, require) {
+brequire.module('jade/lib/nodes/comment.js', function(module, exports, brequire) {
 // start module: jade/lib/nodes/comment.js
 
 
@@ -1761,7 +1761,7 @@ require.module('jade/lib/nodes/comment.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var Node = require('./node');
+var Node = brequire('./node');
 
 /**
  * Initialize a `Comment` with the given `val`, optionally `buffer`,
@@ -1787,7 +1787,7 @@ Comment.prototype.__proto__ = Node.prototype;
 });
 ;
 
-require.module('jade/lib/nodes/doctype.js', function(module, exports, require) {
+brequire.module('jade/lib/nodes/doctype.js', function(module, exports, brequire) {
 // start module: jade/lib/nodes/doctype.js
 
 
@@ -1801,7 +1801,7 @@ require.module('jade/lib/nodes/doctype.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var Node = require('./node');
+var Node = brequire('./node');
 
 /**
  * Initialize a `Doctype` with the given `val`. 
@@ -1824,7 +1824,7 @@ Doctype.prototype.__proto__ = Node.prototype;
 });
 ;
 
-require.module('jade/lib/nodes/each.js', function(module, exports, require) {
+brequire.module('jade/lib/nodes/each.js', function(module, exports, brequire) {
 // start module: jade/lib/nodes/each.js
 
 
@@ -1838,7 +1838,7 @@ require.module('jade/lib/nodes/each.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var Node = require('./node');
+var Node = brequire('./node');
 
 /**
  * Initialize an `Each` node, representing iteration
@@ -1867,7 +1867,7 @@ Each.prototype.__proto__ = Node.prototype;
 });
 ;
 
-require.module('jade/lib/nodes/filter.js', function(module, exports, require) {
+brequire.module('jade/lib/nodes/filter.js', function(module, exports, brequire) {
 // start module: jade/lib/nodes/filter.js
 
 
@@ -1881,7 +1881,7 @@ require.module('jade/lib/nodes/filter.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var Node = require('./node');
+var Node = brequire('./node');
 
 /**
  * Initialize a `Filter` node with the given 
@@ -1908,7 +1908,7 @@ Filter.prototype.__proto__ = Node.prototype;
 });
 ;
 
-require.module('jade/lib/nodes/index.js', function(module, exports, require) {
+brequire.module('jade/lib/nodes/index.js', function(module, exports, brequire) {
 // start module: jade/lib/nodes/index.js
 
 
@@ -1918,23 +1918,23 @@ require.module('jade/lib/nodes/index.js', function(module, exports, require) {
  * MIT Licensed
  */
 
-exports.Node = require('./node');
-exports.Tag = require('./tag');
-exports.Code = require('./code');
-exports.Each = require('./each');
-exports.Text = require('./text');
-exports.Block = require('./block');
-exports.Filter = require('./filter');
-exports.Comment = require('./comment');
-exports.BlockComment = require('./block-comment');
-exports.Doctype = require('./doctype');
+exports.Node = brequire('./node');
+exports.Tag = brequire('./tag');
+exports.Code = brequire('./code');
+exports.Each = brequire('./each');
+exports.Text = brequire('./text');
+exports.Block = brequire('./block');
+exports.Filter = brequire('./filter');
+exports.Comment = brequire('./comment');
+exports.BlockComment = brequire('./block-comment');
+exports.Doctype = brequire('./doctype');
 
 
 // end module: jade/lib/nodes/index.js
 });
 ;
 
-require.module('jade/lib/nodes/node.js', function(module, exports, require) {
+brequire.module('jade/lib/nodes/node.js', function(module, exports, brequire) {
 // start module: jade/lib/nodes/node.js
 
 
@@ -1962,7 +1962,7 @@ Node.prototype.__proto__ = Array.prototype;
 });
 ;
 
-require.module('jade/lib/nodes/tag.js', function(module, exports, require) {
+brequire.module('jade/lib/nodes/tag.js', function(module, exports, brequire) {
 // start module: jade/lib/nodes/tag.js
 
 
@@ -1976,8 +1976,8 @@ require.module('jade/lib/nodes/tag.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var Node = require('./node'),
-    Block = require('./block');
+var Node = brequire('./node'),
+    Block = brequire('./block');
 
 /**
  * Initialize a `Tag` node with the given tag `name` and optional `block`.
@@ -2051,7 +2051,7 @@ Tag.prototype.__proto__ = Node.prototype;
 });
 ;
 
-require.module('jade/lib/nodes/text.js', function(module, exports, require) {
+brequire.module('jade/lib/nodes/text.js', function(module, exports, brequire) {
 // start module: jade/lib/nodes/text.js
 
 
@@ -2065,7 +2065,7 @@ require.module('jade/lib/nodes/text.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var Node = require('./node');
+var Node = brequire('./node');
 
 /**
  * Initialize a `Text` node with optional `line`.
@@ -2088,7 +2088,7 @@ Text.prototype.__proto__ = Node.prototype;
 });
 ;
 
-require.module('jade/lib/parser.js', function(module, exports, require) {
+brequire.module('jade/lib/parser.js', function(module, exports, brequire) {
 // start module: jade/lib/parser.js
 
 
@@ -2102,8 +2102,8 @@ require.module('jade/lib/parser.js', function(module, exports, require) {
  * Module dependencies.
  */
 
-var Lexer = require('./lexer')
-  , nodes = require('./nodes');
+var Lexer = brequire('./lexer')
+  , nodes = brequire('./nodes');
 
 /**
  * Initialize `Parser` with the given input `str` and `filename`.
@@ -2139,7 +2139,7 @@ Parser.prototype = {
   
   debug: function(){
     var lexer = new Lexer(this.input)
-      , tree = require('sys').inspect(this.parse(), false, 12, true);
+      , tree = brequire('sys').inspect(this.parse(), false, 12, true);
     console.log('\n\x1b[1mParse Tree\x1b[0m:\n');
     console.log(tree);
     this.lexer = lexer;
@@ -2520,7 +2520,7 @@ Parser.prototype = {
 });
 ;
 
-require.module('jade/lib/self-closing.js', function(module, exports, require) {
+brequire.module('jade/lib/self-closing.js', function(module, exports, brequire) {
 // start module: jade/lib/self-closing.js
 
 
@@ -2546,7 +2546,7 @@ module.exports = [
 });
 ;
 
-require.module('jade/lib/utils.js', function(module, exports, require) {
+brequire.module('jade/lib/utils.js', function(module, exports, brequire) {
 // start module: jade/lib/utils.js
 
 
@@ -2603,18 +2603,18 @@ exports.text = function(str){
 });
 ;
 
-require.module('jade/index.js', function(module, exports, require) {
+brequire.module('jade/index.js', function(module, exports, brequire) {
 // start module: jade/index.js
 
 
-module.exports = require('./lib/jade');
+module.exports = brequire('./lib/jade');
 
 // end module: jade/index.js
 });
 ;
 
 (function(){
-    jade=require("jade");   
+    jade=brequire("jade");   
 })(this);
 
 
