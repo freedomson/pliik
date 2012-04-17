@@ -2614,7 +2614,17 @@ module.exports = brequire('./lib/jade');
 ;
 
 (function(){
-    jade=brequire("jade");   
+    
+    // OPERA - Compat
+    if ( typeof String.prototype.trimLeft !== 'function' ) {
+        String.prototype.trimLeft = function() {
+            return this.replace(/^\s+/,"");
+        }
+    }
+
+    
+    jade = brequire("jade");   
+    
 })(this);
 
 
