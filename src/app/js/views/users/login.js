@@ -12,10 +12,26 @@ define([
 
   var mainHomeView = Backbone.View.extend({
 
+    el: $('#page'),
+    
+    template: jade.render(usersLoginTemplate),
+    
+    events : {
+      
+      "click #loginButton" : "loginUser"
+        
+    },
+
+    loginUser : function() {
+      
+        console.log('Logging in User');
+        
+    },
+
     render: function(){
         
       // Using Jade Templating
-      $("#page").html(jade.render(usersLoginTemplate));
+      this.el.html(this.template);
 
     }
   });

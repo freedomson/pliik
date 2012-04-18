@@ -2,12 +2,13 @@
 define([
     'jQuery',
     'Underscore',
-    'Backbone'
-    ], function($, _, Backbone ){
+    'Backbone',
+    'routers/interface'
+    ], function($, _, Backbone, Interface ){
     
         
     
-        var UserRouter = Backbone.Router.extend({
+        var UsersRouter = Interface.extend({
       
             /*******************************************************************
             * ROUTES
@@ -29,7 +30,7 @@ define([
             
             showUsers: function(){
         
-                this.AppRouter.pageTemplateRoute('views/users/list');
+                this.renderView('views/users/list');
       
             },
 
@@ -39,16 +40,26 @@ define([
             // + -------------------------------- 
             
             loginUsers: function(){
-        
-                console.log(this);
-                this.AppRouter.pageTemplateRoute('views/users/login');
+ 
+                this.renderView('views/users/login');
       
             }          
     
     
         });
+        
+        
+        var initialize = function(){
+            
+            var UsersRouterInstance = new UsersRouter;
+            
+            return UsersRouterInstance;
+            
+        };
 
+        return { 
+            initialize: initialize
+        };
 
-        return UserRouter;
   
     });
