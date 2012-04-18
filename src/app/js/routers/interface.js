@@ -13,12 +13,6 @@ define([
             renderView : function( view ){
       
                 require([
-                    'views/page/main'
-                    ], function(view){
-                        view.render();
-                    });
-      
-                require([
                     view
                     ], function(view){
                         view.render();
