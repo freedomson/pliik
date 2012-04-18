@@ -16,6 +16,7 @@ define([
                 // Define some URL routes
                 '/projects': 'showProjects',
                 '/users': 'showUsers',
+                '/users/login': 'loginUsers',                
                 // Default
                 '*actions': 'defaultAction'
             },
@@ -39,6 +40,16 @@ define([
                 RouteHelper_PageTemplateRoute('views/users/list');
       
             },
+            
+            /*******************************************************************
+            * ROUTE - Login
+            ********************************************************************/
+
+            loginUsers: function(){
+        
+                RouteHelper_PageTemplateRoute('views/users/login');
+      
+            },            
     
             /*******************************************************************
             * DEFAULT ROUTE
