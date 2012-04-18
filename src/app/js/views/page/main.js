@@ -1,31 +1,61 @@
 define([
-  'jQuery',
-  'Underscore',
-  'Backbone',
-  'text!templates/page/main.html',
-  'text!templates/brand/logo.html',
-  'order!brequire',
-  'order!fs',
-  'order!jade'
-], function($, _, Backbone, mainPageTemplate, brandLogoTemplate){
+    'jQuery',
+    'Underscore',
+    'Backbone',
+    'text!templates/page/main.html',
+    'text!templates/brand/logo.html',
+    'order!libs/less/less-1.3.0.min',
+    'text!../../../css/style.less',
+    'order!brequire',
+    'order!fs',
+    'order!jade',
+    'order!libs/mustache/mustache'
+    ], function($, _, Backbone, mainPageTemplate, brandLogoTemplate,less,cssCode){
 
-  var mainPageView = Backbone.View.extend({
+        var mainPageView = Backbone.View.extend({
 
-    render: function(){
+            render: function(){
 
-
-      if ( ! $(".container-template-main")[0] ) {
+                // Only render main template if not already present.
+        
+                if ( ! $(".container-template-main")[0] ) {
           
-        $("body").html(jade.compile(mainPageTemplate));
+                    /***********************************************
+                    * CSS Less
+                    ************************************************/ 
+                   
+                    var cssParsedCode;
+                    var parser = new(less.Parser);
+                    parser.parse(cssCode,function (e, tree) {
+                        cssParsedCode = tree.toCSS({
+                            compress: true
+                        }); // Minify CSS output
+                    });
+        
+                    var view = {
+                        css : cssParsedCode  
+                    };
+   
+                    /***********************************************
+                    * Template
+                    ************************************************/ 
+                   
+                    $("body").html(
+                        Mustache.to_html(jade.render(mainPageTemplate), view)
+                        );
 
-        $("#logo").html(jade.compile(brandLogoTemplate));
+                    /***********************************************
+                    * Logo
+                    ************************************************/  
+                   
+                    $("#logo").html(jade.compile(brandLogoTemplate));
       
-      }
+                }
 
 
-    }
-  });
+            }
+        });
   
-  return new mainPageView;
+        return new mainPageView;
   
-});
+    });

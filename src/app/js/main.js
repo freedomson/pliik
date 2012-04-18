@@ -14,7 +14,8 @@ require.config({
     Raphael: 'libs/raphael/raphael-min',
     brequire: 'libs/brequire/brequire',
     fs: 'libs/fs/fs',   
-    jade: 'libs/jade/jade'  
+    jade: 'libs/jade/jade',
+    less: 'libs/less/less-1.3.0.min'
   }
 
 });

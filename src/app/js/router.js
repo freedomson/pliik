@@ -1,69 +1,84 @@
 // Filename: router.js
 define([
-  'jQuery',
-  'Underscore',
-  'Backbone',
-], function($, _, Backbone ){
-  var AppRouter = Backbone.Router.extend({
-    routes: {
-      // Define some URL routes
-      '/projects': 'showProjects',
-      '/users': 'showUsers',
+    'jQuery',
+    'Underscore',
+    'Backbone',
+    ], function($, _, Backbone ){
+    
+    
+        var AppRouter = Backbone.Router.extend({
       
-      // Default
-      '*actions': 'defaultAction'
-    },
-    showProjects: function(){
+            /*******************************************************************
+            * ROUTES
+            ********************************************************************/
+    
+            routes: {
+                // Define some URL routes
+                '/projects': 'showProjects',
+                '/users': 'showUsers',
+                // Default
+                '*actions': 'defaultAction'
+            },
+    
+            /*******************************************************************
+            * ROUTE
+            ********************************************************************/
 
-        require([
-            'views/page/main',
-            'views/projects/list'
-        ], function(mainPageView,projectListView){
-            mainPageView.render();
-            projectListView.render();
-        });
-      
-    },
-    
-    
-      // As above, call render on our loaded module
-      // 'views/users/list'
-    showUsers: function(){
-        
-        require([
-            'views/page/main',
-            'views/users/list'
-        ], function(mainPageView,userListView){
-            mainPageView.render();
-            userListView.render();
-        });
-      
-    },
-    
-    /**
-     * DEFAULT ROUTE
-     */
-    defaultAction: function(actions){
-        
-        require([
-            'views/page/main',
-            'views/home/main'
-        ], function(mainPageView,mainHomeView){
-            mainPageView.render();
-            mainHomeView.render();
-        });
-        
-    }
-    
-  });
+            showProjects: function(){
 
-  var initialize = function(){
-    var app_router = new AppRouter;
-    Backbone.history.start();
-  };
+                RouteHelper_PageTemplateRoute('views/projects/list');
+      
+            },
+    
+            /*******************************************************************
+            * ROUTE
+            ********************************************************************/
+
+            showUsers: function(){
+        
+                RouteHelper_PageTemplateRoute('views/users/list');
+      
+            },
+    
+            /*******************************************************************
+            * DEFAULT ROUTE
+            ********************************************************************/
+
+            defaultAction: function(actions){
+        
+                RouteHelper_PageTemplateRoute('views/home/main');
+        
+            }
+    
+        });
+
+        /*******************************************************************
+        * DEFAULT TEMPLATE
+        ********************************************************************/
+
+        var initialize = function(){
+            var app_router = new AppRouter;
+            Backbone.history.start();
+        };
+
+        /*******************************************************************
+        * ROUTE HELPER - mainPageViewRoute
+        ********************************************************************/
+       
+        var RouteHelper_PageTemplateRoute = function( contentView, pageView ){
+
+            require([
+                pageView || 'views/page/main',
+                contentView
+                ], function(mainPageView,view){
+                    mainPageView.render();
+                    view.render();
+                });
+
+        };
+        
+        return { 
+            initialize: initialize
+        };
   
-  return { 
-    initialize: initialize
-  };
-  
-});
+    });
