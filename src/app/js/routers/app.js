@@ -48,20 +48,25 @@ define([
         ********************************************************************/
 
         var initialize = function(){
-              
+             
+                      
             require([
                 'views/page/main'
                 ], function(view){
+                    
                     view.render();
-                });
-              
-            //... Load Application Router
-            var AppRouterInstance = new AppRouter;
-            
-            //... Load users Router
-            var UsersRouterInstance = UsersRouter.initialize();
-                        
-            Backbone.history.start();
+                    
+                    //... Load Application Router
+                    var AppRouterInstance = new AppRouter;
+
+                    //... Load users Router
+                    var UsersRouterInstance = UsersRouter.initialize();    
+
+                    Backbone.history.start();
+                   
+                });  
+             
+
             
         };
 

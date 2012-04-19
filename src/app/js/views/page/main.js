@@ -3,14 +3,14 @@ define([
     'Underscore',
     'Backbone',
     'text!templates/page/main.jade',
-    'text!templates/brand/logo.jade',
+    'views/brand/logo',
     'order!libs/less/less-1.3.0.min',
     'text!../../../css/style.less',
     'order!brequire',
     'order!fs',
     'order!jade',
     'order!libs/mustache/mustache'
-    ], function($, _, Backbone, mainPageTemplate, brandLogoTemplate,less,cssCode){
+    ], function($, _, Backbone, mainPageTemplate, brandLogoView,less,cssCode){
 
         var mainPageView = Backbone.View.extend({
 
@@ -43,12 +43,9 @@ define([
                     $("body").html(
                         Mustache.to_html(jade.render(mainPageTemplate), view)
                         );
-
-                    /***********************************************
-                    * Logo
-                    ************************************************/  
-                   
-                    $("#logo").html(jade.compile(brandLogoTemplate));
+                            
+                            
+                    brandLogoView.render();       
       
                 }
 
