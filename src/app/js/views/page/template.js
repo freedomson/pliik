@@ -2,17 +2,22 @@ define([
     'jQuery',
     'Underscore',
     'Backbone',
-    'text!templates/page/main.jade',
+    'text!templates/page/template.jade',
     'order!libs/less/less-1.3.0.min',
     'text!../../../css/style.less',
+    'views/brand/logo',
     'order!brequire',
     'order!fs',
     'order!jade',
     'order!libs/mustache/mustache'
-    ], function($, _, Backbone, mainPageTemplate,less,cssCode){
+    ], function($, _, Backbone, mainPageTemplate,less,cssCode,brandLogoView){
 
         var mainPageView = Backbone.View.extend({
 
+            el: $('body'),
+            
+            template: jade.render(mainPageTemplate),
+            
             render: function(){
 
                 // Only render main template if not already present.
@@ -39,9 +44,12 @@ define([
                     * Template
                     ************************************************/ 
                    
-                    $("body").html(
-                        Mustache.to_html(jade.render(mainPageTemplate), view)
+                    this.el.html(
+                        Mustache.to_html(this.template, view)
                         );
+                            
+                    //... Render Logo template
+                    brandLogoView.render();                            
       
                 }
 

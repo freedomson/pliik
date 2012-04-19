@@ -17,9 +17,9 @@ define([
             routes: {
 
                 
-                '/users' : 'showUsers',
-                '/users/login' : 'loginUsers',  
-                
+                '/users' : 'show',
+                '/users/login' : 'login',  
+                '/users/signup' : 'signup' 
                 
             },
 
@@ -28,18 +28,27 @@ define([
             // | Route
             // + -------------------------------- 
             
-            showUsers: function(){
+            show: function(){
         
                 this.renderView('views/users/list');
       
             },
 
-
             // +---------------------------------
-            // | Route
+            // | SignUp
             // + -------------------------------- 
             
-            loginUsers: function(){
+            signup: function(){
+ 
+                this.renderView('views/users/signup');
+      
+            },
+            
+            // +---------------------------------
+            // | Login
+            // + -------------------------------- 
+            
+            login: function(){
  
                 this.renderView('views/users/login');
       

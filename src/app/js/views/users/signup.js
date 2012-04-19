@@ -2,27 +2,27 @@ define([
   'jQuery',
   'Underscore',
   'Backbone',
-  'text!templates/users/login.jade',
+  'text!templates/users/signup.jade',
   'order!eve',
   'order!Raphael',
   'order!brequire',
   'order!fs',
   'order!jade'
-], function($, _, Backbone, usersLoginTemplate){
+], function($, _, Backbone, usersSignupTemplate){
 
-  var usersLoginView = Backbone.View.extend({
+  var mainHomeView = Backbone.View.extend({
 
     el: $('#page'),
     
-    template: jade.render(usersLoginTemplate),
+    template: jade.render(usersSignupTemplate),
     
     events : {
       
-      "click #loginButton" : "loginUser"
+      "click #signupButton" : "signupUser"
         
     },
 
-    loginUser : function() {
+    signupUser : function() {
       
         console.log('Logging in User');
         
@@ -36,6 +36,6 @@ define([
     }
   });
   
-  return new usersLoginView;
+  return new mainHomeView;
   
 });
