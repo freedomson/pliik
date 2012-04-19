@@ -6,7 +6,8 @@ define([
     'order!eve',
     'order!Raphael',
     'order!libs/raphael/raphael-letter-path-plugin',
-    'order!libs/fonts/Vegur.font',
+    // 'order!libs/fonts/Vegur.font',
+    'order!libs/fonts/Abel.font',
     'order!brequire',
     'order!fs',
     'order!jade'
@@ -16,7 +17,9 @@ define([
 
             el: $('#logo'),
             
-            company: 'pliikjjjjjjjjjjjjjjjj',
+            company: 'Pliik',
+            
+            font: 'Abel', // Vegur
 
             template: jade.render(template),
 
@@ -26,23 +29,23 @@ define([
                 // Using Jade Templating
                 this.el.html(this.template);
 
-                var paper = new Raphael($(this.el.selector).attr('id'), 500, 80)
+                var paper = new Raphael($(this.el.selector).attr('id'), 500, 50)
                 var letters = paper.printLetters(
-                    50,
-                    50, 
+                    30,
+                    30, 
                     this.company, 
-                    paper.getFont("Vegur"),
-                    40
+                    paper.getFont(this.font),
+                    50
                     );
 
                 var logoColors = [
-                "red","orange","blue","pink","green"
+                    "red","green","blue"
                 ]                                    
                 
                 for(var i=0,icolor=0; i<letters.length; i++, icolor++) {
                     
                     //... reset color
-                    if ( i == logoColors.length ) icolor = 0;
+                    if ( i%logoColors.length == 0 ) icolor = 0;
                     
                     letters[i].attr({
                         fill: logoColors[icolor] , 

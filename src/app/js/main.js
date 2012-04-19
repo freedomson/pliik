@@ -15,7 +15,9 @@ require.config({
     brequire: 'libs/brequire/brequire',
     fs: 'libs/fs/fs',   
     jade: 'libs/jade/jade',
-    less: 'libs/less/less-1.3.0.min'
+    less: 'libs/less/less-1.3.0.min',
+    text: 'libs/require/text',
+    order: 'libs/require/order'
   }
 
 });
