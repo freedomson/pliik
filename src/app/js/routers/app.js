@@ -51,10 +51,15 @@ define([
              
                       
             require([
-                'views/page/main'
-                ], function(view){
+                'views/page/main',
+                'views/brand/logo',
+                ], function(templateView,logoView){
                     
-                    view.render();
+                    //... Render Page Template
+                    templateView.render();
+                    
+                    //... Render Logo template
+                    logoView.render();
                     
                     //... Load Application Router
                     var AppRouterInstance = new AppRouter;
