@@ -4,9 +4,11 @@ define(function () {
     //Do setup work here
 
     return {
-        entity : 'pliik',
+        entity : 'Pliik',
         date: {
-            format: 'yyyy.MM.dd'
+            format: {
+                year : 'yyyy'                
+            }
         }
     }
 });

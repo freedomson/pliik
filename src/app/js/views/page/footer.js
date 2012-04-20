@@ -16,7 +16,7 @@ define([
 
                 var view = {
                     entity : pliikConfig.entity,
-                    date : $.format.date(Date(),pliikConfig.date.format)
+                    date : $.format.date(Date(),pliikConfig.date.format.year)
                 };
    
                    

@@ -5,8 +5,11 @@ ddoc =
 {
     _id:'_design/p3', 
     rewrites : [ {
-        from:"/", 
-        to:'index.html'
+        from:"", 
+        to:"index.html"
+    },{
+        from:"*", 
+        to:"*"
     }]
 };
 
