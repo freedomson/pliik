@@ -4,33 +4,35 @@
 // Require.js allows us to configure shortcut alias
 // Their usage will become more apparent futher along in the tutorial.
 require.config({
-  paths: {
-    loader: 'libs/backbone/loader',
-    jQuery: 'libs/jquery/jquery',
-    Underscore: 'libs/underscore/underscore',
-    Backbone: 'libs/backbone/backbone',
-    templates: '../templates',
-    eve: 'libs/eve/eve.min',
-    Raphael: 'libs/raphael/raphael-min',
-    brequire: 'libs/brequire/brequire',
-    fs: 'libs/fs/fs',   
-    jade: 'libs/jade/jade',
-    less: 'libs/less/less-1.3.0.min',
-    text: 'libs/require/text',
-    order: 'libs/require/order'
-  }
+    paths: {
+        loader: 'libs/vendor/backbone/loader',
+        jQuery: 'libs/vendor/jquery/jquery',
+        Underscore: 'libs/vendor/underscore/underscore',
+        Backbone: 'libs/vendor/backbone/backbone',
+        templates: '../templates',
+        eve: 'libs/vendor/eve/eve.min',
+        Raphael: 'libs/vendor/raphael/raphael-min',
+        brequire: 'libs/vendor/brequire/brequire',
+        fs: 'libs/vendor/fs/fs',   
+        jade: 'libs/vendor/jade/jade',
+        less: 'libs/vendor/less/less-1.3.0.min',
+        text: 'libs/vendor/require/text',
+        order: 'libs/vendor/require/order',
+        
+        pliikConfig :  'libs/pliik/pliik.config'
+    }
 
 });
 
 require([
 
-  // Load our app module and pass it to our definition function
-  'app',
+    // Load our app module and pass it to our definition function
+    'app',
 
-  // Some plugins have to be loaded in order due to their non AMD compliance
-  // Because these scripts are not "modules" they do not pass any values to the definition function below
-], function(App){
-  // The "app" dependency is passed in as "App"
-  // Again, the other dependencies passed in are not "AMD" therefore don't pass a parameter to this function
-  App.initialize();
-});
+    // Some plugins have to be loaded in order due to their non AMD compliance
+    // Because these scripts are not "modules" they do not pass any values to the definition function below
+    ], function(App){
+        // The "app" dependency is passed in as "App"
+        // Again, the other dependencies passed in are not "AMD" therefore don't pass a parameter to this function
+        App.initialize();
+    });

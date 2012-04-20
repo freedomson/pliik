@@ -1,10 +1,7 @@
 // Filename: router.js
 define([
-    'jQuery',
-    'Underscore',
-    'Backbone',
     'routers/interface'
-    ], function($, _, Backbone, Interface ){
+    ], function(Interface ){
     
         
     

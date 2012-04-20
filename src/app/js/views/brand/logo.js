@@ -3,21 +3,22 @@ define([
     'Underscore',
     'Backbone',
     'text!templates/brand/logo.jade',
+    'libs/pliik/pliik.config',
     'order!eve',
     'order!Raphael',
-    'order!libs/raphael/raphael-letter-path-plugin',
-    // 'order!libs/fonts/Vegur.font',
-    'order!libs/fonts/Abel.font',
+    'order!libs/vendor/raphael/raphael-letter-path-plugin',
+    // 'order!libs/vendor/fonts/Vegur.font',
+    'order!libs/vendor/fonts/Abel.font',
     'order!brequire',
     'order!fs',
     'order!jade'
-    ], function($, _, Backbone, template){
+    ], function($, _, Backbone, template, pliikConfig){
 
         var brandLogoView = Backbone.View.extend({
 
             el: $('#logo'),
             
-            company: 'Pliik',
+            company: pliikConfig.entity,
             
             font: 'Abel', // Vegur
 

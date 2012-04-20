@@ -1,16 +1,16 @@
 define([
     'jQuery',
-    'Underscore',
     'Backbone',
     'text!templates/page/template.jade',
-    'order!libs/less/less-1.3.0.min',
+    'order!libs/vendor/less/less-1.3.0.min',
     'text!../../../css/style.less',
     'views/brand/logo',
+    'views/page/footer',    
     'order!brequire',
     'order!fs',
     'order!jade',
-    'order!libs/mustache/mustache'
-    ], function($, _, Backbone, mainPageTemplate,less,cssCode,brandLogoView){
+    'order!libs/vendor/mustache/mustache'
+    ], function($, Backbone, mainPageTemplate,less,cssCode,brandLogoView,pageFooterView){
 
         var mainPageView = Backbone.View.extend({
 
@@ -49,7 +49,10 @@ define([
                         );
                             
                     //... Render Logo template
-                    brandLogoView.render();                            
+                    brandLogoView.render();      
+                    
+                    //... Render Logo template
+                    pageFooterView.render();                       
       
                 }
 

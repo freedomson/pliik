@@ -1,9 +1,7 @@
 // Filename: router.js
 define([
-    'jQuery',
-    'Underscore',
     'Backbone'
-    ], function($, _, Backbone ){
+    ], function(Backbone ){
     
     
         var InterfaceRouter = Backbone.Router.extend({
