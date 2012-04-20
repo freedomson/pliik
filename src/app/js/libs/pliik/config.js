@@ -4,11 +4,29 @@ define(function () {
     //Do setup work here
 
     return {
+        
+        url: 'http://www.pliik.com',
+        
         entity : 'Pliik',
+        
+        document : {
+            
+            title : {
+                
+                separator : " at "  
+                
+            }
+            
+        },
+        
         date: {
+            
             format: {
-                year : 'yyyy'                
+                
+                year : 'yyyy'   
+                
             }
         }
     }
+    
 });

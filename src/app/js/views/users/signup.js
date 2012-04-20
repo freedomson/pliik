@@ -12,6 +12,8 @@ define([
 
   var mainHomeView = Backbone.View.extend({
 
+    navigation : "Signup",
+    
     el: $('#page'),
     
     template: jade.render(usersSignupTemplate),

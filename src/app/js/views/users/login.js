@@ -12,6 +12,8 @@ define([
 
   var usersLoginView = Backbone.View.extend({
 
+    navigation : "Login",
+    
     el: $('#page'),
     
     template: jade.render(usersLoginTemplate),

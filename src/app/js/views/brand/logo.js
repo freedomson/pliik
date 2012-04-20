@@ -16,7 +16,9 @@ define([
 
         var brandLogoView = Backbone.View.extend({
 
-            el: $('#logo'),
+            el: $('#canvas_logo'),
+            
+            container: "#logo",
             
             company: pliikConfig.entity,
             
@@ -26,9 +28,14 @@ define([
 
             render: function(){
 
-
-                // Using Jade Templating
-                this.el.html(this.template);
+                var view = {
+                    url : pliikConfig.url,
+                    entity : pliikConfig.entity
+                };
+   
+                $(this.container).html(
+                    Mustache.to_html(this.template, view)
+                    );
 
                 var paper = new Raphael($(this.el.selector).attr('id'), 500, 50)
                 var letters = paper.printLetters(

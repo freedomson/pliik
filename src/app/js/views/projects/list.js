@@ -20,6 +20,7 @@ define([
     exampleBind: function( model ){
       //console.log(model);
     },
+    navigation : "List",    
     render: function(){
       var data = {
         projects: this.collection.models,

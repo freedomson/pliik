@@ -9,6 +9,9 @@ define([
     el: $("#page"),
     initialize: function(){
     },
+    
+    navigation : "List",
+    
     render: function(){
       var data = {};
       var compiledTemplate = _.template( userListTemplate, data );

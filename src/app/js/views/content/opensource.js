@@ -12,6 +12,8 @@ define([
 
   var view = Backbone.View.extend({
 
+    navigation : "Open Source",
+    
     render: function(){
         
       // Using Jade Templating
