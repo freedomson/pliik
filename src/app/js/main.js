@@ -19,7 +19,7 @@ require.config({
         text: 'libs/vendor/require/text',
         order: 'libs/vendor/require/order',
         
-        pliikConfig :  'libs/pliik/pliik.config'
+        pliikConfig :  'libs/pliik/config'
     }
 
 });

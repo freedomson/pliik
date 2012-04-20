@@ -3,7 +3,7 @@ define([
     'Underscore',
     'Backbone',
     'text!templates/brand/logo.jade',
-    'libs/pliik/pliik.config',
+    'libs/pliik/config',
     'order!eve',
     'order!Raphael',
     'order!libs/vendor/raphael/raphael-letter-path-plugin',

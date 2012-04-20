@@ -3,7 +3,7 @@ define([
     'Underscore',
     'Backbone',
     'text!templates/page/footer.jade',
-    'libs/pliik/pliik.config'
+    'libs/pliik/config'
     ], function($, _, Backbone, pageFooterTemplate,pliikConfig){
 
         var pageFooterView = Backbone.View.extend({
@@ -15,7 +15,7 @@ define([
             render: function(){
 
                 var view = {
-                    company : pliikConfig.entity,
+                    entity : pliikConfig.entity,
                     date : $.format.date(Date(),pliikConfig.date.format)
                 };
    
