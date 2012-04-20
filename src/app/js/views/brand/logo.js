@@ -37,7 +37,7 @@ define([
                     Mustache.to_html(this.template, view)
                     );
 
-                var paper = new Raphael($(this.el.selector).attr('id'), 500, 50)
+                var paper = new Raphael($(this.el.selector).attr('id'), 200, 50)
                 var letters = paper.printLetters(
                     30,
                     30, 
