@@ -2,8 +2,9 @@
 define([
     'Backbone',
     'routers/interface',
+    'routers/content',   
     'routers/users'
-    ], function(Backbone, InterfaceRouter, UsersRouter ){
+    ], function(Backbone, InterfaceRouter, ContentRouter, UsersRouter ){
     
     
         var AppRouter = InterfaceRouter.extend({
@@ -14,7 +15,7 @@ define([
     
             routes: {
                 // Define some URL routes
-                '/projects': 'showProjects',               
+                '/projects': 'showProjects',    
 
                 '*actions': 'defaultAction'
             },
@@ -35,7 +36,7 @@ define([
 
             defaultAction: function(actions){
 
-                this.renderView('views/home/main');
+                this.renderView('views/content/home');
         
             }
     
@@ -60,8 +61,12 @@ define([
                     //... Load Application Router
                     var AppRouterInstance = new AppRouter;
 
-                    //... Load users Router
+                    //... Load Pages Router
+                    var ContentRouterInstance = ContentRouter.initialize();    
+
+                    //... Load Users Router
                     var UsersRouterInstance = UsersRouter.initialize();    
+
 
                     Backbone.history.start();
                    

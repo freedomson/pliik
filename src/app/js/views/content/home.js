@@ -2,7 +2,7 @@ define([
   'jQuery',
   'Underscore',
   'Backbone',
-  'text!templates/home/main.jade',
+  'text!templates/content/home.jade',
   'order!eve',
   'order!Raphael',
   'order!brequire',
