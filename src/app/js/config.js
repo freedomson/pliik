@@ -11,7 +11,7 @@ define(function () {
         
         modules : {
             
-            active: ['demo']
+            active: ['market']
             
         },
         

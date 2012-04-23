@@ -1,10 +1,18 @@
 // Filename: router.js
 define([
+    'jQuery',
     'Backbone',
     'routers/interface',
     'routers/content',   
-    'routers/users'
-    ], function(Backbone, InterfaceRouter, ContentRouter, UsersRouter ){
+    'routers/users',
+    'libs/pliik/module-loader'    
+    ], function(
+        $,
+        Backbone, 
+        InterfaceRouter,
+        ContentRouter, 
+        UsersRouter,
+        modules){
     
     
         var AppRouter = InterfaceRouter.extend({
@@ -67,6 +75,13 @@ define([
                     //... Load Users Router
                     var UsersRouterInstance = UsersRouter.initialize();    
 
+
+                    //...Module Route Loader
+                    $.each(
+                        modules.routers,       
+                        function(index, value) { 
+                            require(value).initialize();
+                    });                    
 
                     Backbone.history.start();
                    

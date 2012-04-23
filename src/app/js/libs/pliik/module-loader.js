@@ -2,17 +2,20 @@
 //before returning its module definition.
 define([
     'jQuery',
+    'Underscore',    
     'config',
     'libs/pliik/utils'
 ],
-function($,config) {
+function($,_,config) {
 
-    var modules = [];
+    var configurators = [];
+    var routers = [];    
 
     $.each(config.modules.active, function(index, value) { 
 
         
-        modules.push('modules/' + value + '/config');
+        configurators.push('modules/' + value + '/config');
+        routers.push('modules/' + value + '/router');        
         
         /*
         require([
@@ -28,7 +31,9 @@ function($,config) {
     
     return {
         
-        list : modules
+        configurators : configurators,
+        routers : routers,
+        loadPaths: _.union(configurators,routers)
         
     }
                 

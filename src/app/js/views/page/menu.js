@@ -10,7 +10,7 @@ define([
 
             el: $('#menu-container'),
             
-            template: jade.render(template),
+            // template: jade.render(template),
             
             menuitems : [
                 
@@ -42,18 +42,25 @@ define([
 
                 var that = this;
 
-                $.each(modules.list, function(index, value) { 
-
-                    that.menuitems.push(require(value));
-
-                });
-                
-                console.log(that.menuitems)
+                //... Load available Modules into Top Menu
+                $.each(
+                    modules.configurators,       
+                    function(index, value) { 
+                        _.each(require(value).menu, function(item){ 
+                            that.menuitems.push(item);
+                        });                    
+                    });
   
-                $('#menu').html(
-                    Mustache.to_html(this.template, view)
-                    );
-
+  
+                //... Render Top Menu
+                var view = {
+                    "menuitems" : that.menuitems  
+                };
+                
+                var TplMustacheCompiled = Mustache.to_html(template, view);
+                var TplJadeCompiled =  jade.render(TplMustacheCompiled)
+                
+                $('#menu').html( TplJadeCompiled );
 
             }
         });

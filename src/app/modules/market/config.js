@@ -5,9 +5,15 @@ define(function () {
 
     return {
         
-        id : 'demo',
+        id : 'market',
         order : 1,
-        title : "Demo Module"
+
+        menu : [
+            {
+                title : "Market",
+                route : "/market"
+            }           
+        ]
         
     }
     
