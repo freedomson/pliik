@@ -1,6 +1,9 @@
 //my/shirt.js now does setup work
 //before returning its module definition.
-define(function () {
+
+define(
+["i18n!modules/market/nls/market"],
+function (lang) {
     //Do setup work here
 
     return {
@@ -9,10 +12,10 @@ define(function () {
         order : 1,
 
         menu : [
-            {
-                title : "Market",
-                route : "/market"
-            }           
+        {
+            title : lang.market,
+            route : "/market"
+        }           
         ]
         
     }

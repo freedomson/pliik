@@ -7,7 +7,7 @@ define(function () {
         
         url: 'http://www.pliik.com',
         
-        entity : 'Pliik',
+        entity : 'testing',
         
         modules : {
             

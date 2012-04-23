@@ -3,7 +3,10 @@
 
 // Require.js allows us to configure shortcut alias
 // Their usage will become more apparent futher along in the tutorial.
+
+
 require.config({
+    
     paths: {
         loader: 'libs/vendor/backbone/loader',
         jQuery: 'libs/vendor/jquery/jquery',
@@ -18,8 +21,11 @@ require.config({
         jade: 'libs/vendor/jade/jade',
         less: 'libs/vendor/less/less-1.3.0.min',
         text: 'libs/vendor/require/text',
-        order: 'libs/vendor/require/order'
-    }
+        order: 'libs/vendor/require/order',
+        i18n: 'libs/vendor/require/i18n'        
+    },
+    
+    locale: 'pt-pt'    
 
 });
 

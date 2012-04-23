@@ -1,7 +1,8 @@
 // Filename: router.js
 define([
     'routers/interface',
-    ], function(Interface, config ){
+    "i18n!modules/market/nls/market",    
+    ], function(Interface, lang ){
     
 
         var Router = Interface.extend({
@@ -24,7 +25,7 @@ define([
             
             show: function(){
         
-                console.log("Loading Module Market");
+                console.log("Loading Module Market:"+lang.market);
                 //this.renderView('views/users/list');
       
             }   

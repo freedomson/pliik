@@ -46,9 +46,11 @@ define([
                 $.each(
                     modules.configurators,       
                     function(index, value) { 
+
                         _.each(require(value).menu, function(item){ 
                             that.menuitems.push(item);
-                        });                    
+                        }); 
+                        
                     });
   
   
