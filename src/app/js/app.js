@@ -1,6 +1,7 @@
 // Filename: app.js
 define([
     'routers/app', // Request router.js
+    'libs/pliik/module-loader'
     ], function(Router){
     
         var initialize = function(){

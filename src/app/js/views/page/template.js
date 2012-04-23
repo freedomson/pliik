@@ -5,12 +5,13 @@ define([
     'order!libs/vendor/less/less-1.3.0.min',
     'text!../../../css/style.less',
     'views/brand/logo',
-    'views/page/footer',    
+    'views/page/menu',   
+    'views/page/footer',  
     'order!brequire',
     'order!fs',
     'order!jade',
     'order!libs/vendor/mustache/mustache'
-    ], function($, Backbone, mainPageTemplate,less,cssCode,brandLogoView,pageFooterView){
+    ], function($, Backbone, mainPageTemplate,less,cssCode,brandLogoView,pageMenuView,pageFooterView){
 
         var mainPageView = Backbone.View.extend({
 
@@ -51,8 +52,11 @@ define([
                     //... Render Logo template
                     brandLogoView.render();      
                     
-                    //... Render Logo template
-                    pageFooterView.render();                       
+                    //... Render Menu template
+                    pageMenuView.render();      
+                    
+                    //... Render Footer template
+                    pageFooterView.render();
       
                 }
 

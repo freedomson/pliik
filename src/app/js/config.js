@@ -9,6 +9,12 @@ define(function () {
         
         entity : 'Pliik',
         
+        modules : {
+            
+            active: ['demo']
+            
+        },
+        
         document : {
             
             title : {

@@ -2,7 +2,7 @@
 define([
     'jQuery',    
     'Backbone',
-    'libs/pliik/config'    
+    'config'    
     ], function($,Backbone,config ){
     
     

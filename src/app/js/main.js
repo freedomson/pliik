@@ -10,6 +10,7 @@ require.config({
         Underscore: 'libs/vendor/underscore/underscore',
         Backbone: 'libs/vendor/backbone/backbone',
         templates: '../templates',
+        modules: '../modules',
         eve: 'libs/vendor/eve/eve.min',
         Raphael: 'libs/vendor/raphael/raphael-min',
         brequire: 'libs/vendor/brequire/brequire',
@@ -17,9 +18,7 @@ require.config({
         jade: 'libs/vendor/jade/jade',
         less: 'libs/vendor/less/less-1.3.0.min',
         text: 'libs/vendor/require/text',
-        order: 'libs/vendor/require/order',
-        
-        pliikConfig :  'libs/pliik/config'
+        order: 'libs/vendor/require/order'
     }
 
 });
@@ -28,11 +27,21 @@ require([
 
     // Load our app module and pass it to our definition function
     'app',
-
+    'libs/pliik/module-loader'
     // Some plugins have to be loaded in order due to their non AMD compliance
     // Because these scripts are not "modules" they do not pass any values to the definition function below
-    ], function(App){
+    ], function(App,ModuleLoader){
         // The "app" dependency is passed in as "App"
         // Again, the other dependencies passed in are not "AMD" therefore don't pass a parameter to this function
-        App.initialize();
+        
+        //... Load Modules
+        require(
+            ModuleLoader.list   
+            , function(){
+
+                App.initialize();
+            
+            });
+
+        
     });

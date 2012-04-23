@@ -3,7 +3,7 @@ define([
     'Underscore',
     'Backbone',
     'text!templates/brand/logo.jade',
-    'libs/pliik/config',
+    'config',
     'order!eve',
     'order!Raphael',
     'order!libs/vendor/raphael/raphael-letter-path-plugin',
@@ -16,9 +16,7 @@ define([
 
         var brandLogoView = Backbone.View.extend({
 
-            el: $('#canvas_logo'),
-            
-            container: "#logo",
+            el: $('#container_logo'),
             
             company: pliikConfig.entity,
             
@@ -33,7 +31,7 @@ define([
                     entity : pliikConfig.entity
                 };
    
-                $(this.container).html(
+                $("#logo").html(
                     Mustache.to_html(this.template, view)
                     );
 
