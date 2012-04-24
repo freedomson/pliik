@@ -1,10 +1,11 @@
 // Filename: router.js
-define([
+define(
+    [
     'jQuery', 
     'Underscore',
     'Backbone',
-    'config'    
-    ], function($,_,Backbone,config ){
+    'config' 
+    ], function($,_,Backbone,config){
     
     
         var InterfaceRouter = Backbone.Router.extend({
@@ -12,7 +13,7 @@ define([
             initialize : function(){
                 
                 //... Activate languages routes
-                this.activateLanguageRoutes(    );
+                this.activateLanguageRoutes();
                 
             },
             
@@ -25,19 +26,9 @@ define([
                 
                     newRoutes[value]=name;
                     
-                    newRoutes['/:lang'+value]=name;
-                                       
-                    var routeCall = this[name];
-                    
-                    this[name] = function(lang){
+                    newRoutes[value+'/:lang']=name;
 
-                        console.log(arguments);
-                        
-                        routeCall.apply(this,arguments);
-   
-                    } 
-                
-                },this);           
+                });           
             
                 this.routes = newRoutes;
             
@@ -54,7 +45,7 @@ define([
                         
                 if ( typeof view.navigation != 'undefined' ) {
                             
-                    navigation = view.navigation + config.document.title.separator + config.entity;
+                    navigation = view.navigation + ' ' + config.entity;
                             
                 } else {
                             

@@ -1,38 +1,39 @@
-//my/shirt.js now does setup work
-//before returning its module definition.
-define(function () {
-    //Do setup work here
+/**
+ * 
+ * IMPORTANT: This may not include localized strings
+ * 
+ * 
+ */
+define(
+    function () {
+        //Do setup work here
 
-    return {
+        return {
         
-        url: 'http://www.pliik.com',
+            url: 'http://www.pliik.com',
         
-        entity : 'testing',
+            entity : 'COOL',
         
-        modules : {
+            i18n : {
             
-            active: ['market']
+                active: ['pt-pt','en-en']
             
-        },
+            },
         
-        document : {
+            modules : {
             
-            title : {
+                active: ['market']
+            
+            },
+        
+            date: {
+            
+                format: {
                 
-                separator : " at "  
+                    year : 'yyyy'   
                 
-            }
-            
-        },
-        
-        date: {
-            
-            format: {
-                
-                year : 'yyyy'   
-                
+                }
             }
         }
-    }
     
-});
+    });

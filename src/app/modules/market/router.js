@@ -24,7 +24,7 @@ define([
             // + -------------------------------- 
             
             show: function(){
-                console.log(arguments);
+
                 console.log("Loading Module Market:"+lang.market);
                 //this.renderView('views/users/list');
       

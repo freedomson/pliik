@@ -1,10 +1,10 @@
 // Filename: router.js
 define([
-    'routers/interface'
-    ], function(Interface ){
-    
-        
-    
+    'routers/interface',
+    'module'
+    ], function(Interface,module){
+
+
         var UsersRouter = Interface.extend({
       
             /*******************************************************************

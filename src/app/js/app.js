@@ -1,7 +1,10 @@
 // Filename: app.js
-define([
+define(
+    [
     'routers/app', // Request router.js
+    
     'libs/pliik/module-loader'
+    
     ], function(Router){
     
         var initialize = function(){
@@ -12,7 +15,9 @@ define([
         }
 
         return { 
+            
             initialize: initialize
+            
         };
   
     });
