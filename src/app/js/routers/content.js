@@ -23,9 +23,8 @@ define([
             // | Route
             // + -------------------------------- 
             
-            show: function(page){
-                
-        
+            show: function(lang,page){
+
                 this.renderView('views/content/'+page);
       
             }      

@@ -56,9 +56,9 @@ define([
         
         
         var initialize = function(){
-            
+     
             var UsersRouterInstance = new UsersRouter;
-            
+  
             return UsersRouterInstance;
             
         };

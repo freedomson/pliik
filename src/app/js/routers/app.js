@@ -66,7 +66,7 @@ define([
                     //... Render Page Template
                     templateView.render();                    
                     
-                    //... Load Application Router
+                    //... Load Application Router                  
                     var AppRouterInstance = new AppRouter;
 
                     //... Load Pages Router
@@ -81,7 +81,7 @@ define([
                         modules.routers,       
                         function(index, value) { 
                             require(value).initialize();
-                    });                    
+                        });                    
 
                     Backbone.history.start();
                    
@@ -90,7 +90,7 @@ define([
 
             
         };
-
+        
         return { 
             initialize: initialize
         };
