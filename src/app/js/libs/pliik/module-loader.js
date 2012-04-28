@@ -3,8 +3,7 @@
 define([
     'jQuery',
     'Underscore',    
-    'config',
-    'libs/pliik/utils'
+    'config'
 ],
 function($,_,config) {
 

@@ -20,6 +20,11 @@ define(
         
             //... Set Up Locale Language base ob requested URL
             
+            parseURL : function(route){
+                
+                return '#' + route + '/' + Config.i18n.selected;
+            },
+            
             setUpLanguage : function(){
             
                 var url = window.location + '';
@@ -30,14 +35,18 @@ define(
 
                 if ( _.include(Config.i18n.active,pathLang) ) {
 
+                    //... Set selected language at Config Object
+                    Config.i18n.selected = pathLang;
+                       
+                    //... Se selected language at RequireJS
                     require.config({
                         
                         locale: pathLang
                         
                     });              
 
-                }             
-            
+                }   
+                            
             }
         
         }

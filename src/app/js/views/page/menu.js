@@ -3,8 +3,10 @@ define([
     'Underscore',
     'Backbone',
     'text!templates/page/menu.jade',
-    'libs/pliik/module-loader'
-    ], function($, _, Backbone, template, modules){
+    'libs/pliik/module-loader',
+    'config',
+    'libs/pliik/util'
+    ], function($, _, Backbone, template, modules, Config, Util){
 
         var view = Backbone.View.extend({
 
@@ -16,24 +18,24 @@ define([
                 
             {
                 title : 'Home',
-                route : '/'
+                route : Util.parseURL('')
             },{
                 title : 'Signup',
-                route : '/users/signup'
+                route : Util.parseURL('/users/signup')
             },
             {
                 title : 'Login',
-                route : '/users/login'
+                route : Util.parseURL('/users/login')
             },
             {
                 title : 'Project List',
-                route : '/projects'
+                route : Util.parseURL('/projects')
             },{
                 title : 'User List',
-                route : '/users'
+                route : Util.parseURL('/users')
             },{
                 title : 'Open Source',
-                route : '/content/opensource'
+                route : Util.parseURL('/content/opensource')
             }
                 
             ],
@@ -48,7 +50,10 @@ define([
                     function(index, value) { 
 
                         _.each(require(value).menu, function(item){ 
+                            
+                            item.route = Util.parseURL(item.route);
                             that.menuitems.push(item);
+                            
                         }); 
                         
                     });
@@ -56,7 +61,7 @@ define([
   
                 //... Render Top Menu
                 var view = {
-                    "menuitems" : that.menuitems  
+                    "menuitems" : that.menuitems
                 };
                 
                 var TplMustacheCompiled = Mustache.to_html(template, view);
