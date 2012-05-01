@@ -3,7 +3,7 @@ define([
     'Backbone',
     'text!templates/page/template.jade',
     'order!libs/vendor/less/less-1.3.0.min',
-    'text!../../../css/style.less',
+    'text!../../../css/style.css',
     'views/brand/logo',
     'views/page/menu',   
     'views/page/footer',  

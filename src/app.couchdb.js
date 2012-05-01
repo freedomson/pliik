@@ -15,6 +15,6 @@ ddoc =
 
 
 
-couchapp.loadAttachments(ddoc, path.join(__dirname, 'app'));
+couchapp.loadAttachments(ddoc, path.join(__dirname, 'build'));
 
 module.exports = ddoc;

@@ -1,1 +1,1 @@
-node node_modules/.bin/couchapp push app.js http://XXX:XXX@www.pliik.com/dev
+node node_modules/.bin/couchapp push app.couchdb.js http://XXX:XXX@db.pliik.com/dev
