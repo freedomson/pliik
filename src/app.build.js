@@ -6,7 +6,7 @@
     dir: "build",
     skipModuleInsertion: true,
     optimizeAllPluginResources: false,
-    findNestedDependencies: false,
+    findNestedDependencies: true,
     inlineText: true,
     locale: "en-US",
     
