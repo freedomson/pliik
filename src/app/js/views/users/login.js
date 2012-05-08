@@ -3,7 +3,6 @@ define([
   'Underscore',
   'Backbone',
   'text!templates/users/login.jade',
-  'order!eve',
   'order!Raphael',
   'order!brequire',
   'order!fs',

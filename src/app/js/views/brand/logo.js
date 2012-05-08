@@ -4,21 +4,17 @@ define([
     'Backbone',
     'text!templates/brand/logo.jade',
     'config',
-    'order!eve',
     'order!Raphael',
-    'order!libs/vendor/raphael/raphael-letter-path-plugin',
-    // 'order!libs/vendor/fonts/Vegur.font',
-    'order!libs/vendor/fonts/Abel.font',
     'order!brequire',
     'order!fs',
     'order!jade'
-    ], function($, _, Backbone, template, pliikConfig){
+    ], function($, _, Backbone, template, Config, Raphael){
 
         var brandLogoView = Backbone.View.extend({
 
             el: $('#container_logo'),
             
-            company: pliikConfig.entity,
+            company: Config.entity,
             
             font: 'Abel', // Vegur
 
@@ -27,8 +23,8 @@ define([
             render: function(){
 
                 var view = {
-                    url : pliikConfig.url,
-                    entity : pliikConfig.entity
+                    url : Config.url,
+                    entity : Config.entity
                 };
    
                 $("#logo").html(
@@ -36,6 +32,7 @@ define([
                     );
 
                 var paper = new Raphael($(this.el.selector).attr('id'), 200, 50)
+     
                 var letters = paper.printLetters(
                     30,
                     30, 

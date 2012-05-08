@@ -3,12 +3,11 @@ define([
     'Underscore',
     'Backbone',
     'text!templates/content/home.jade',
-    'order!eve',
     'order!Raphael',
     'order!brequire',
     'order!fs',
     'order!jade'
-    ], function($, _, Backbone, mainHomeTemplate){
+    ], function($, _, Backbone, mainHomeTemplate, Raphael){
 
         var mainHomeView = Backbone.View.extend({
 
