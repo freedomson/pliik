@@ -1,3 +1,6 @@
+define(
+    function(){
+
 // Bbrequire - CommonJS support for the browser
 function brequire(p) {
   var path = brequire.resolve(p)
@@ -41,3 +44,7 @@ brequire.bind = function(path) {
 brequire.module = function(path, fn) {
   brequire.modules[path] = fn;
 };
+
+    return brequire;
+  
+});

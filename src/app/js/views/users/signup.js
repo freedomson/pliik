@@ -3,11 +3,11 @@ define([
   'Underscore',
   'Backbone',
   'text!templates/users/signup.jade',
-  'order!Raphael',
-  'order!brequire',
-  'order!fs',
+  //'order!Raphael',
+  //'order!brequire',
+  //'order!fs',
   'order!jade'
-], function($, _, Backbone, usersSignupTemplate){
+], function($, _, Backbone, usersSignupTemplate,jade){
 
   var mainHomeView = Backbone.View.extend({
 

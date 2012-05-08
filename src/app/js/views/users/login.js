@@ -3,11 +3,11 @@ define([
   'Underscore',
   'Backbone',
   'text!templates/users/login.jade',
-  'order!Raphael',
-  'order!brequire',
-  'order!fs',
+  //'order!Raphael',
+  //'order!brequire',
+  //'order!fs',
   'order!jade'
-], function($, _, Backbone, usersLoginTemplate){
+], function($, _, Backbone, usersLoginTemplate,jade){
 
   var usersLoginView = Backbone.View.extend({
 

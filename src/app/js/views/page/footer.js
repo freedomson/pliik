@@ -4,8 +4,16 @@ define([
     'Backbone',
     'text!templates/page/footer.jade',
     'config',
-    'libs/pliik/util'
-    ], function($, _, Backbone, pageFooterTemplate,Config,Util){
+    'libs/pliik/util',
+    'jade'
+    ], function(
+        $, 
+        _, 
+        Backbone, 
+        pageFooterTemplate,
+        Config,
+        Util,
+        jade){
 
         var pageFooterView = Backbone.View.extend({
 

@@ -4,10 +4,10 @@ define([
     'Backbone',
     'text!templates/content/home.jade',
     'order!Raphael',
-    'order!brequire',
-    'order!fs',
+    // 'order!brequire',
+    // 'order!fs',
     'order!jade'
-    ], function($, _, Backbone, mainHomeTemplate, Raphael){
+    ], function($, _, Backbone, mainHomeTemplate, Raphael,jade){
 
         var mainHomeView = Backbone.View.extend({
 

@@ -7,11 +7,22 @@ define([
     'views/brand/logo',
     'views/page/menu',   
     'views/page/footer',  
-    'order!brequire',
-    'order!fs',
+    //'order!brequire',
+    //'order!fs',
     'order!jade',
     'order!libs/vendor/mustache/mustache'
-    ], function($, Backbone, mainPageTemplate,less,cssCode,brandLogoView,pageMenuView,pageFooterView){
+    ], function
+        (
+        $, 
+        Backbone, 
+        mainPageTemplate,
+        less,
+        cssCode,
+        brandLogoView,
+        pageMenuView,
+        pageFooterView,
+        jade
+        ){
 
         var mainPageView = Backbone.View.extend({
 

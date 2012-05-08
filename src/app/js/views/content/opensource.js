@@ -3,11 +3,11 @@ define([
   'Underscore',
   'Backbone',
   'text!templates/content/opensource.jade',
-  'order!Raphael',
-  'order!brequire',
-  'order!fs',
+  //'order!Raphael',
+  //'order!brequire',
+  //'order!fs',
   'order!jade'
-], function($, _, Backbone, template){
+], function($, _, Backbone, template, jade){
 
   var view = Backbone.View.extend({
 

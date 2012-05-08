@@ -1,3 +1,12 @@
+define(
+   [
+        'libs/vendor/brequire/brequire'
+    ],
+    function(brequire){
+        
+
+// dummy dependency module
+brequire.module('fs', function(module, exports, brequire) {});
 
 brequire.module('jade/lib/compiler.js', function(module, exports, brequire) {
 // start module: jade/lib/compiler.js
@@ -2627,6 +2636,6 @@ module.exports = brequire('./lib/jade');
     
 })(this);
 
-
-
-
+    return jade;
+  
+});
