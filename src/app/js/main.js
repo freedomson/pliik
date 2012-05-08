@@ -24,7 +24,7 @@ require.config({
         order: 'libs/vendor/require/order',
         i18n: 'libs/vendor/require/i18n',
         util: 'libs/pliik/util',
-        vendor : 'libs/vendor/'
+        Mustache : 'libs/vendor/mustache/mustache'
     }    
 
 });

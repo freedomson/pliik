@@ -5,8 +5,17 @@ define([
     'text!templates/page/menu.jade',
     'libs/pliik/module-loader',
     'config',
-    'libs/pliik/util'
-    ], function($, _, Backbone, template, modules, Config, Util){
+    'libs/pliik/util',
+    'Mustache'
+    ], function(
+        $, 
+        _, 
+        Backbone, 
+        template, 
+        modules, 
+        Config, 
+        Util, 
+        Mustache){
 
         var view = Backbone.View.extend({
 

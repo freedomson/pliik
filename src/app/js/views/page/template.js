@@ -2,15 +2,13 @@ define([
     'jQuery',
     'Backbone',
     'text!templates/page/template.jade',
-    'order!libs/vendor/less/less-1.3.0.min',
+    'less',
     'text!../../../css/style.css',
     'views/brand/logo',
     'views/page/menu',   
     'views/page/footer',  
-    //'order!brequire',
-    //'order!fs',
-    'order!jade',
-    'order!libs/vendor/mustache/mustache'
+    'jade',
+    'Mustache'
     ], function
         (
         $, 
@@ -21,7 +19,8 @@ define([
         brandLogoView,
         pageMenuView,
         pageFooterView,
-        jade
+        jade,
+        Mustache
         ){
 
         var mainPageView = Backbone.View.extend({

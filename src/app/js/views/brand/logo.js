@@ -4,11 +4,10 @@ define([
     'Backbone',
     'text!templates/brand/logo.jade',
     'config',
-    'order!Raphael',
-    //'order!brequire',
-    //'order!fs',
-    'order!jade'
-    ], function($, _, Backbone, template, Config, Raphael, jade){
+    'Raphael',
+    'jade',
+    'Mustache'
+    ], function($, _, Backbone, template, Config, Raphael, jade, Mustache){
 
         var brandLogoView = Backbone.View.extend({
 

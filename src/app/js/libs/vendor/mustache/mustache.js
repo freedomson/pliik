@@ -1,3 +1,5 @@
+define(
+    function(){
 /*!
  * mustache.js - Logic-less {{mustache}} templates with JavaScript
  * http://github.com/janl/mustache.js
@@ -534,3 +536,7 @@ var Mustache = (typeof module !== "undefined" && module.exports) || {};
   }
 
 })(Mustache);
+
+    return Mustache;
+
+});

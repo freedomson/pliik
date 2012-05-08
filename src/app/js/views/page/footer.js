@@ -5,7 +5,8 @@ define([
     'text!templates/page/footer.jade',
     'config',
     'libs/pliik/util',
-    'jade'
+    'jade',
+    'Mustache'
     ], function(
         $, 
         _, 
@@ -13,7 +14,8 @@ define([
         pageFooterTemplate,
         Config,
         Util,
-        jade){
+        jade,
+        Mustache){
 
         var pageFooterView = Backbone.View.extend({
 

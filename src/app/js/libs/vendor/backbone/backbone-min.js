@@ -1,5 +1,5 @@
 define(
-        [ 'order!libs/vendor/underscore/underscore-min'],
+        [ 'libs/vendor/underscore/underscore-min'],
 	function(_){
             
 // // Backbone.js 0.5.3
