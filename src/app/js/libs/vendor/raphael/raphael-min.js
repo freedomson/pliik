@@ -1,5 +1,7 @@
 define(
-    ['eve'],
+    [
+        'libs/vendor/eve/eve.min'
+    ],
     function(eve){
 
 

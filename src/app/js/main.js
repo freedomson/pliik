@@ -14,7 +14,7 @@ require.config({
         Backbone: 'libs/vendor/backbone/backbone',
         templates: '../templates',
         modules: '../modules',
-        eve: 'libs/vendor/eve/eve.min',
+        // eve: 'libs/vendor/eve/eve.min',
         Raphael: 'libs/vendor/raphael/raphael-min',
         brequire: 'libs/vendor/brequire/brequire',
         fs: 'libs/vendor/fs/fs',   
@@ -23,7 +23,8 @@ require.config({
         text: 'libs/vendor/require/text',
         order: 'libs/vendor/require/order',
         i18n: 'libs/vendor/require/i18n',
-        util: 'libs/pliik/util'
+        util: 'libs/pliik/util',
+        vendor : 'libs/vendor/'
     }    
 
 });

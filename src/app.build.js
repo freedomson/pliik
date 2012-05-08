@@ -51,15 +51,11 @@
     },
     modules: [
         {
-            name: "main" //,
-            // include: [
-                // "jQuery","Underscore","Backbone"
-                // 'app',
-                // 'libs/pliik/module-loader',
-                // 'config',
-                // 'libs/pliik/util',
-                // 'views/page/template',
-            // ]
+            name: "main" ,
+            include: [
+               "modules/market/config",
+               "modules/market/router"
+           ]
         }/*,
         {
             name : 'views/page/template'  
