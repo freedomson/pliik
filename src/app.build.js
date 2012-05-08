@@ -54,8 +54,11 @@
         {
             name: "main" ,
             include: [
+               // "libs/vendor/require/require" ,
                "modules/market/config",
-               "modules/market/router"
+               "modules/market/router",
+               "text!templates/content/home.jade",
+               "views/content/home"
            ]
         }/*,
         {

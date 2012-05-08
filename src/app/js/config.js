@@ -12,7 +12,7 @@ define(
         
             url: 'http://www.pliik.com',
         
-            entity : 'COOL',
+            entity : 'Pliik',
         
             i18n : {
             
