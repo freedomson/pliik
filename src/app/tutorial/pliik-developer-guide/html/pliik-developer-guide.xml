@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths=".,//home/philip/workspace-pliik/src/src/app/tutorial/pliik-developer-guide/"?>
+<?latexml options="10pt,letterpaper,titlepage" class="article"?>
+<?latexml package="graphicx"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML">
+  <title>Pliik Developer Guide</title>
+  <creator role="author">
+    <personname>www.pliik.com</personname>
+  </creator>
+  <date role="creation">May, 2012</date>
+  <figure refnum="1" xml:id="S0.F1">
+    <graphics graphic="logo.png" options="width=142.26378pt" class="centering"/>
+  </figure>
+  <section refnum="1" xml:id="S1">
+    <title>Introduction to LaTeX</title>
+    <!-- %**** pliik-developer-guide.tex Line 25 **** -->
+    <para xml:id="S1.p1">
+      <p>LaTeX is a document markup language and document preparation system for the TeX typesetting program. Within the typesetting system.<break/></p>
+    </para>
+    <para xml:id="S1.p2">
+      <p>LaTeX has lots of advantages</p>
+    </para>
+    <para xml:id="S1.p3">
+      <enumerate xml:id="I1">
+        <item refnum="1" xml:id="I1.i1">
+          <para xml:id="I1.i1.p1">
+            <p>Standard documentes</p>
+          </para>
+        </item>
+        <item refnum="2" xml:id="I1.i2">
+          <para xml:id="I1.i2.p1">
+            <p>Can be viewed by others with free PDF applications</p>
+          </para>
+        </item>
+      </enumerate>
+    </para>
+  </section>
+</document>
