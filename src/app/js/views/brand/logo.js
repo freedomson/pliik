@@ -11,7 +11,7 @@ define([
 
         var brandLogoView = Backbone.View.extend({
 
-            el: $('#container_logo'),
+            el: $('#logo_container'),
             
             company: Config.entity,
             
@@ -30,14 +30,14 @@ define([
                     Mustache.to_html(this.template, view)
                     );
 
-                var paper = new Raphael($(this.el.selector).attr('id'), 200, 50)
+                var paper = new Raphael($(this.el.selector).attr('id'), 300, 50)
      
                 var letters = paper.printLetters(
                     30,
                     30, 
                     this.company, 
                     paper.getFont(this.font),
-                    50
+                    75
                     );
 
                 var logoColors = [
@@ -51,8 +51,8 @@ define([
                     
                     letters[i].attr({
                         fill: logoColors[icolor] , 
-                        "stroke-width":"0", 
-                        stroke:"#3D5C9D"
+                        "stroke-width":"2", 
+                        stroke: logoColors[icolor]
                     })
                 }
 

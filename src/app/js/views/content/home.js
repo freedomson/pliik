@@ -14,26 +14,26 @@ define([
                 // Using Jade Templating
                 $("#page").html(jade.render(mainHomeTemplate));
 
-                var paper = Raphael("canvas", 800, 300);
+                var paper = Raphael("canvas", 800, 200);
       
-                paper.circle(100, 150, 50).animate({
+                paper.circle(100, 100, 70).animate({
                     fill: "red", 
-                    stroke: "#ccc", 
-                    "stroke-width": 50, 
+                    stroke: "#444", 
+                    "stroke-width": 30, 
                     "stroke-opacity": 0.8
                 }, 2000);
 
-                paper.circle(300, 150, 50).animate({
+                paper.circle(300, 100, 70).animate({
                     fill: "green", 
-                    stroke: "#ccc", 
-                    "stroke-width": 50, 
+                    stroke: "#444", 
+                    "stroke-width": 30, 
                     "stroke-opacity": 0.8
                 }, 2000);
 
-                paper.circle(500, 150, 50).animate({
+                paper.circle(500, 100, 70).animate({
                     fill: "blue", 
-                    stroke: "#ccc", 
-                    "stroke-width": 50, 
+                    stroke: "#444", 
+                    "stroke-width": 30, 
                     "stroke-opacity": 0.8
                 }, 2000);
 
