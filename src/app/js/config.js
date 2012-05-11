@@ -18,7 +18,7 @@ define(
             
                 selected : navigator.language || navigator.userLanguage,
                 
-                active: ['pt-pt','en-en']
+                active: ['pt-PT','en-US']
             
             },
         

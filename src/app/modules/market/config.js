@@ -2,7 +2,7 @@
 //before returning its module definition.
 
 define(
-["i18n!modules/market/nls/market"],
+["i18n!modules/market/nls/i18n"],
 function (lang) {
     //Do setup work here
 
@@ -13,7 +13,7 @@ function (lang) {
 
         menu : [
         {
-            title : lang.market,
+            title : lang.module,
             route : "/market"
         }           
         ]

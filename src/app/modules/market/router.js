@@ -1,7 +1,7 @@
 // Filename: router.js
 define([
     'routers/interface',
-    "i18n!modules/market/nls/market",    
+    "i18n!modules/market/nls/i18n",    
     ], function(Interface, lang ){
     
 

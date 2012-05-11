@@ -10,13 +10,13 @@
   LESS
    ========================================================================== */
 
-.border-radius (@radius) {
-  border-radius: @radius;
-  -moz-border-radius: @radius;
-  -webkit-border-radius: @radius;
+.less-border-radius (@1,@2,@3,@4) {
+  border-radius: @1 @2 @3 @4;
+  -moz-border-radius: @1 @2 @3 @4;
+  -webkit-border-radius: @1 @2 @3 @4;
 }
 
-.opacity(@opacity) {
+.less-opacity(@opacity) {
   /* IE 8 */
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@opacity)";
   /* IE 5-7 */
@@ -29,8 +29,25 @@
   opacity: @opacity;
 }
 
-.text-shadow-simple(@pixel,@color){
+.less-text-shadow-simple(@pixel,@color){
     text-shadow: @pixel @pixel @pixel @color;
+}
+
+.less-gradient(@start-color,@start-percent,@end-color,@end-percent) {
+  background: @start-color; /* Old browsers */
+  background: -moz-linear-gradient(left,  @start-color @start-percent, @end-color @end-percent); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(@start-percent,@start-color), color-stop(@end-percent,@end-color)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  @start-color @start-percent,@end-color @end-percent); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  @start-color @start-percent,@end-color @end-percent); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  @start-color @start-percent,@end-color @end-percent); /* IE10+ */
+  background: linear-gradient(left,  @start-color @start-percent,@end-color @end-percent); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@start-color', endColorstr='@end-color',GradientType=1 ); /* IE6-9 */
+}
+
+.less-box-shadow(@1,@2,@3,@4,@color) {
+  -moz-box-shadow: @1 @2 @3 @4 @color; /* Firefox */
+  -webkit-box-shadow: @1 @2 @3 @4 @color; /* Safari, Chrome */
+  box-shadow: @1 @2 @3 @4 @color; /* CSS3 */
 }
 
 /* =============================================================================
@@ -76,7 +93,11 @@ audio[controls], canvas, video { display: inline-block; *display: inline; *zoom:
 
 html { font-size: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-body { margin: 0; font-size: 13px; line-height: 1.231; }
+body { 
+    margin: 0; 
+    font-size: 13px; 
+    /* line-height: 1.231; */
+}
 
 body, button, input, select, textarea { font-family: Abel; color: #222; }
 
@@ -245,26 +266,43 @@ table { border-collapse: collapse; border-spacing: 0; }
    Primary styles
    Author: 
    ========================================================================== */
+
 body {
-  /* background: #ebebeb; */
+    background-color: yellow;
 }
 
 #container {
-  /* width: 960px;
-  margin: auto;
-  min-height: 500px; */
-  background: #fff;
+    display: table; 
+    height: 100%; 
+    width: 100%;
+    position: absolute; 
+    overflow: hidden;
+    .less-gradient(red,50%,yellow,100%);
 }
+
+#container #columcontainer {
+    display: table-cell; 
+    vertical-align: middle;
+}
+
+#container #contentcontainer {
+    margin: 5%;
+    position: relative;
+    width: 960px;
+    background-color: yellow;
+    margin-left: auto; 
+    margin-right: auto;
+    .less-box-shadow(10px,20px,60px,20px,#000);
+    .less-border-radius(20px,20px,20px,20px);
+}
+
+
+
 #menu {
-  height: 30px; color: #fff; text-align: right;
-  background: #444444; /* Old browsers */
-  background: -moz-linear-gradient(left,  #444444 50%, #000000 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right top, color-stop(50%,#444444), color-stop(100%,#000000)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(left,  #444444 50%,#000000 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(left,  #444444 50%,#000000 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(left,  #444444 50%,#000000 100%); /* IE10+ */
-  background: linear-gradient(left,  #444444 50%,#000000 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+  height: 30px; 
+  color: #fff; 
+  text-align: right;
+  .less-gradient(#444444,50%,#000000,100%);
 }
 #menu ul {
   list-style: none;
@@ -281,14 +319,12 @@ body {
   line-height: 30px;  
   padding: 0 10px;
   text-decoration: none;
-  .text-shadow-simple(1px,#444444);
+  .less-text-shadow-simple(1px,#444444);
+  .less-border-radius(5px,5px,5px,5px);
 
 }
 #menu ul li a:hover {
   color: #CCCCCC;
-}
-#container {
-    /* .border-radius(6px); */
 }
 
 /*
@@ -302,6 +338,7 @@ body {
    background-image: url(pic/bg-header.jpg);
    background-position: 0 -10px;
    border-bottom: 3px solid #888888;
+   .less-border-radius(20px,20px,00px,0px);
 }
 
 #logo_link {
@@ -313,7 +350,7 @@ body {
 #logo_container { 
    padding: 10px 0;
    background-color: #FFFFFF;
-   .opacity(0.5)
+   .less-opacity(0.7)
 }
 
 /*
@@ -336,6 +373,8 @@ h1{
 
 #footer {
   text-align: center;
+  display: inline-block;
+  width: 100%;
 }
 /* =============================================================================
    Non-semantic helper classes
