@@ -61,7 +61,7 @@
   .less-border-radius(5px,5px,5px,5px);
 }
 
-.nolink {
+.reset-css-link {
    background-color: transparent !important; 
 }
 
@@ -290,7 +290,7 @@ body {
 }
 
 #container {
-    .less-gradient(cadetBlue,50%,lightBlue,100%);
+    .less-gradient(lightSteelBlue,50%,LightCyan,100%);
     display: table; 
     height: 100%; 
     width: 100%;
@@ -377,7 +377,7 @@ h1{
   border-bottom: 1px dashed #ebebeb;
   min-height: 200px;
   padding: 20px;
-  background-color: greenYellow;
+  background-color: cadetBlue;
 }
 
 #page a {
