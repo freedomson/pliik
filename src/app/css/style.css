@@ -50,6 +50,21 @@
   box-shadow: @1 @2 @3 @4 @color; /* CSS3 */
 }
 
+.less-link(@bgcolor,@color,@font-size,@line-height){
+  background-color: @bgcolor;
+  color: @color;
+  font-size: @font-size;
+  line-height: @line-height;  
+  .less-padding(0px,10px,0px,10px);
+  text-decoration: none;
+  .less-text-shadow-simple(1px,#444444);
+  .less-border-radius(5px,5px,5px,5px);
+}
+
+.less-padding(@1,@2,@3,@4){
+    padding: @1 @2 @3 @4;
+}
+
 /* =============================================================================
   FONTS
    ========================================================================== */
@@ -267,9 +282,7 @@ table { border-collapse: collapse; border-spacing: 0; }
    Author: 
    ========================================================================== */
 
-body {
-    background-color: yellow;
-}
+body {}
 
 #container {
     display: table; 
@@ -277,7 +290,6 @@ body {
     width: 100%;
     position: absolute; 
     overflow: hidden;
-    .less-gradient(red,50%,yellow,100%);
 }
 
 #container #columcontainer {
@@ -289,11 +301,10 @@ body {
     margin: 5%;
     position: relative;
     width: 960px;
-    background-color: yellow;
     margin-left: auto; 
     margin-right: auto;
     .less-box-shadow(10px,20px,60px,20px,#000);
-    .less-border-radius(20px,20px,20px,20px);
+    .less-border-radius(30px,30px,30px,30px);
 }
 
 
@@ -313,15 +324,7 @@ body {
   margin-left: 10px;
 }
 #menu ul li a {
-  background-color: DeepPink;
-  color: #FFFFFF;
-  font-size: 2.5em;
-  line-height: 30px;  
-  padding: 0 10px;
-  text-decoration: none;
-  .less-text-shadow-simple(1px,#444444);
-  .less-border-radius(5px,5px,5px,5px);
-
+  .less-link(DeepPink,white,2.2em,30px);
 }
 #menu ul li a:hover {
   color: #CCCCCC;
@@ -338,7 +341,7 @@ body {
    background-image: url(pic/bg-header.jpg);
    background-position: 0 -10px;
    border-bottom: 3px solid #888888;
-   .less-border-radius(20px,20px,00px,0px);
+   .less-border-radius(20px,20px,0px,0px);
 }
 
 #logo_link {
@@ -371,11 +374,24 @@ h1{
   background-color: greenYellow;
 }
 
+#page a {
+  .less-link(green,white,1.3em,30px);
+}
+
 #footer {
   text-align: center;
   display: inline-block;
   width: 100%;
+  .less-border-radius(0px,0px,20px,20px);
+  .less-gradient(#444444,50%,#000000,100%);
+  color: #FFFFFF;
 }
+
+#footer a {
+  .less-link(yellow,black,1.5em,25px);
+}
+
+
 /* =============================================================================
    Non-semantic helper classes
    Please define your styles before this section.
