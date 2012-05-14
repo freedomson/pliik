@@ -61,6 +61,20 @@
   .less-border-radius(5px,5px,5px,5px);
 }
 
+.less-link-flat(@color,@shadowcolor,@font-size,@line-height){
+  color: @color;
+  font-size: @font-size;
+  line-height: @line-height;  
+  .less-padding(0px,10px,0px,10px);
+  text-decoration: none;
+  .less-text-shadow-simple(1px,@shadowcolor);
+}
+
+.less-link-flat-over(@color,@shadowcolor,@font-size,@line-height){
+  .less-link-flat(@color,@shadowcolor,@font-size,@line-height);
+  border-bottom: 2px solid @color;
+}
+
 .reset-css-link {
    background-color: transparent !important; 
 }
@@ -309,8 +323,6 @@ body {
     width: 960px;
     margin-left: auto; 
     margin-right: auto;
-    .less-box-shadow(10px,20px,60px,20px,#000);
-    .less-border-radius(30px,30px,30px,30px);
 }
 
 
@@ -318,7 +330,6 @@ body {
   height: 30px; 
   color: #fff; 
   text-align: right;
-  .less-gradient(#444444,50%,#000000,100%);
 }
 #menu ul {
   list-style: none;
@@ -329,10 +340,10 @@ body {
   margin-left: 10px;
 }
 #menu ul li a {
-  .less-link(DeepPink,white,2.2em,30px);
+  .less-link-flat(black,white,2.2em,30px);
 }
 #menu ul li a:hover {
-  color: #CCCCCC;
+  .less-link-flat-over(navy,white,2.2em,30px);
 }
 
 /*
@@ -342,25 +353,15 @@ body {
 */
 
 #logo {
-   height: 160px;
-   background-image: url(pic/bg-header.jpg);
-   background-position: 0 -10px;
-   border-bottom: 3px solid #888888;
-   .less-border-radius(20px,20px,0px,0px);
+   height: 80px;
 }
 
 #logo_link {
-   padding: 0 20px 20px;
    float: left;
     
 }
 
-#logo_container { 
-   padding: 10px 0;
-   background-color: #FFFFFF;
-   .less-opacity(0.7);
-   .less-border-radius(0px,0px,5px,5px);
-}
+#logo_container {}
 
 /*
 +-------------------------------------------------------------------------------
@@ -373,11 +374,9 @@ h1{
   margin: 0;
 }
 #page {
-  border-top: 3px solid #888888;
   border-bottom: 1px dashed #ebebeb;
   min-height: 200px;
-  padding: 20px;
-  background-color: cadetBlue;
+  padding: 40px;
 }
 
 #page a {
@@ -388,13 +387,14 @@ h1{
   text-align: center;
   display: inline-block;
   width: 100%;
-  .less-border-radius(0px,0px,20px,20px);
-  .less-gradient(#444444,50%,#000000,100%);
-  color: #FFFFFF;
 }
 
 #footer a {
-  .less-link(yellow,black,1.5em,25px);
+  .less-link-flat(black,white,1.5em,25px);
+}
+
+#footer a:hover {
+  .less-link-flat-over(navy,white,1.5em,25px);
 }
 
 

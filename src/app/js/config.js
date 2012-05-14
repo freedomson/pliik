@@ -9,9 +9,7 @@ define(
         //Do setup work here
 
         return {
-        
-            url: 'http://www.pliik.com',
-        
+            
             entity : 'Pliik',
         
             i18n : {
