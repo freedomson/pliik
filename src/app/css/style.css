@@ -50,29 +50,15 @@
   box-shadow: @1 @2 @3 @4 @color; /* CSS3 */
 }
 
-.less-link(@bgcolor,@color,@font-size,@line-height){
+.less-link(@bgcolor,@color,@shadowcolor,@font-size,@line-height){
   background-color: @bgcolor;
   color: @color;
   font-size: @font-size;
   line-height: @line-height;  
   .less-padding(0px,10px,0px,10px);
   text-decoration: none;
-  .less-text-shadow-simple(1px,#444444);
-  .less-border-radius(5px,5px,5px,5px);
-}
-
-.less-link-flat(@color,@shadowcolor,@font-size,@line-height){
-  color: @color;
-  font-size: @font-size;
-  line-height: @line-height;  
-  .less-padding(0px,10px,0px,10px);
-  text-decoration: none;
   .less-text-shadow-simple(1px,@shadowcolor);
-}
-
-.less-link-flat-over(@color,@shadowcolor,@font-size,@line-height){
-  .less-link-flat(@color,@shadowcolor,@font-size,@line-height);
-  border-bottom: 2px solid @color;
+  .less-border-radius(5px,5px,5px,5px);
 }
 
 .reset-css-link {
@@ -340,10 +326,10 @@ body {
   margin-left: 10px;
 }
 #menu ul li a {
-  .less-link-flat(black,white,2.2em,30px);
+  .less-link(transparent,black,white,1.5em,30px);
 }
 #menu ul li a:hover {
-  .less-link-flat-over(navy,white,2.2em,30px);
+  .less-link(white,black,white,1.5em,30px);
 }
 
 /*
@@ -380,7 +366,11 @@ h1{
 }
 
 #page a {
-  .less-link(green,white,1.3em,30px);
+  .less-link(transparent,black,white,1.3em,30px);
+}
+
+#page a:hover {
+  .less-link(green,white,black,1.3em,30px);
 }
 
 #footer {
@@ -390,11 +380,11 @@ h1{
 }
 
 #footer a {
-  .less-link-flat(black,white,1.5em,25px);
+  .less-link(transparent,black,white,1.3em,25px);
 }
 
 #footer a:hover {
-  .less-link-flat-over(navy,white,1.5em,25px);
+  .less-link(white,black,white,1.3em,25px);
 }
 
 
