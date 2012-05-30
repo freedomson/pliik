@@ -5,10 +5,12 @@
  * 
  */
 define(
-    function () {
-        //Do setup work here
+    [
+    'Underscore'
+    ],
+    function (_) {
 
-        return {
+        var Config = {
             
             entity : 'Pliik',
         
@@ -35,5 +37,7 @@ define(
                 }
             }
         }
+        
+        return Config
     
     });

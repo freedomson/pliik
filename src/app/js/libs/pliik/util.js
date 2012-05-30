@@ -2,12 +2,12 @@
 //before returning its module definition.
 define(    
     [
-    'Underscore',
+    'i18n!nls/i18n',
     'config'
     ],
-    function(_,Config) {
+    function(i18n,Config) {
 
-
+   
         String.prototype.lpad = function(padString, length) {
             var str = this;
             while (str.length < length)
@@ -21,34 +21,14 @@ define(
             //... Set Up Locale Language base ob requested URL
             
             parseURL : function(route){
-                
+
+                route = i18n.routes[route] || route;
+
                 return '#' + route + '/' + Config.i18n.selected;
-            },
-            
-            setUpLanguage : function(){
-            
-                var url = window.location + '';
-            
-                var urlAux = url.split('/');
-            
-                var pathLang = urlAux[urlAux.length-1];
-
-                if ( _.include(Config.i18n.active,pathLang) ) {
-
-                    //... Set selected language at Config Object
-                    Config.i18n.selected = pathLang;
-                       
-                    //... Se selected language at RequireJS
-                    require.config({
-                        
-                        locale: pathLang
-                        
-                    });              
-
-                }   
-                            
+                
             }
-        
+            
+    
         }
     
     });

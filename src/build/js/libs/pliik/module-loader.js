@@ -14,6 +14,7 @@ function($,_,config) {
 
         
         configurators.push('modules/' + value + '/config');
+        
         routers.push('modules/' + value + '/router');        
         
         /*

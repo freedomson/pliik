@@ -48,13 +48,16 @@
         order: 'libs/vendor/require/order',
         i18n: 'libs/vendor/require/i18n',
         util: 'libs/pliik/util',
-        Mustache : 'libs/vendor/mustache/mustache'
+        lang: 'libs/pliik/lang',
+        Mustache : 'libs/vendor/mustache/mustache',
+        Logger : 'libs/pliik/logger'
     },
     modules: [
         {
             name: "main" ,
             include: [
                // "libs/vendor/require/require" ,
+               "app",
                "modules/market/config",
                "modules/market/router",
                "text!templates/content/home.jade",

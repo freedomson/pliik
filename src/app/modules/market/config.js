@@ -14,7 +14,7 @@ function (lang) {
         menu : [
         {
             title : lang.module,
-            route : "/market"
+            route : lang.routes["/market"]
         }           
         ]
         

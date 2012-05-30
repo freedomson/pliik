@@ -3,13 +3,20 @@ define([
     'jQuery', 
     'Underscore',
     'Backbone',
-    'config' 
-    ], function($,_,Backbone,config){
+    'config',
+    'i18n!nls/i18n',
+    'Logger'
+    ], function($,_,Backbone,config,lang,logger){
     
     
         var InterfaceRouter = Backbone.Router.extend({
-      
+            
+            i18n : false,
+            
             initialize : function(){
+                
+                // logger.log("Callig Route Interface Initialize");
+                
                 
                 //... Activate languages routes
                 this.activateLanguageRoutes();
@@ -18,16 +25,32 @@ define([
             
             activateLanguageRoutes : function(){
                  
+                //... this.i18n
+                var i18n = this.i18n || lang;
+                 
                 //... Activate languages routes
                 var newRoutes = {};
                 
                 _.each(this.routes,function(name,value){
                 
+                    // Root
                     newRoutes[value]=name;
                     
+                    // Root + lang
                     newRoutes[value+'/:lang']=name;
+                    
+                    // Translated
+                    newRoutes[i18n.routes[value]]=name;
+                    
+                    // Translated+lang
+                    newRoutes[i18n.routes[value]+'/:lang']=name;
 
                 });           
+            
+                // logger.log("Router:Interface:activateLanguageRoutes");
+                // logger.log(newRoutes);
+                // logger.log(i18n);
+                
             
                 this.routes = newRoutes;
             

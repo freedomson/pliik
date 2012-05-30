@@ -4,10 +4,12 @@
  * 
  * 
  */
-define([],function () {
-        //Do setup work here
+define([
+    'Underscore'
+    ],
+    function (_) {
 
-        return {
+        var Config = {
             
             entity : 'Pliik',
         
@@ -34,5 +36,7 @@ define([],function () {
                 }
             }
         }
+        
+        return Config
     
     });

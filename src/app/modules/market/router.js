@@ -6,6 +6,8 @@ define([
     
 
         var Router = Interface.extend({
+            
+            i18n : lang,
       
             /*******************************************************************
             * ROUTES
@@ -37,7 +39,7 @@ define([
         var initialize = function(){
             
             var RouterInstance = new Router;
-            
+                        
             return RouterInstance;
             
         };

@@ -1,10 +1,11 @@
 // Filename: router.js
 define([
-    'routers/interface'
-    ], function(Interface ){
+    'routers/interface',
+    'i18n!nls/i18n'
+    ], function(Interface,i18n){
     
         
-    
+        
         var Router = Interface.extend({
       
             /*******************************************************************
@@ -13,7 +14,7 @@ define([
     
             routes: {
 
-                
+    
                 '/content/:page' : 'show'
                 
             },
@@ -25,7 +26,9 @@ define([
             
             show: function(page){
 
-                this.renderView('views/content/'+page);
+                var translatedPage = i18n.content[page] || page;
+                    
+                this.renderView('views/content/'+translatedPage);
       
             }      
     
