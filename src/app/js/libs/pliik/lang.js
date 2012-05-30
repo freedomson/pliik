@@ -10,18 +10,24 @@ define(
         return {
         
             initialize : function(){
-                
-                this.activateURLLanguage();
+                             
+                this.activateRequestLanguage();
                 
             },
             
-            activateURLLanguage : function() { 
+            activateRequestLanguage : function() { 
             
+                // Check if there is a language specific URL pattern
+                // Example: #/mercado/pt-PT
+                 
                 var url = window.location + '';
                 
                 var urlAux = url.split('/');
             
                 var pathLang = urlAux[urlAux.length-1];
+                
+                // Iterate active languages for a language code match
+                // If true we force a global language update
 
                 if ( _.include(Config.i18n.active,pathLang) ) {
  
@@ -35,6 +41,18 @@ define(
                             
                     });              
 
+                } else {
+                    
+                    // Language match was not found in URL
+                    // Activate default language from config object.
+                    
+                    //... Se selected language at RequireJS
+                    require.config({
+
+                        locale: Config.i18n.selected
+
+                    });       
+                
                 }
         
             }
