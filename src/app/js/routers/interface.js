@@ -6,32 +6,32 @@ define(
     'Backbone',
     'config',
     'i18n!nls/i18n',
-    'Logger'
-    ], function($,_,Backbone,config,lang,logger){
+    'Logger',
+    'views/page/langmenu'
+    ], function($,_,Backbone,config,lang,logger,pageLangMenuView){
     
     
         var InterfaceRouter = Backbone.Router.extend({
-            
+                      
+            name : 'InterfaceRouter',
+                                   
             i18n : false,
-            
+                       
             initialize : function(){
-                
-                // logger.log("Callig Route Interface Initialize");
-                
                 
                 //... Activate languages routes
                 this.activateLanguageRoutes();
-                
+                              
             },
             
             activateLanguageRoutes : function(){
                  
                 //... this.i18n
                 var i18n = this.i18n || lang;
-                 
+                
                 //... Activate languages routes
                 var newRoutes = {};
-                
+                               
                 _.each(this.routes,function(name,value){
                 
                     // Root
@@ -45,16 +45,11 @@ define(
                     
                     // Translated+lang
                     newRoutes[i18n.routes[value]+'/:lang']=name;
-
+                    
                 });           
-            
-                // logger.log("Router:Interface:activateLanguageRoutes");
-                // logger.log(newRoutes);
-                // logger.log(i18n);
-                
-            
+                 
                 this.routes = newRoutes;
-            
+                
                 this._bindRoutes();
                 
             },
@@ -82,20 +77,30 @@ define(
 
             //... Render View
             renderView : function( view ){
-      
-                
+                 
+                logger.log("---Rendering View---",3);  
+                logger.log("view:"+view,3);
+                      
                 var router = this;
                 
+                //... Update Langmenu Links and load view
+                pageLangMenuView.render();
+                
                 require([
-                    view                  
+                    
+                    view
+                    
                     ], function(view){
                         
+                        //... Set window title
                         router.setDocumentTitle(view);
                         
+                        //... Render request view
                         view.render();
-                        
-                    });
-
+                             
+                });
+                       
+                
             }
     
         });

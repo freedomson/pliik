@@ -12,8 +12,14 @@ define(
 
         var Config = {
             
+            site : {
+                
+                 root : (window.location+'').split('#')[0]
+                
+            },
+            
             entity : 'Pliik',
-        
+            
             i18n : {
             
                 selected : navigator.language || navigator.userLanguage,

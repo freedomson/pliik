@@ -312,23 +312,23 @@ body {
 }
 
 
-#menu {
+.menu {
   height: 30px; 
   color: #fff; 
   text-align: right;
 }
-#menu ul {
+.menu ul {
   list-style: none;
   margin: 0; padding: 0;
 }
-#menu ul li {
+.menu ul li {
   float: left;
   margin-left: 10px;
 }
-#menu ul li a {
+.menu ul li a {
   .less-link(transparent,black,white,1.5em,30px);
 }
-#menu ul li a:hover {
+.menu ul li a:hover {
   .less-link(white,black,white,1.5em,30px);
 }
 
@@ -360,9 +360,12 @@ h1{
   margin: 0;
 }
 #page {
+  border-top: 1px dashed #ebebeb;
   border-bottom: 1px dashed #ebebeb;
   min-height: 200px;
   padding: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #page a {
