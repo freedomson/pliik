@@ -6,9 +6,8 @@ define(
     'Backbone',
     'config',
     'i18n!nls/i18n',
-    'Logger',
-    'views/page/langmenu'
-    ], function($,_,Backbone,config,lang,logger,pageLangMenuView){
+    'Logger' 
+    ], function($,_,Backbone,config,lang,logger){
     
     
         var InterfaceRouter = Backbone.Router.extend({
@@ -83,20 +82,22 @@ define(
                       
                 var router = this;
                 
-                //... Update Langmenu Links and load view
-                pageLangMenuView.render();
                 
                 require([
                     
-                    view
+                    view,
+                    'views/page/langmenu'
                     
-                    ], function(view){
+                    ], function(view,langmenu){
                         
                         //... Set window title
                         router.setDocumentTitle(view);
                         
                         //... Render request view
                         view.render();
+                        
+                        //... Update Langmenu Links and load view
+                        langmenu.render();
                              
                 });
                        

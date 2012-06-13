@@ -25,7 +25,7 @@ define([
             el: $('#langmenu'),
             
             events: {
-                "mouseover .langmenu-link" : "clickd"
+                "click .langmenu-link" : "loadLang"
             },
             
             renderTemplate : function(){
@@ -39,10 +39,10 @@ define([
                    menuitems.push(
                                 {
                                     title : item,
-                                    route : 'javascript:window.location.href="' + config.site.root + util.parseURL_langmenu(
+                                    route : util.parseURL_langmenu(
                                         util.cleanRoute
                                         ,item
-                                    )+'";window.location.reload();',
+                                    ),
                                     cssclass:'langmenu-link'    
                                 });
 
@@ -62,10 +62,13 @@ define([
                 
             },
   
-            clickd : function(){
+            loadLang : function(target){
               
               logger.log('---Selected Language Link---',3);  
-              logger.log(arguments,3);  
+              logger.log(target.currentTarget.href,3);  
+              
+              window.location.href=target.currentTarget.href;
+              window.location.reload();
             
             },
             
