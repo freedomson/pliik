@@ -67,7 +67,11 @@ define(
                
                     this.cleanRoute = rootlang.routes[cleanRoute];
                     
-                }    
+                }    else {
+                    
+                    this.cleanRoute = '';
+                    
+                } 
                 
                 
                 logger.log("fragment:"+Backbone.history.fragment,3);  

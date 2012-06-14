@@ -88,7 +88,7 @@ define(
                     view,
                     'views/page/langmenu'
                     
-                    ], function(view,langmenu){
+                    ], function(view,viewlangmenu){
                         
                         //... Set window title
                         router.setDocumentTitle(view);
@@ -97,7 +97,7 @@ define(
                         view.render();
                         
                         //... Update Langmenu Links and load view
-                        langmenu.render();
+                        viewlangmenu.render();
                              
                 });
                        
