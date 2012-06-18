@@ -7,11 +7,12 @@ define(
     ],
     function(_,Config) {
 
-        var active = true;
+        var active = 0;
     
         return {
             
             lastStep: 0,
+            
             log : function(msgObj,step){
                 
                 

@@ -62,12 +62,16 @@ define([
                 
             },
   
-            loadLang : function(target){
+            loadLang : function(event){
               
               logger.log('---Selected Language Link---',3);  
-              logger.log(target.currentTarget.href,3);  
               
-              window.location.href=target.currentTarget.href;
+              logger.log(event.currentTarget.href,3);  
+              
+              event.preventDefault();
+              
+              window.location.href=event.currentTarget.href;
+              
               window.location.reload();
             
             },
