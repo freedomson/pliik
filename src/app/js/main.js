@@ -55,15 +55,20 @@ require([
         
             _.union(
             
-                ['app'], // App Module
+                ['app','jQuery'], // App Module
                 
                 Modules.loadPaths // Plugin Modules - Auto Load
                 
             )   
             
-            , function(App){
+            , function(App,$){
 
-                App.initialize();
+                // Opera needs this in APP folder...
+                $('document').ready(function(){
+                    
+                    App.initialize();
+                    
+                });
             
             });
 
