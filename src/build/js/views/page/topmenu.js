@@ -76,7 +76,7 @@ define([
                 var TplMustacheCompiled = Mustache.to_html(template, view);
                 var TplJadeCompiled =  jade.render(TplMustacheCompiled)
                 
-                $('#menu').html( TplJadeCompiled );
+                $('#topmenu').html( TplJadeCompiled );
 
             }
         });

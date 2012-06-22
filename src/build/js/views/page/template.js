@@ -5,10 +5,11 @@ define([
     'less',
     'text!../../../css/style.css',
     'views/brand/logo',
-    'views/page/menu',   
+    'views/page/topmenu',
     'views/page/footer',  
     'jade',
-    'Mustache'
+    'Mustache',
+    'lang'
     ], function
         (
         $, 
@@ -17,10 +18,11 @@ define([
         less,
         cssCode,
         brandLogoView,
-        pageMenuView,
+        pageTopMenuView,
         pageFooterView,
         jade,
-        Mustache
+        Mustache,
+        Lang
         ){
 
         var mainPageView = Backbone.View.extend({
@@ -63,11 +65,14 @@ define([
                     brandLogoView.render();      
                     
                     //... Render Menu template
-                    pageMenuView.render();      
+                    pageTopMenuView.render();     
                     
                     //... Render Footer template
                     pageFooterView.render();
-      
+                    
+                    //... IMPORTANT
+                    // Language Menu is Rendered at Routes Interface
+                    
                 }
 
 

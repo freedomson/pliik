@@ -9,6 +9,7 @@ define({
         
         // content
         "/content/:page" : "/content/:page",
+        "/content/opensource" : "/content/opensource",
         
         // users
         "/users" : "/users",

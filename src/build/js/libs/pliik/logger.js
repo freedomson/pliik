@@ -6,15 +6,31 @@ define([
     ],
     function(_,Config) {
 
-        var active = true;
+        var active = 1;
     
         return {
             
-            log : function(msg){
+            lastStep: 0,
+            
+            log : function(msgObj,step){
                 
-                if ( active )
+                
+                if ( active  )
                     
-                    console.log(msg);
+                
+                    if ( step ) {
+                        
+                          if (this.lastStep!=step) {
+                              
+                            console.log('---Step:'+step+'---'); 
+                            console.log(step);
+                          }
+                      
+                          console.log(msgObj);
+     
+                    }
+                
+                this.lastStep = step;
                 
             }
             

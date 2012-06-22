@@ -2,14 +2,20 @@
 //before returning its module definition.
 define([
     'Underscore',
-    'config'
+    'config',
+    'Logger'
     ],
-    function(_,Config) {
+    function(_,Config,logger) {
     
         return {
         
+        
+            lastactive : '', // Last active lang code ex: 'pt-PT'
+            
             initialize : function(){
                              
+                logger.log("---Activate Request Language---",3);  
+                
                 this.activateRequestLanguage();
                 
             },
@@ -24,6 +30,25 @@ define([
                 var urlAux = url.split('/');
             
                 var pathLang = urlAux[urlAux.length-1];
+
+                
+                // Check if we have activate language request already
+                if ( 
+                    this.lastactive == pathLang 
+                    && this.lastactive != '') {
+                    
+                    logger.log("Bypass: " + pathLang ,3);
+                    return; // Nothing to do, language change already processed!
+                    
+                }
+                    
+                this.lastactive = pathLang;                
+                
+                this.globalLanguageChangeRequest(pathLang);
+        
+            },
+            
+            globalLanguageChangeRequest : function(pathLang){
                 
                 // Iterate active languages for a language code match
                 // If true we force a global language update
@@ -32,13 +57,6 @@ define([
  
                     //... Set selected language at Config Object
                     Config.i18n.selected = pathLang;
-                       
-                    //... Se selected language at RequireJS
-                    require.config({
-          
-                        locale: pathLang
-                            
-                    });              
 
                 } else {
                     
@@ -46,14 +64,19 @@ define([
                     // Activate default language from config object.
                     
                     //... Se selected language at RequireJS
-                    require.config({
-
-                        locale: Config.i18n.selected
-
-                    });       
+                    pathLang = Config.i18n.selected;  
                 
                 }
-        
+
+                //... Se selected language at RequireJS
+                require.config({
+
+                    locale: pathLang
+
+                }); 
+                    
+                logger.log("Activate: " + pathLang,3);
+                
             }
     
         }
