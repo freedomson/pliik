@@ -1,8 +1,0 @@
-{
-  "name": "geobot",
-  "version": "0.0.1",
-  "dependencies": {
-    "node-xmpp":">=0.0.1",
-    "couch": ">=0.0.5"
-  }
-}
