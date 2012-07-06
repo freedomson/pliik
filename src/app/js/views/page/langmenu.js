@@ -36,6 +36,7 @@ define([
 
                 _.each(config.i18n.active, function(item){ 
 
+                   // Item Setup ~~~~~~~~~~~~~~~~~~~~~~~~~
                    menuitems.push(
                                 {
                                     title : item,
@@ -43,7 +44,11 @@ define([
                                         util.cleanRoute
                                         ,item
                                     ),
-                                    cssclass:'langmenu-link'    
+                                    cssclass:'langmenu-link',
+                                    jqm : {
+                                        datamini : config.jquerymobile.datamini,
+                                        datatheme : config.jquerymobile.datatheme
+                                    }
                                 });
 
                 }); 
@@ -81,6 +86,9 @@ define([
                 logger.log("---Rendering LangMenu---",3);  
                 
                 $('#langmenu').html( this.renderTemplate() );
+                
+                // TODO: Backbone Observer Pattern On This Please!
+                $('.pliik-menu-item').button(); 
 
             }
         });

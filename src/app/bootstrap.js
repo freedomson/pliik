@@ -136,6 +136,8 @@ var BrowserRedirect = {
             
         }
         
+         dataMain = 'js/main';
+        
         this.includeMainJSFile(dataMain);
         
     },
@@ -151,6 +153,7 @@ var BrowserRedirect = {
     }
     
 }
+
 
 
 BrowserRedirect.init();

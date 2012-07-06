@@ -1,10 +1,12 @@
-div.menu-container
-    
-    ul
+div.menu-container(data-role="navbar", data-type="horizontal")
+ul
+    {{#menuitems}} 
 
-        {{#menuitems}} 
-            li 
-                a(href='{{route}}', class='{{cssclass}}') {{title}} 
+        li
 
-        {{/menuitems}}
+            a(data-iconpos='{{jqm.dataiconpos}}',data-corners="false", data-shadow="false", data-icon='{{jqm.dataicon}}', data-mini='{{jqm.datamini}}', href='{{route}}', class='pliik-menu-item {{cssclass}}', data-role="button", data-inline="true", data-theme='{{jqm.datatheme}}') {{title}} 
+
+    {{/menuitems}}
+
+<!-- /navbar -->
 

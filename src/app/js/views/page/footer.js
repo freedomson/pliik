@@ -28,7 +28,7 @@ define([
                 var view = {
                     opensourcelink : Util.parseURL('/content/opensource'),
                     entity : Config.entity,
-                    date : $.format.date(Date(),Config.date.format.year)
+                    date : Date()
                 };
    
                    

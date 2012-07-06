@@ -6,29 +6,35 @@ define([
     'libs/pliik/module-loader',
     'config',
     'libs/pliik/util',
-    'Mustache'
+    'Mustache',
+    'Logger'
     ], function(
         $, 
         _, 
         Backbone, 
         template, 
         modules, 
-        Config, 
+        config, 
         Util, 
-        Mustache){
+        Mustache,
+        logger){
 
         var view = Backbone.View.extend({
 
             el: $('#menu-container'),
             
             // template: jade.render(template),
-            
+                  
             menuitems : [
                 
             {
                 title : 'Home',
-                route : Util.parseURL('')
-            },{
+                route : Util.parseURL(''),
+                jqm : {
+                    datamini : config.jquerymobile.datamini,
+                    datatheme: config.jquerymobile.datatheme
+                }
+            }/*,{
                 title : 'Signup',
                 route : Util.parseURL('/users/signup')
             },
@@ -42,9 +48,13 @@ define([
             },{
                 title : 'User List',
                 route : Util.parseURL('/users')
-            },{
+            }*/,{
                 title : 'Open Source',
-                route : Util.parseURL('/content/opensource')
+                route : Util.parseURL('/content/opensource'),
+                jqm : {
+                    datamini : config.jquerymobile.datamini,
+                    datatheme: config.jquerymobile.datatheme
+                }
             }
                 
             ],
@@ -61,6 +71,10 @@ define([
                         _.each(require(value).menu, function(item){ 
                             
                             item.route = Util.parseURL(item.route);
+                            item.jqm = {
+                                datamini:config.jquerymobile.datamini,
+                                datatheme: config.jquerymobile.datatheme
+                            }
                             that.menuitems.push(item);
                             
                         }); 
@@ -73,11 +87,20 @@ define([
                     "menuitems" : that.menuitems
                 };
                 
+                
+                logger.log("---ViewData at TopMenu Before Render---",4);
+                logger.log(view,4);
+
+                logger.log("---Util at TopMenu Before Render---",4);
+                logger.log(Util,4);
+                
+                logger.log("$('.pliik-menu-item').button();",4);
+                
                 var TplMustacheCompiled = Mustache.to_html(template, view);
                 var TplJadeCompiled =  jade.render(TplMustacheCompiled)
                 
                 $('#topmenu').html( TplJadeCompiled );
-
+                
             }
         });
   

@@ -7,7 +7,7 @@ define(
     ],
     function(_,Config) {
 
-        var active = 0;
+        var active = 1;
     
         return {
             

@@ -53,7 +53,43 @@
     <title>Pliik</title>
 
     <link rel="shortcut icon" href="pic/favicon.ico">    
+
+    <script src="js/libs/vendor/jquery/jquery-1.7.2.min.original.js"></script>
+
+    <script>
+        
+       
+        $( document ).bind( "mobileinit", function(){
+            
+            // $.mobile.button.prototype.options.initSelector = ".pliik-menu-items";
+
+            /* http://coenraets.org/blog/2012/03/using-backbone-js-with-jquery-mobile/ */
+            // http://jquerymobile.com/demos/1.1.0/docs/api/globalconfig.html
+            $.mobile.ajaxEnabled = false;
+            $.mobile.linkBindingEnabled = false;
+            $.mobile.hashListeningEnabled = false;
+            $.mobile.pushStateEnabled = false;
+            $.mobile.autoInitializePage = true;
+                
+            $.mobile.pageLoadErrorMessage ="";
+            $.mobile.loadingMessage = "loading<-&";
+            
+        });
+
+    </script>
     
+    <style>
+        
+        @import url(css/jquery/jquery.mobile-1.1.0.min.css);
+        
+        #container {
+                display:none;
+        }
+        
+    </style>
+    
+    <script src="js/libs/vendor/jquery/jquery.mobile-1.1.0.min.js"></script>
+
     <script src='bootstrap.js'></script>
     
 </head>

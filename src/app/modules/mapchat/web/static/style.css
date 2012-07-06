@@ -1,0 +1,128 @@
+body{ margin:0px; padding:0px; font-family:arial; font-size:14px;}
+div#chatcontent{ position: absolute; top:0px; right:0px; bottom:120px; top:38px;  background:#fff; width:250px;   overflow:auto; z-index:1000;}
+
+div#headerwrapper{ position:absolute; top:0px; left:0px; 
+  z-index:10; width:100%;
+}
+
+div#map-container{ 
+  width:100%;
+  position:absolute !important;
+  top:0px;
+  left:0px;
+}
+div#map{ 
+  width:100%;
+  height:100%;
+}
+div#status{ 
+  position:absolute;
+  top:0px;
+  right:0px;
+  width:200px;
+  z-index:1002;
+  text-align:right;
+}
+div#topnav{ 
+  position:absolute;
+  top:0px;
+  left:0px;
+  background-color: rgba(255,255,255,0.9);
+  width:100%;
+  border-bottom: solid 1px #666;
+  z-index:1000;
+}
+div#topnav ul#tabs{
+  border:none;
+  margin-bottom:2px;
+} 
+div#footerwrapper{ position:absolute; left:0px; bottom:0px; height:70px;
+  z-index:10; width:100%
+}
+
+div.spacer{ 
+  clear:both;
+  height:1px;
+}
+
+div.title{ 
+  font-size:18px;
+}
+div.title.light{ 
+  color:#eee;
+}
+
+div#square{ 
+  width:80px;
+  height:80px;
+  float:right;
+  background:#00aef0;
+  margin-bottom:15px;
+}
+div#navigation div.divider{ 
+  height:1px;
+  background:#999;
+  width:100%;
+  margin:3px 0px;
+  
+}
+#aboutnav{ 
+  position:absolute;
+  right:250px;
+  top:10px;
+  font-weight:bold;
+}
+div#wrapper{ 
+  padding-left:285px;
+  padding-right:25px;
+}
+
+
+div#chatcontent div.messagebox{ 
+  padding:5px;
+  border-bottom:solid 1px #cccccc;
+  min-height:20px;
+  margin-bottom:10px;
+}
+div#chatcontent div.messagebox.joined{
+  font-weight:bold;
+  font-size:0.6em;
+  color:#666;
+  min-height:10px;
+  padding:1px 5px;
+  margin-bottom:2px;
+} 
+div#chatcontent span.username{ 
+  font-weight:bold;
+  font-size:0.8em;
+}
+div#chatmessage{ 
+  position:absolute;
+  bottom:0px;
+  right:0px;
+  background:#ccc;
+  z-index:1001;
+  width:250px;
+}
+textarea#message{ 
+  width:170px;
+  height:60px;
+  margin:5px;
+}
+input#sendmessage{ 
+  position:relative;
+  top:-40px;
+  width:60px;
+  height:35px;
+  left:190px;
+}
+div#log{ 
+  background: #fff;
+  overflow:scroll;
+  height:400px;
+  position: absolute;
+  top:0px;
+  right:0px;
+  width:500px;
+  display:none;
+}

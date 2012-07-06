@@ -18,13 +18,13 @@ define(
                 
             },
             
-            entity : 'Pliik',
+            entity : 'Pliik', // Corporate Brand Name
             
             i18n : {
             
                 selected : navigator.language || navigator.userLanguage,
                 
-                active: ['pt-PT','en-US']
+                active: ['pt-PT','en-US'] // Active i18n
             
             },
         
@@ -41,6 +41,13 @@ define(
                     year : 'yyyy'   
                 
                 }
+            },
+            
+            jquerymobile : {
+                
+                datatheme : 'd',
+                datamini: 1
+                
             }
         }
         

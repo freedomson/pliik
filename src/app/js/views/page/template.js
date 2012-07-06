@@ -34,9 +34,9 @@ define([
             render: function(){
 
                 // Only render main template if not already present.
-        
+
                 if ( ! $(".container-template-main")[0] ) {
-          
+                    
                     /***********************************************
                     * CSS Less
                     ************************************************/ 
@@ -69,12 +69,15 @@ define([
                     
                     //... Render Footer template
                     pageFooterView.render();
-                    
+                     
                     //... IMPORTANT
                     // Language Menu is Rendered at Routes Interface
-                    
+                    // views/page/langmenu.js
+                  
+
                 }
 
+                    
 
             }
         });

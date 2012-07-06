@@ -43,7 +43,11 @@ require([
     // Because these scripts are not "modules" they do not pass any values to the definition function below
     ], function(Modules,Config,_,Lang){
         
-        
+           
+        // Show Loading Mask
+        // TODO: Move to external object Mobile
+        $.mobile.showPageLoadingMsg();
+           
         // Initialize Language engine
         Lang.initialize();
 
@@ -63,12 +67,11 @@ require([
             
             , function(App,$){
 
-                // Opera needs this in APP folder...
-                $('document').ready(function(){
+
                     
                     App.initialize();
                     
-                });
+
             
             });
 

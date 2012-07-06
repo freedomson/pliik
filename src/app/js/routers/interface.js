@@ -79,6 +79,11 @@ define(
                  
                 logger.log("---Rendering View---",3);  
                 logger.log("view:"+view,3);
+                
+                
+                logger.log("$.mobile.showPageLoadingMsg();",4);
+                
+                $.mobile.showPageLoadingMsg();
                       
                 var router = this;
                 
@@ -98,6 +103,8 @@ define(
                         
                         //... Update Langmenu Links and load view
                         viewlangmenu.render();
+                        
+                        $.mobile.hidePageLoadingMsg();
                              
                 });
                        

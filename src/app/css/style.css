@@ -6,6 +6,24 @@
  * Kroc Camen, and the H5BP dev community and team.
  */
 
+ /* =============================================================================
+  JQuery Mobile overwrite
+   ========================================================================== */
+ 
+ .ui-btn-text {
+     font-weight: normal !important;
+     
+ }
+ 
+ .ui-icon-PT-PT {
+	background-image: url(css/flags/Portugal.png) !important;
+        background-size: 32px 32px;
+}
+
+ .ui-icon-EN-US {
+	background-image: url(css/flags/Usa.png);
+}
+
 /* =============================================================================
   LESS
    ========================================================================== */
@@ -306,9 +324,7 @@ body {
 #container #contentcontainer {
     margin: 5%;
     position: relative;
-    width: 960px;
-    margin-left: auto; 
-    margin-right: auto;
+    width: 100%;
 }
 
 
@@ -316,6 +332,7 @@ body {
   height: 30px; 
   color: #fff; 
   text-align: right;
+  display: table-row;
 }
 .menu ul {
   list-style: none;
