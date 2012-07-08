@@ -22,10 +22,16 @@ define(
             
             i18n : {
             
-                selected : selectDefaultLangCode(
-                                'en-US'/* DEFAULT LANG */),
+                // TODO: Refactor by Einstein
+                selected :                  /* DEFAULT LANG */
+                            selectDefaultLangCode('en-US'),
             
-                active: ['pt-PT','en-US'] // Active i18n
+                            /**
+                             AVAILABLE:
+                              pt-PT
+                             **/
+            
+                active: ['en-US','pt-PT'] // Active i18n
             
             },
         
@@ -63,9 +69,14 @@ define(
         /**
          * 
          * select default language
+         * config is resposible for this?
+         * it happens...
          * 
+         * pt goes as pt-PT
+         * != 5 goes to default lang
          * 
          */
+        
         function selectDefaultLangCode(defaultlang) {
 
             var sel = navigator.language || navigator.userLanguage;

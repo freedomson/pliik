@@ -86,6 +86,30 @@
                 display:none;
         }
         
+        
+        /* =============================================================================
+        JQuery Mobile overwrite
+        ========================================================================== */
+
+        .ui-focus, .ui-btn:focus {
+
+            box-shadow: 0px 0px 0px 0px #FFF !important;
+
+        }
+        .ui-btn-text {
+            font-weight: normal !important;
+
+        }
+
+        .ui-icon-PT-PT {
+                background-image: url(css/flags/Portugal.png) !important;
+                background-size: 32px 32px;
+        }
+
+        .ui-icon-EN-US {
+                background-image: url(css/flags/Usa.png);
+        }     
+        
     </style>
     
     <script src="js/libs/vendor/jquery/jquery.mobile-1.1.0.min.js"></script>
@@ -94,7 +118,7 @@
     
 </head>
 
-<body>
+<body data-theme="d" data-role="page">
     
 </body>
 
