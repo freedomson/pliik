@@ -308,7 +308,7 @@ body {
 }
 
 #container {
-    .less-gradient(lightSteelBlue,50%,LightCyan,100%);
+    /*.less-gradient(lightSteelBlue,50%,LightCyan,100%);*/
     display: table; 
     height: 100%; 
     width: 100%;
@@ -322,7 +322,7 @@ body {
 }
 
 #container #contentcontainer {
-    margin: 5%;
+    margin: 1em 0px 1em 0px;
     position: relative;
     width: 100%;
 }
@@ -349,6 +349,7 @@ body {
   .less-link(white,black,white,1.5em,30px);
 }
 
+
 /*
 +-------------------------------------------------------------------------------
 | LOGO START 
@@ -356,7 +357,13 @@ body {
 */
 
 #logo {
-   height: 80px;
+    float: right;
+    right: 0px;
+    top: 0px;/*
+    width: 100%;
+   -webkit-transform: rotate(-90deg); 
+   -moz-transform: rotate(-90deg);	
+   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);*/
 }
 
 #logo_link {
@@ -364,7 +371,9 @@ body {
     
 }
 
-#logo_container {}
+#logo_container {
+    border: 0px solid #CCC;
+}
 
 /*
 +-------------------------------------------------------------------------------

@@ -7,7 +7,8 @@ define([
     'libs/pliik/util',
     'Mustache',
     'jade',
-    'Logger'
+    'Logger',
+    'lang'
     ], function(
         $, 
         _, 
@@ -17,7 +18,8 @@ define([
         util, 
         Mustache,
         jade,
-        logger
+        logger,
+        lang
         ){
 
         var view = Backbone.View.extend({
@@ -32,10 +34,24 @@ define([
                 
                 util.updateCleanRoute();  
  
+                logger.log(util,4);
+ 
                 var menuitems = [];
 
-                _.each(config.i18n.active, function(item){ 
 
+                _.each(config.i18n.active, function(item){
+
+                
+                    logger.log(item + "(item)==(config.i18n.selected)" + config.i18n.selected, 4);
+                    logger.log(item + "(item)==(lang.active)" + lang.active, 4);
+                    
+                    var themeact = 
+                        ( item == config.i18n.selected ) ?
+                            config.jquerymobile.datathemeactive
+                            : config.jquerymobile.datatheme
+                            
+                                    
+                   
                    // Item Setup ~~~~~~~~~~~~~~~~~~~~~~~~~
                    menuitems.push(
                                 {
@@ -47,7 +63,7 @@ define([
                                     cssclass:'langmenu-link',
                                     jqm : {
                                         datamini : config.jquerymobile.datamini,
-                                        datatheme : config.jquerymobile.datatheme
+                                        datatheme : themeact
                                     }
                                 });
 
@@ -58,6 +74,11 @@ define([
                 var viewData = {
                     "menuitems" : menuitems
                 };
+
+                logger.log("langmenu",4);
+                logger.log(viewData,4);
+                logger.log(lang,4);
+                logger.log(config,4);
                 
                 var TplMustacheCompiled = Mustache.to_html(template, viewData);
                 
@@ -86,9 +107,9 @@ define([
                 logger.log("---Rendering LangMenu---",3);  
                 
                 $('#langmenu').html( this.renderTemplate() );
-                
+
                 // TODO: Backbone Observer Pattern On This Please!
-                $('.pliik-menu-item').button(); 
+                $('.pliik-menu-item-mobile').button(); 
 
             }
         });

@@ -9,7 +9,7 @@ define({
         
         // content
         "/content/:page" : "/content/:page",
-        "/content/opensource" : "/content/opensource",
+        "/content/about" : "/content/about",
         
         // users
         "/users" : "/users",
@@ -18,6 +18,18 @@ define({
         
     },
     content : {
-        "opensource" : "opensource"  
+        "about" : "about"  
+    },
+    
+    page : {
+        
+        about : {
+            
+            title : "About"
+            
+        }
+        
     }
+    
+    
 });

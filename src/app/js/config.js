@@ -22,8 +22,9 @@ define(
             
             i18n : {
             
-                selected : navigator.language || navigator.userLanguage,
-                
+                selected : selectDefaultLangCode(
+                                'en-US'/* DEFAULT LANG */),
+            
                 active: ['pt-PT','en-US'] // Active i18n
             
             },
@@ -46,11 +47,43 @@ define(
             jquerymobile : {
                 
                 datatheme : 'd',
-                datamini: 1
+                datathemeactive: 'e',
+                datathemeactivetopmenu: 'd',
+                datamini: 1,
+                cssname : {
+                    
+                    button: 'pliik-menu-item-mobile'
+                    
+                }
                 
             }
         }
         
+        
+        /**
+         * 
+         * select default language
+         * 
+         * 
+         */
+        function selectDefaultLangCode(defaultlang) {
+
+            var sel = navigator.language || navigator.userLanguage;
+
+            if ( sel.length == 2 ) {
+
+                sel += '-'+sel.toUpperCase();
+
+            } else if ( sel.length != 5 ) {
+
+               sel = defaultlang;
+
+            }
+
+            return sel;
+
+        }
+                
         return Config
     
     });

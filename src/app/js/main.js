@@ -27,6 +27,7 @@ require.config({
         lang: 'libs/pliik/lang',
         Mustache : 'libs/vendor/mustache/mustache',
         Logger : 'libs/pliik/logger'
+
     }    
 
 });
@@ -68,9 +69,21 @@ require([
             , function(App,$){
 
 
+                    // Opera as a special need ;)
                     
-                    App.initialize();
-                    
+                    if ( BrowserDetect.browser == 'Opera' ) {
+                        
+                        $(document).ready(function(){
+
+                            App.initialize();
+
+                        });
+                        
+                    } else {
+                        
+                        App.initialize();
+                        
+                    }
 
             
             });

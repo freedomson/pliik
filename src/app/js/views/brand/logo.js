@@ -7,8 +7,10 @@ define([
     'Raphael',
     'jade',
     'Mustache',
-    'libs/pliik/util'
-    ], function($, _, Backbone, template, Config, Raphael, jade, Mustache, Util){
+    'libs/pliik/util',
+    'Logger'
+    ], function($, _, Backbone, template, 
+    Config, Raphael, jade, Mustache, Util,logger){
 
         var brandLogoView = Backbone.View.extend({
 
@@ -26,19 +28,21 @@ define([
                     url : Util.parseURL(''),
                     entity : Config.entity
                 };
-   
+                
                 $("#logo").html(
                     Mustache.to_html(this.template, view)
                     );
 
-                var paper = new Raphael($($('#logo_container').selector).attr('id'), 300, 50)
-     
+                var paper = new Raphael($($('#logo_container').selector).attr('id'), 120, 30)
+
+                logger.log(paper,4);
+
                 var letters = paper.printLetters(
-                    30,
-                    30, 
+                    10,
+                    20, 
                     this.company, 
                     paper.getFont(this.font),
-                    75
+                    30
                     );
 
                 var logoColors = [
@@ -50,12 +54,24 @@ define([
                     //... reset color
                     if ( i%logoColors.length == 0 ) icolor = 0;
                     
-                    letters[i].attr({
+                        /*var x= */
+                        
+                        letters[i].attr({
                         fill: logoColors[icolor] , 
-                        "stroke-width":"2", 
+                        "stroke-width":"1", 
                         stroke: logoColors[icolor]
                     })
+                    
+                    // try{x.rotate(10);}catch(e){}
+                    
                 }
+
+                // try{letters.rotate(0);}catch(e){}
+                
+                /*letters.attr({
+                    'stroke-width': 2,
+                    'stroke': '#00aeef'
+                });*/
 
             }
     

@@ -62,13 +62,13 @@ define([
                         );
                             
                     //... Render Logo template
-                    brandLogoView.render();      
+                    // brandLogoView.render();      
                     
                     //... Render Menu template
                     pageTopMenuView.render();     
                     
                     //... Render Footer template
-                    pageFooterView.render();
+                    // pageFooterView.render();
                      
                     //... IMPORTANT
                     // Language Menu is Rendered at Routes Interface

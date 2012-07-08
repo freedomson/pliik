@@ -9,7 +9,7 @@ define({
 
         // content
         "/content/:page" : "/conteudo/:page",
-        "/content/opensource" : "/conteudo/codigolivre",
+        "/content/about" : "/conteudo/acerca",
 
         // users
         "/users" : "/utilizadores",
@@ -19,7 +19,17 @@ define({
     },
     
     content : {
-        "codigolivre" : "opensource"  
+        "acerca" : "about"  
+    },
+    
+    page : {
+        
+        about : {
+            
+            title : "Acerca"
+            
+        }
+        
     }
     
 });

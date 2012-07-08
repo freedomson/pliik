@@ -74,6 +74,10 @@ define(
                 } 
                 
                 
+                
+                logger.log(rootlang,412);
+                
+                
                 logger.log("fragment:"+Backbone.history.fragment,3);  
                 logger.log("config.i18n.selected:"+this.selected,3);  
                 logger.log("config.routes.cleanRoute:"+this.cleanRoute,3);  

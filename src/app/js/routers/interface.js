@@ -1,3 +1,4 @@
+
 // Filename: router.js
 define(
     [
@@ -107,7 +108,10 @@ define(
                         $.mobile.hidePageLoadingMsg();
                              
                 });
-                       
+                     
+                                     
+                // TODO: Backbone Observer Pattern On This Please!
+                $('.pliik-menu-item-mobile').button(); 
                 
             }
     

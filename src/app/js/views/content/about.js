@@ -2,13 +2,13 @@ define([
   'jQuery',
   'Underscore',
   'Backbone',
-  'text!templates/content/opensource.jade',
+  'text!templates/content/about.jade',
   'jade'
 ], function($, _, Backbone, template, jade){
 
   var view = Backbone.View.extend({
 
-    navigation : "Open Source",
+    navigation : "About",
     
     render: function(){
         

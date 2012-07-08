@@ -12,7 +12,7 @@ define([
             render: function(){
         
                 // Using Jade Templating
-                $("#page").html(jade.render(mainHomeTemplate));
+               $("#page").html(jade.render(mainHomeTemplate));
 
                 var paper = Raphael("canvas", 800, 200);
       
@@ -36,7 +36,6 @@ define([
                     "stroke-width": 30, 
                     "stroke-opacity": 0.8
                 }, 2000);
-
 
             }
         });

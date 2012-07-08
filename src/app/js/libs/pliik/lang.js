@@ -11,7 +11,7 @@ define(
         return {
         
         
-            lastactive : '', // Last active lang code ex: 'pt-PT'
+            active : '', // Last active lang code ex: 'pt-PT'
             
             initialize : function(){
                              
@@ -35,15 +35,15 @@ define(
                 
                 // Check if we have activate language request already
                 if ( 
-                    this.lastactive == pathLang 
-                    && this.lastactive != '') {
+                    this.active == pathLang 
+                    && this.active != '') {
                     
                     logger.log("Bypass: " + pathLang ,3);
                     return; // Nothing to do, language change already processed!
                     
                 }
                     
-                this.lastactive = pathLang;                
+                this.active = pathLang;                
                 
                 this.globalLanguageChangeRequest(pathLang);
         
