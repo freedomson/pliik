@@ -8,8 +8,49 @@
 
 body { 
     background-image: url(/app/pic/Blue_wave_of_water-wide.jpg);
-    background-attachment: fixed;
-    font-size: 80%;
+    /* background-attachment: fixed; */
+    font-size: 140%;
     margin:5%;
+    
+    color: FloralWhite;
+    text-shadow: 1px 1px 1px #000000;
+    
+}
+
+.footer {
+    
+    padding-top: 2em;
+    padding-bottom: 2em;    
+    
+}
+
+a {
+    
+    color: yellow;
+    font-weight: bold;
+    
+}
+
+.navbar {
+    
+    font: bold 65% sans-serif;    
+    padding: 0px;
+    left: 78%;
+    width: 25%;
+    
+}
+
+.navbar span{
+    
+    font-size: 120%;
+    padding: 0em !important;
+    
+}
+
+span.text {
+    
+    display: table;
+    padding: 0.5em;
+    
 }
 

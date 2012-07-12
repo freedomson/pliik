@@ -117,7 +117,7 @@ define(
                      
                                      
                 // TODO: Backbone Observer Pattern On This Please!
-                $('.pliik-menu-item-mobile').button(); 
+                // $('.pliik-menu-item-mobile').button(); 
                 
             }
     

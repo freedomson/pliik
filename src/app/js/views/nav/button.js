@@ -80,7 +80,7 @@ define([
                 });
 
                 icon.transform("t185,55r0t-100,0");
-                icon.scale(1.3,1.3);
+                icon.scale(1,1.5);
                 icon.glow({color:'#fff'});
                 
                

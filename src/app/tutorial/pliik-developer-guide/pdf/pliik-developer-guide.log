@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.11)  12 JUL 2012 10:11
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.11.10)  12 JUL 2012 19:37
 entering extended mode
  %&-line parsing enabled.
 **pliik-developer-guide.tex
@@ -55,6 +55,24 @@ Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
+)
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
 (/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
@@ -174,20 +192,20 @@ File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
 (pdf/PDG-Chapter-2-Localization.aux))
 \openout1 = `pliik-developer-guide.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -202,7 +220,7 @@ LaTeX Font Info:    ... okay on input line 35.
 \MPnumerator=\count99
 \everyMPtoPDFconversion=\toks17
 )
-Package hyperref Info: Link coloring ON on input line 35.
+Package hyperref Info: Link coloring ON on input line 32.
  (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -211,8 +229,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count100
 )
-LaTeX Info: Redefining \ref on input line 35.
-LaTeX Info: Redefining \pageref on input line 35.
+LaTeX Info: Redefining \ref on input line 32.
+LaTeX Info: Redefining \pageref on input line 32.
 
 (pdf/pliik-developer-guide.out) (pdf/pliik-developer-guide.out)
 \@outlinefile=\write3
@@ -224,11 +242,11 @@ LaTeX Info: Redefining \pageref on input line 35.
 File: logo.png Graphic file (type png)
  <use logo.png>
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 43.
+(Font)              <12> on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 43.
+(Font)              <8> on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 43.
+(Font)              <6> on input line 40.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo.png>]
@@ -249,20 +267,21 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.47 \include{PDG-Chapter-1-Install}
+l.44 \include{PDG-Chapter-1-Install}
                                      [1
 
 ]
 \openout2 = `PDG-Chapter-2-Localization.aux'.
 
  (./PDG-Chapter-2-Localization.tex
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 25.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 25.
+Overfull \hbox (34.38954pt too wide) detected at line 26
+ \OT1/cmr/m/n/10 lang.getActiveCode( config ) Search URL, process default Set r
+equire locale config option  
+ []
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 25--26
-[][][][][][] 
+
+Overfull \hbox (21.0pt too wide) in paragraph at lines 26--27
+[][][][][][][] 
  []
 
 ) [2
@@ -271,10 +290,10 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 25--26
 ] (pdf/pliik-developer-guide.aux (pdf/PDG-Chapter-1-Install.aux)
 (pdf/PDG-Chapter-2-Localization.aux)) ) 
 Here is how much of TeX's memory you used:
- 4225 strings out of 495061
- 61998 string characters out of 1182621
- 124436 words of memory out of 3000000
- 7344 multiletter control sequences out of 15000+50000
+ 4627 strings out of 495061
+ 66495 string characters out of 1182620
+ 133134 words of memory out of 3000000
+ 7740 multiletter control sequences out of 15000+50000
  7587 words of font info for 27 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  38i,6n,38p,271b,316s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -283,7 +302,7 @@ blic/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
 ts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.
 pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sh
 are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on pdf/pliik-developer-guide.pdf (3 pages, 68221 bytes).
+Output written on pdf/pliik-developer-guide.pdf (3 pages, 68164 bytes).
 PDF statistics:
  63 PDF objects out of 1000 (max. 8388607)
  7 named destinations out of 1000 (max. 500000)

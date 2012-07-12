@@ -108,7 +108,7 @@ define([
                 
                 var css = config.jquerymobile.cssname.button
                 
-                logger.log("$('."+css+"').button();",4);
+                // logger.log("$('."+css+"').button();",4);
                 
                 var TplMustacheCompiled = Mustache.to_html(template, view);
                 
