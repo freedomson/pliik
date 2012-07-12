@@ -2,6 +2,17 @@
 
 \usepackage{graphicx}
 
+
+\usepackage{color}
+\definecolor{lightgray}{gray}{0.75}
+
+\newcommand\greybox[1]{%
+  \par\noindent\colorbox{lightgray}{%
+    \begin{minipage}{\textwidth}#1\end{minipage}%
+  }%
+}
+
+
 \usepackage[
     pdfauthor={Pliik},
     pdftitle={Pliik Developer Guide},
@@ -15,7 +26,9 @@
 
 \title{Pliik Developer Guide}
 
-\date{May, 2012}
+\date{
+\today
+}
 
 
 
@@ -31,6 +44,8 @@
 
 \newpage
 
-\include{PDG-Chapter-I-Install}
+\include{PDG-Chapter-1-Install}
+
+\include{PDG-Chapter-2-Localization}
 
 \end{document}

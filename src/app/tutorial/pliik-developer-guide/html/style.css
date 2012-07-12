@@ -1,0 +1,15 @@
+/* 
+    Document   : style
+    Created on : 12/Jul/2012, 4:17:45
+    Author     : philip
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body { 
+    background-image: url(/app/pic/Blue_wave_of_water-wide.jpg);
+    background-attachment: fixed;
+    font-size: 80%;
+    margin:5%;
+}
+

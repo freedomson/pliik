@@ -4,6 +4,7 @@
     <title>Pliik Developer Guide</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="core.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <div class="navbar">
@@ -15,6 +16,12 @@
 <a href="#S1" title="§1. Installing Pliik in Pliik Developer Guide" class="ref toc">§1 Installing Pliik</a>
   <ul class="toc">
   <li class="tocentry" id=""><a href="#S1.SS1" title="§1.1. CouchDB in §1. Installing Pliik in Pliik Developer Guide" class="ref toc">§1.1 CouchDB</a></li>
+    </ul>
+</li>
+  <li class="tocentry" id="">
+<a href="#S2" title="§2. Localization in Pliik Developer Guide" class="ref toc">§2 Localization</a>
+  <ul class="toc">
+  <li class="tocentry" id=""><a href="#S2.SS1" title="§2.1. Starting the engine in §2. Localization in Pliik Developer Guide" class="ref toc">§2.1 Starting the engine</a></li>
     </ul>
 </li>
     </ul>
@@ -63,10 +70,53 @@
   
     </div>
   
+    <div class="section" id="S2">
+    <h2 class="title section-title">§ 2. Localization</h2>
+    <div class="subsection" id="S2.SS1">
+    <h3 class="title subsection-title">§ 2.1. Starting the engine</h3>
+  <div class="para" id="S2.SS1.p1">
+    <p class="p">In Pliik this is all achieved at the config Object.</p>
+  </div>
+
+  <div class="para" id="S2.SS1.p2">
+    <p class="p">beginverbatim
+sdsdfsd
+sdfsdfs
+endverbatim</p>
+  </div>
+
+  <div class="para" id="S2.SS1.p3">
+    <p class="p">1. FILE:js/config</p>
+  </div>
+
+  <div class="para" id="S2.SS1.p4">
+    <p class="p"><span style="" class="text">
+    <span class="inline-block">
+    <p class="p">lang.getActiveCode( config )
+Search URL, process default
+Set require locale config option</p>
+  </span>
+  </span></p>
+  </div>
+
+  <div class="para" id="S2.SS1.p5">
+    <p class="p">2. Core Engine</p>
+  </div>
+
+  <div class="para" id="S2.SS1.p6">
+    <p class="p">After setting the proper require.config.locale all the
+processing is done by the i18n internationalization module for require.js</p>
+  </div>
+
+    </div>
+  
+    </div>
+  
     </div>
   
         </div>
-    <div class="footer">May, 2012
+    <div class="footer">
+July 12, 2012
       </div>
       </div>
     </body>
