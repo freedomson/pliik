@@ -6,7 +6,6 @@
 
 
 require.config({
-    
     paths: {
         loader: 'libs/vendor/backbone/loader',
         jQuery: 'libs/vendor/jquery/jquery',
@@ -26,31 +25,27 @@ require.config({
         util: 'libs/pliik/util',
         lang: 'libs/pliik/lang',
         Mustache : 'libs/vendor/mustache/mustache',
-        Logger : 'libs/pliik/logger'
+        Logger : 'libs/pliik/logger',
+        button : 'views/nav/button'
 
     }    
 
 });
 
 require([
-
-    // Load our app module and pass it to our definition function
-    'libs/pliik/module-loader',
-    'config',
     'Underscore',
-    'lang'
+    'config',
+    'lang',
+    // Load our app module and pass it to our definition function
+    'libs/pliik/module-loader'
     
     // Some plugins have to be loaded in order due to their non AMD compliance
     // Because these scripts are not "modules" they do not pass any values to the definition function below
-    ], function(Modules,Config,_,Lang){
-        
+    ], function(_,Config,Lang,Modules){
+                               
            
         // Show Loading Mask
-        // TODO: Move to external object Mobile
         $.mobile.showPageLoadingMsg();
-           
-        // Initialize Language engine
-        Lang.initialize();
 
         // The "app" dependency is passed in as "App"
         // Again, the other dependencies passed in are not "AMD" therefore don't pass a parameter to this function        

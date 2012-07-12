@@ -3,83 +3,111 @@
 define(    
     [
     'Underscore',
-    'config',
-    'Logger'
+    // 'Logger'
     ],
-    function(_,Config,logger) {
+    function(_/*,logger*/) {
     
-        return {
+        var lang =  {
         
+            config : false, // Injected Config Object
         
-            active : '', // Last active lang code ex: 'pt-PT'
-            
-            initialize : function(){
-                             
-                logger.log("---Activate Request Language---",3);  
+            active : '', // Active lang code ex: 'pt-PT'
+
+            parseCode : function(code) {
+
+                // Parse 2 letters code (eg:pt on opera)
+                if ( code.length == 2 ) {
+
+                    code += '-'+code.toUpperCase();
+
+                }
                 
-                this.activateRequestLanguage();
-                
+                // Parse Fallback
+                if( code.length == 0 ) {
+                    
+                    code = this.config.i18n.fallback;
+                    
+                }
+
+                return code;
+
             },
             
-            activateRequestLanguage : function() { 
-            
-                // Check if there is a language specific URL pattern
-                // Example: #/mercado/pt-PT
-                 
+            getCodeFromUrl : function(){
+                
                 var url = window.location + '';
                 
                 var urlAux = url.split('/');
             
-                var pathLang = urlAux[urlAux.length-1];
-
+                var urlrequestcode = urlAux[urlAux.length-1];
                 
-                // Check if we have activate language request already
-                if ( 
-                    this.active == pathLang 
-                    && this.active != '') {
-                    
-                    logger.log("Bypass: " + pathLang ,3);
-                    return; // Nothing to do, language change already processed!
-                    
-                }
-                    
-                this.active = pathLang;                
-                
-                this.globalLanguageChangeRequest(pathLang);
-        
+                return urlrequestcode;
             },
             
-            globalLanguageChangeRequest : function(pathLang){
+            setActiveCode : function (config) { 
+            
+                // Check if there is a language specific URL pattern
+                // Example: #/mercado/pt-PT
                 
+                this.config = config; 
+                
+                // SET DEFAULT LANG
+                var activecode = this.parseCode(this.config.i18n.selected);
+                 
+                 // SEARCH URL FOR FORCED CODE
+                var urlcode = this.getCodeFromUrl() || activecode;
+
+                
+                // Special Log TODO: Observer
+                 window.PLIIK.log.lang_detected=activecode;
+                 window.PLIIK.log.lang_request=urlcode;
+                
+                // Check if we have activate language request already
+                if ( activecode == urlcode ) {
+
+                    // logger.log("Bypass: " + pathLang ,3);
+                    return activecode; // Nothing to do, language change already processed!
+                    
+                }
+
+
+                // activeCode = this.queryInActiveCountryCodes(urllangcode);
+
+
+                this.active = urlcode;
+     
+                return urlcode;
+                
+            },
+            
+            getActiveCode : function(config){
+              
+                return this.setActiveCode(config);
+              
+            },
+            
+            /* TODO: this is not in use */
+            requestInActiveCountryCodes : function(pathLang){
+
                 // Iterate active languages for a language code match
                 // If true we force a global language update
 
-                if ( _.include(Config.i18n.active,pathLang) ) {
+                if ( _.include(this.config.i18n.active,pathLang) ) {
  
                     //... Set selected language at Config Object
-                    Config.i18n.selected = pathLang;
+                    return true;
 
                 } else {
                     
-                    // Language match was not found in URL
-                    // Activate default language from config object.
+                    return false;
                     
-                    //... Se selected language at RequireJS
-                    pathLang = Config.i18n.selected;  
-                
                 }
-
-                //... Se selected language at RequireJS
-                require.config({
-
-                    locale: pathLang
-
-                }); 
-                    
-                logger.log("Activate: " + pathLang,3);
                 
             }
     
         }
+        
+        
+        return lang;
     
     });

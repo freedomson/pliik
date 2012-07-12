@@ -155,5 +155,10 @@ var BrowserRedirect = {
 }
 
 
+// Global Object Use It (ex. log)   
+window.PLIIK = {};
+window.PLIIK.log = {};
+                   
 
+// Include main file
 BrowserRedirect.init();

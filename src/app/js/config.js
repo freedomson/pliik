@@ -6,12 +6,20 @@
  */
 define(
     [
-    'Underscore'
+    'Underscore',
+    'lang'
     ],
-    function (_) {
+    function (_,lang) {
 
         var Config = {
             
+            
+            log : {
+                
+                    active : 1
+                    
+            },
+                
             site : {
                 
                  root : (window.location+'').split('#')[0]
@@ -23,13 +31,10 @@ define(
             i18n : {
             
                 // TODO: Refactor by Einstein
-                selected :                  /* DEFAULT LANG */
-                            selectDefaultLangCode('en-US'),
-            
-                            /**
-                             AVAILABLE:
-                              pt-PT
-                             **/
+                
+                fallback : 'pt-PT',
+                    
+                selected :   navigator.language || navigator.userLanguage,
             
                 active: ['en-US','pt-PT'] // Active i18n
             
@@ -64,37 +69,29 @@ define(
                 
             }
         }
+                  
+             
+        // start: Localization
+        // Currently only full page load supported :|
+        // ++++++++++++++++++++++++++++++++
         
+        var langcode = lang.getActiveCode( Config );
         
-        /**
-         * 
-         * select default language
-         * config is resposible for this?
-         * it happens...
-         * 
-         * pt goes as pt-PT
-         * != 5 goes to default lang
-         * 
-         */
+        Config.i18n.selected = langcode;
+  
+        // window.PLIIK.log.lang_request=Config;
+                 
+        require.config({
+
+            locale: langcode
+
+        });         
         
-        function selectDefaultLangCode(defaultlang) {
+        // ++++++++++++++++++++++++++++++++ 
+        // end: Localization
 
-            var sel = navigator.language || navigator.userLanguage;
-
-            if ( sel.length == 2 ) {
-
-                sel += '-'+sel.toUpperCase();
-
-            } else if ( sel.length != 5 ) {
-
-               sel = defaultlang;
-
-            }
-
-            return sel;
-
-        }
-                
+                  
+                  
         return Config
     
     });

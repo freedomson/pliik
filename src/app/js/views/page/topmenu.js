@@ -98,6 +98,8 @@ define([
                 };
                 
                 
+                logger.log(translate,888888);
+                
                 logger.log("---ViewData at TopMenu Before Render---",4);
                 logger.log(view,4);
 

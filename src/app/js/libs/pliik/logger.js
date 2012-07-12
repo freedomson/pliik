@@ -3,35 +3,55 @@
 define(    
     [
     'Underscore',
-    'config'
+    'config',
+    'libs/pliik/util'
     ],
-    function(_,Config) {
-
-        var active = 1;
-    
+    function(_,Config,util) {
+        
+        
         return {
+            
+            active : Config.log.active,
             
             lastStep: 0,
             
+            logcounter: 0,
+            
             log : function(msgObj,step){
                 
-                
-                if ( active  )
+
+                if ( this.active )
                     
                 
                     if ( step ) {
                         
                           if (this.lastStep!=step) {
                               
+                            
                             console.log('---Step:'+step+'---'); 
                             console.log(step);
+                            
+                            this.logcounter = 0;
+                            
                           }
                       
+                          
+                      
+
+                          if(util.isset(window.PLIIK.log[this.lastStep])===false){
+                              
+                              window.PLIIK.log[this.lastStep]={};
+                              
+                          }
+                      
+                          window.PLIIK.log[this.lastStep][++this.logcounter] = msgObj;
+                          
                           console.log(msgObj);
+                          
+                          this.lastStep = step;
      
                     }
                 
-                this.lastStep = step;
                 
             }
             

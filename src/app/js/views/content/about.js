@@ -15,8 +15,6 @@ define([
       // Using Jade Templating
       $("#page").html(jade.render(template));
 
-
-
     }
   });
   

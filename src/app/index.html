@@ -86,11 +86,23 @@
                 display:none;
         }
         
-        
         /* =============================================================================
         JQuery Mobile overwrite
         ========================================================================== */
-
+        .ui-body-d, .ui-overlay-d {
+            text-shadow: none;
+        }
+        .ui-body-d .ui-link {
+            font-weight: normal;
+        }
+    
+        .ui-body-d, .ui-overlay-d {
+            color:#FFF;
+        }
+    
+        .ui-body-d, .ui-overlay-d {  
+            background: transparent;
+        }
         .ui-focus, .ui-btn:focus {
 
             box-shadow: 0px 0px 0px 0px #FFF !important;
@@ -118,7 +130,9 @@
     
 </head>
 
-<body data-theme="d" data-role="page">
+<body data-theme="d" 
+      data-role="page"
+      style="background-image:url(pic/Blue_wave_of_water-wide.jpg);">
     
 </body>
 

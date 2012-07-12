@@ -99,6 +99,10 @@ define(
                         //... Set window title
                         router.setDocumentTitle(view);
                         
+                        // Set default page background
+                        // TODO: export to internal method
+                        // $(".ui-page").css({ "background-image" : "none"});
+                        
                         //... Render request view
                         view.render();
                         
@@ -106,6 +110,8 @@ define(
                         viewlangmenu.render();
                         
                         $.mobile.hidePageLoadingMsg();
+                        
+                        //$("#page").css({ "background-image" : "none"});
                              
                 });
                      
