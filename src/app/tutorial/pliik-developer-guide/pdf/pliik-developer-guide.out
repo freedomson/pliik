@@ -1,4 +1,6 @@
 \BOOKMARK [1][-]{section.1}{Installing Pliik}{}
 \BOOKMARK [2][-]{subsection.1.1}{CouchDB}{section.1}
 \BOOKMARK [1][-]{section.2}{Localization}{}
-\BOOKMARK [2][-]{subsection.2.1}{Starting the engine}{section.2}
+\BOOKMARK [2][-]{subsection.2.1}{Localization Engine}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Start}{subsection.2.1}
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Core - i18n \(Require.js\)}{subsection.2.1}

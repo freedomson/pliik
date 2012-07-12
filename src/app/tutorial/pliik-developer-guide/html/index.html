@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Pliik Developer Guide</title>
-    <!--Generated on Thu Jul 12 19:37:58 2012 by LaTeXML (version 0.7.9alpha) http://dlmf.nist.gov/LaTeXML/.-->
+    <!--Generated on Fri Jul 13 00:08:12 2012 by LaTeXML (version 0.7.9alpha) http://dlmf.nist.gov/LaTeXML/.-->
       <!--Document created on 
-July 12, 2012.-->
+July 13, 2012.-->
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="core.css">
@@ -28,7 +28,13 @@ July 12, 2012.-->
   <li class="tocentry">
 <a href="#S2" title="2 Localization ‣ Pliik Developer Guide" class="ref toc"><span class="text reftitle"><span class="tag">2 </span>Localization</span></a>
   <ul class="toc">
-  <li class="tocentry"><a href="#S2.SS1" title="2.1 Starting the engine ‣ 2 Localization ‣ Pliik Developer Guide" class="ref toc"><span class="text reftitle"><span class="tag">2.1 </span>Starting the engine</span></a></li>
+  <li class="tocentry">
+<a href="#S2.SS1" title="2.1 Localization Engine ‣ 2 Localization ‣ Pliik Developer Guide" class="ref toc"><span class="text reftitle"><span class="tag">2.1 </span>Localization Engine</span></a>
+  <ul class="toc">
+  <li class="tocentry"><a href="#S2.SS1.SSS1" title="2.1.1 Start ‣ 2.1 Localization Engine ‣ 2 Localization ‣ Pliik Developer Guide" class="ref toc"><span class="text reftitle"><span class="tag">2.1.1 </span>Start</span></a></li>
+  <li class="tocentry"><a href="#S2.SS1.SSS2" title="2.1.2 Core - i18n (Require.js) ‣ 2.1 Localization Engine ‣ 2 Localization ‣ Pliik Developer Guide" class="ref toc"><span class="text reftitle"><span class="tag">2.1.2 </span>Core - i18n (Require.js)</span></a></li>
+    </ul>
+</li>
     </ul>
 </li>
     </ul>
@@ -62,25 +68,90 @@ July 12, 2012.-->
 <span class="tag">2 </span>Localization</h2>
 <div id="S2.SS1" class="subsection">
 <h3 class="title subsection-title">
-<span class="tag">2.1 </span>Starting the engine</h3>
+<span class="tag">2.1 </span>Localization Engine</h3>
 <div id="S2.SS1.p1" class="para"><p class="p">In Pliik this is all achieved at the config Object.</p></div>
-<div id="S2.SS1.p2" class="para"><p class="p">1. FILE:js/config</p></div>
-<div id="S2.SS1.p3" class="para"><p class="p"><span class="text" style="background-color:pink;"><span class="text" style="width:433.62pt;">
-lang.getActiveCode( config ) <br class="break">Search URL, process default <br class="break">Set require locale config option
- </span></span></p></div>
-<div id="S2.SS1.p4" class="para"><p class="p">2. Core Engine</p></div>
-<div id="S2.SS1.p5" class="para"><p class="p">After setting the proper require.config.locale all the
-processing is done by the i18n internationalization module for require.js</p></div>
+<div id="S2.SS1.SSS1" class="subsubsection">
+<h4 class="title subsubsection-title">
+<span class="tag">2.1.1 </span>Start</h4>
+<div id="LST1" class="listing ltx_lstlisting ltx_lst_language_Java">
+<div class="caption">
+<span class="tag">Listing 1: </span>’app/js/config.js’</div>
+<table class="tabular">
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line">//<span class="text ltx_lst_space" style="color:#009900;"> </span><span class="text" style="color:#009900;">start:<span class="text ltx_lst_space"> </span>Localization</span></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line">//<span class="text ltx_lst_space" style="color:#009900;"> </span><span class="text" style="color:#009900;">Currently<span class="text ltx_lst_space"> </span>only<span class="text ltx_lst_space"> </span>full<span class="text ltx_lst_space"> </span>page<span class="text ltx_lst_space"> </span>load<span class="text ltx_lst_space"> </span>supported<span class="text ltx_lst_space"> </span>:|</span></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line">//<span class="text ltx_lst_space" style="color:#009900;"> </span><span class="text" style="color:#009900;">++++++++++++++++++++++++++++++++</span></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line"></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line">var<span class="text ltx_lst_space"> </span>langcode<span class="text ltx_lst_space"> </span>=<span class="text ltx_lst_space"> </span>lang.getActiveCode(<span class="text ltx_lst_space"> </span>Config<span class="text ltx_lst_space"> </span>);</span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line"></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line">Config.i18n.selected<span class="text ltx_lst_space"> </span>=<span class="text ltx_lst_space"> </span>langcode;</span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line"></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line">//<span class="text ltx_lst_space" style="color:#009900;"> </span><span class="text" style="color:#009900;">window.PLIIK.log.lang_request=Config;</span></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line"></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line">require.config({</span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line"></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line"><span class="text ltx_lst_space">    </span>locale:<span class="text ltx_lst_space"> </span>langcode</span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line"></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line">});</span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line"></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line">//<span class="text ltx_lst_space" style="color:#009900;"> </span><span class="text" style="color:#009900;">++++++++++++++++++++++++++++++++</span></span></td>
+</tr>
+<tr class="tr">
+    <td class="td"><span class="text ltx_lst_line">//<span class="text ltx_lst_space" style="color:#009900;"> </span><span class="text" style="color:#009900;">end:<span class="text ltx_lst_space"> </span>Localization</span></span></td>
+</tr>
+</table>
+</div>
+<div id="S2.SS1.SSS1.p1" class="para"><p class="p">Currently we only support full page change language procedure. <br class="break"></p></div>
+</div>
+<div id="S2.SS1.SSS2" class="subsubsection">
+<h4 class="title subsubsection-title">
+<span class="tag">2.1.2 </span>Core - i18n (Require.js)</h4>
+<div id="S2.SS1.SSS2.p1" class="para"><p class="p">After setting the proper locale to proessed lang code,
+all the processing is done by the i18n internationalization module,
+at require.js</p></div>
+</div>
 </div>
 </div>
 </div>
         </div>
 <div class="footer">
       <div class="navbar">
-July 12, 2012
+July 13, 2012
 	</div>
 <div class="LaTeXML-logo">Generated
-     on Thu Jul 12 19:37:58 2012
+     on Fri Jul 13 00:08:12 2012
     by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAUCAYAAABSx2cSAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wGEBQiL2E9pB4AAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAA21JREFUOMt9lM1LK2cUh39vJo6TGr2mTnX8uCY1antp1IrChRq8UEuhKHdzqUhLFoJLV4UguJCLBKr4F9guXBQXYkFaXNVtQRFvJIb4kY9xaogTIU41auLMmzdvF1YLF+tveeA5D4fDOYLH42lTFEU3TTNrWVYYAGw2WzOAPgB/AzDxP7F7PJ5vfD5fZSwWm+vu7n7ucDjM1dXVrwkhmWQy+T2eiHB1ddVRX1//ZmJi4oOTk5NXkiQNOauqPjo9Pf3ZMIx3T8H26enpPsMw8Pv6OsLvwuBlho5PPtUHBgZSiUQCT2Z/f38zEAhwh0vmzZ2fcdgreLXyXCPAMAAEg0G8ffv2UdbmdDrN0dFRDH3xEpl4DChR8CvD+eXQ0McAsLCwAACPNrATQlwjIyNQFAUXl5eIRqPcbrfXiaL4w9TU1K0sy78Gg8GLR+3ZbJZzzsuMMb69vc1DoVC5tbW1XFNTwwOBAJ+fn/9xZmam+jE70XU9ryhK9X3h/Pwcy8vLWFpa4k1NTaS/v78oCMI453zlfdhmGMZvAFAul3mxWERdXR3GxsYwPj5OWlpaeLFYdAD4FoDyvt2madpPpmmCUopkMnm3fEGAy+WCLMtEkiRwzr8yTbMRACYnJ/+Dj46OdnK53EG5XCa6rgMAGGO4vb2FIAgQRRGMsWfNzc2j0WjUIcsyZmdn7yShUKiUTqfrvV7vq3ujZVk4Pj7G2dkZMpkMd7vdRJblvsPDwz8FQdAWFxfvzGtra0TTtG3DMNDW1oZ/DwOCICAej0PTNOJ2u3mhUHDkcrmXvb29lQ97vrm54aVSKXNwcIBIJMJVVSUulwvFYhGqqqK9vR2NjY3IZDJgjH0oCILtYeZsNovLy8uznZ0daJpGfD4fKKWIxWIwDANerxdVVVWglIIxlrIsiz6YV1ZWIElSAQB6enrQ1dUFSZIwNzeHQqEAQggSiQTZ3d3VI5HIH3t7e1QUxQ5K6S8CAPj9/s9VVZ3Y2tpCbW0tCCEIh8P8+voaDQ0NZGNjA6lUqnJwcNAZDAbD8Xh8XNf17wgh5AWADUJIbUVFxa7f78/abLY3qqqSdDoNxlieMRYbHh7u7OzsrKOUlsLhsH1zc/Mvcv8UAMButzNRFBVK6WtKaQWAFIAtABder7cyn88/y+fzLyzL6uOcr/8DGmSkFuD9nqgAAAAASUVORK5CYII="></a>
 </div>
 </div>

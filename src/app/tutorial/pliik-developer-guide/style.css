@@ -47,10 +47,26 @@ a {
     
 }
 
-span.text {
+span.text {}
+
+.listing, 
+.ltx_lstlisting, 
+.ltx_lst_language_Java {
+    background-color: #000000;
+    font-family: terminal;
+    font-size: 75%;
+    padding: 0.5em; 
+    line-height: 200%;
+}
+
+.listing .text{
+    color: white;
+}
+.ltx_lst_space{
     
-    display: table;
-    padding: 0.5em;
+    display: none;
     
 }
+
+.listing .italic{}
 

@@ -8,27 +8,45 @@
 % 2. Localization
 %-------------------------------------------------------------------------------
 
-\subsection{Starting the engine}
+\subsection{Localization Engine}
 
 In Pliik this is all achieved at the config Object.
 
-1. FILE:js/config
+\subsubsection{Start}
 
+%\ifpdf
+%    \lstinputlisting[numbers=left,firstnumber=74,firstline=74,lastline=91]{../../../app/js/config.js}
+%\else
 
-\colorbox{pink}{\hbox to \textwidth{
+\begin{lstlisting}[caption='app/js/config.js']
+// start: Localization
+// Currently only full page load supported :|
+// ++++++++++++++++++++++++++++++++
 
-    lang.getActiveCode( config ) \newline
+var langcode = lang.getActiveCode( Config );
 
-    Search URL, process default \newline
+Config.i18n.selected = langcode;
 
-    Set require locale config option
+// window.PLIIK.log.lang_request=Config;
 
-\hfill}}
+require.config({
 
+    locale: langcode
 
+}); 
 
-2. Core Engine
+// ++++++++++++++++++++++++++++++++ 
+// end: Localization
 
-After setting the proper require.config.locale all the
-processing is done by the i18n internationalization module for require.js
+\end{lstlisting}
+
+%\fi 
+
+Currently we only support full page change language procedure. \\
+
+\subsubsection{Core - i18n (Require.js)}
+
+After setting the proper locale to proessed lang code, 
+all the processing is done by the i18n internationalization module,
+at require.js
 

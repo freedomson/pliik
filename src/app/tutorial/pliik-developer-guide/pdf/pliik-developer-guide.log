@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.11.10)  12 JUL 2012 19:37
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.11)  13 JUL 2012 00:05
 entering extended mode
  %&-line parsing enabled.
 **pliik-developer-guide.tex
@@ -48,6 +48,31 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
+(/usr/share/texmf-texlive/tex/latex/listings/listings.sty
+\lst@mode=\count88
+\lst@gtempboxa=\box26
+\lst@token=\toks15
+\lst@length=\count89
+\lst@currlwidth=\dimen105
+\lst@column=\count90
+\lst@pos=\count91
+\lst@lostspace=\dimen106
+\lst@width=\dimen107
+\lst@newlines=\count92
+\lst@lineno=\count93
+\lst@maxwidth=\dimen108
+
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count94
+\lst@skipnumbers=\count95
+\lst@framebox=\box27
+)
+(/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
 (/usr/share/texmf-texlive/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
@@ -74,13 +99,16 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
-
 (/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in pdf mode detected.
 )
+(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
+
 (/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
 Package ifvtex Info: VTeX not detected.
@@ -95,9 +123,9 @@ O)
 (/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
-\@linkdim=\dimen105
-\Hy@linkcounter=\count88
-\Hy@pagecounter=\count89
+\@linkdim=\dimen109
+\Hy@linkcounter=\count96
+\Hy@pagecounter=\count97
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
@@ -164,10 +192,10 @@ Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 )))
-\Fld@menulength=\count90
-\Field@Width=\dimen106
-\Fld@charsize=\dimen107
-\Field@toks=\toks15
+\Fld@menulength=\count98
+\Field@Width=\dimen110
+\Fld@charsize=\dimen111
+\Field@toks=\toks16
 Package hyperref Info: Hyper figures OFF on input line 4377.
 Package hyperref Info: Link nesting OFF on input line 4382.
 Package hyperref Info: Hyper index ON on input line 4385.
@@ -179,74 +207,75 @@ Package hyperref Info: PDF/A mode OFF on input line 4407.
 (/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@abspage=\count91
-\c@Item=\count92
-\c@Hfootnote=\count93
+\Hy@abspage=\count99
+\c@Item=\count100
+\c@Hfootnote=\count101
 )
 *hyperref using default driver hpdftex*
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
-\Fld@listcount=\count94
+\Fld@listcount=\count102
 )
 (pdf/pliik-developer-guide.aux (pdf/PDG-Chapter-1-Install.aux)
 (pdf/PDG-Chapter-2-Localization.aux))
 \openout1 = `pliik-developer-guide.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count95
-\scratchdimen=\dimen108
-\scratchbox=\box26
-\nofMPsegments=\count96
-\nofMParguments=\count97
-\everyMPshowfont=\toks16
-\MPscratchCnt=\count98
-\MPscratchDim=\dimen109
-\MPnumerator=\count99
-\everyMPtoPDFconversion=\toks17
+\scratchcounter=\count103
+\scratchdimen=\dimen112
+\scratchbox=\box28
+\nofMPsegments=\count104
+\nofMParguments=\count105
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count106
+\MPscratchDim=\dimen113
+\MPnumerator=\count107
+\everyMPtoPDFconversion=\toks18
 )
-Package hyperref Info: Link coloring ON on input line 32.
+\c@lstlisting=\count108
+Package hyperref Info: Link coloring ON on input line 54.
  (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count100
+\c@section@level=\count109
 )
-LaTeX Info: Redefining \ref on input line 32.
-LaTeX Info: Redefining \pageref on input line 32.
+LaTeX Info: Redefining \ref on input line 54.
+LaTeX Info: Redefining \pageref on input line 54.
 
 (pdf/pliik-developer-guide.out) (pdf/pliik-developer-guide.out)
 \@outlinefile=\write3
 \openout3 = `pliik-developer-guide.out'.
 
-\AtBeginShipoutBox=\box27
+\AtBeginShipoutBox=\box29
 
-<logo.png, id=19, 260.975pt x 80.3pt>
+<logo.png, id=27, 260.975pt x 80.3pt>
 File: logo.png Graphic file (type png)
  <use logo.png>
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 40.
+(Font)              <12> on input line 62.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 40.
+(Font)              <8> on input line 62.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 40.
+(Font)              <6> on input line 62.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo.png>]
@@ -267,21 +296,15 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.44 \include{PDG-Chapter-1-Install}
+l.66 \include{PDG-Chapter-1-Install}
                                      [1
 
 ]
 \openout2 = `PDG-Chapter-2-Localization.aux'.
 
  (./PDG-Chapter-2-Localization.tex
-Overfull \hbox (34.38954pt too wide) detected at line 26
- \OT1/cmr/m/n/10 lang.getActiveCode( config ) Search URL, process default Set r
-equire locale config option  
- []
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
-
-Overfull \hbox (21.0pt too wide) in paragraph at lines 26--27
-[][][][][][][] 
  []
 
 ) [2
@@ -290,21 +313,22 @@ Overfull \hbox (21.0pt too wide) in paragraph at lines 26--27
 ] (pdf/pliik-developer-guide.aux (pdf/PDG-Chapter-1-Install.aux)
 (pdf/PDG-Chapter-2-Localization.aux)) ) 
 Here is how much of TeX's memory you used:
- 4627 strings out of 495061
- 66495 string characters out of 1182620
- 133134 words of memory out of 3000000
- 7740 multiletter control sequences out of 15000+50000
- 7587 words of font info for 27 fonts, out of 3000000 for 9000
+ 5943 strings out of 495061
+ 85629 string characters out of 1182621
+ 170756 words of memory out of 3000000
+ 9019 multiletter control sequences out of 15000+50000
+ 7895 words of font info for 28 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 38i,6n,38p,271b,316s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,6n,40p,271b,1002s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on pdf/pliik-developer-guide.pdf (3 pages, 68164 bytes).
+blic/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
+hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on pdf/pliik-developer-guide.pdf (3 pages, 86083 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 7 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 97 PDF objects out of 1000 (max. 8388607)
+ 28 named destinations out of 1000 (max. 500000)
+ 54 words of extra memory for PDF output out of 10000 (max. 10000000)
 

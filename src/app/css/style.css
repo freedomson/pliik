@@ -58,10 +58,10 @@
   font-size: @font-size;
   font-weight: normal;
   line-height: @line-height;  
-  .less-padding(0px,10px,0px,10px);
+  /* .less-padding(0px,10px,0px,10px); */
   text-decoration: @underline;
-  .less-text-shadow-simple(1px,@shadowcolor);
-  .less-border-radius(5px,5px,5px,5px);
+  /* .less-text-shadow-simple(1px,@shadowcolor);*/
+  .less-border-radius(3px,3px,3px,3px);
 }
 
 .reset-css-link {
@@ -331,10 +331,10 @@ body {
   margin-left: 10px;
 }
 .menu ul li a {
-  .less-link(transparent,black,white,1.5em,30px,none);
+  .less-link(transparent,white,white,1.5em,30px,none);
 }
 .menu ul li a:hover {
-  .less-link(white,black,white,1.5em,30px,none);
+  .less-link(white,white,white,1.5em,30px,none);
 }
 
 
