@@ -51,7 +51,9 @@ define([
                     route : Util.parseURL('/content/about'),
                     jqm : {
                         datamini : config.jquerymobile.datamini,
-                        datatheme: config.jquerymobile.datatheme
+                        datatheme: config.jquerymobile.datatheme,
+                        dataicon: 'info',
+                        dataiconpos : 'top'
                     }
                 });
                 
@@ -126,8 +128,7 @@ define([
             render: function(){
 
                              
-                $('#langmenu').hide();
-                
+                // $('#langmenu').hide(); 
 
                 logger.log("---Rendering LangMenu---",3);  
                 

@@ -108,6 +108,16 @@ define(
                         
                         //... Update Langmenu Links and load view
                         viewlangmenu.render();
+
+                       // Home view
+                       // TODO: Move to observer for views
+                       if (view.name == 'home') {
+
+                                $('#langmenu').hide();
+                                
+                       }
+ 
+                        
                         
                         $.mobile.hidePageLoadingMsg();
                         

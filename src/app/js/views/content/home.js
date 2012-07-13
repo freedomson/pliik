@@ -11,6 +11,8 @@ define([
 
         var mainHomeView = Backbone.View.extend({
 
+            name : 'home',
+            
             config : {
               
                 buttons : {
