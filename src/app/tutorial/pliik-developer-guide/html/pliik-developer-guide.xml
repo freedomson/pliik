@@ -169,9 +169,9 @@ July 13, 2012</date>
       <subsubsection refnum="2.1.2" xml:id="S2.SS1.SSS2">
         <title><tag>2.1.2 </tag>Core - i18n (Require.js)</title>
         <para xml:id="S2.SS1.SSS2.p1">
-          <p>After setting the proper locale to proessed lang code,
-<!-- %**** PDG-Chapter-2-Localization.tex Line 50 **** -->all the processing is done by the i18n internationalization module,
-at require.js</p>
+          <p>After setting the proper locale lang code,
+<!-- %**** PDG-Chapter-2-Localization.tex Line 50 **** -->the inclusion of translation files is done by i18n,
+internationalization module for require.js</p>
         </para>
       </subsubsection>
     </subsection>

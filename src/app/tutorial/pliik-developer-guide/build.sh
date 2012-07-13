@@ -12,3 +12,11 @@ latexml --dest=html/pliik-developer-guide.xml pliik-developer-guide.tex
 latexmlpost  --navigationtoc=context --icon=favicon.ico --javascript=bootstrap.js --novalidate --css=navbar-right --css=style.css --dest=html/index.html html/pliik-developer-guide.xml
 
 
+rm html/style.css
+rm html/favicon.ico
+
+cd html
+ln -s ../style.css .
+ln -s ../../../pic/favicon.ico .
+
+

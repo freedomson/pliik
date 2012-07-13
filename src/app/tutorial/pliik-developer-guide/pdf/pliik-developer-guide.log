@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.11)  13 JUL 2012 00:54
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.11)  13 JUL 2012 03:33
 entering extended mode
  %&-line parsing enabled.
 **pliik-developer-guide.tex
@@ -326,7 +326,7 @@ ts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10
 .pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
 hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-t
 exlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on pdf/pliik-developer-guide.pdf (3 pages, 86083 bytes).
+Output written on pdf/pliik-developer-guide.pdf (3 pages, 86085 bytes).
 PDF statistics:
  97 PDF objects out of 1000 (max. 8388607)
  28 named destinations out of 1000 (max. 500000)
