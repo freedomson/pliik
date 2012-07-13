@@ -93,7 +93,7 @@ define(
                 require([
                     
                     view,
-                    'views/page/langmenu'
+                    'views/nav/langmenu'
                     
                     ], function(view,viewlangmenu){
                         

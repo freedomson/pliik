@@ -5,7 +5,7 @@ define([
     'less',
     'text!../../../css/style.css',
     'views/brand/logo',
-    'views/page/topmenu',
+    'views/nav/topmenu',
     'views/page/footer',  
     'jade',
     'Mustache',
