@@ -113,7 +113,7 @@ define(
                        // TODO: Move to observer for views
                        if (view.name == 'home') {
 
-                                $('#langmenu').hide();
+                                $('#langmenu').hide('slow');
                                 
                        }
  
