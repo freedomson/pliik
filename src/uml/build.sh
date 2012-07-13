@@ -1,5 +1,4 @@
 # BUILD _SYSTEM
-
 cd models
 for dir in *
   do
@@ -7,5 +6,6 @@ for dir in *
       then
         java -jar ../lib/UmlGraph.jar -package -output - $dir/modules.java | dot -Tsvg -o ../pic/$dir.uml.svg
         pic2plot -Tsvg $dir/flow.pic >../pic/$dir.flow.svg
+        cp ../pic/$dir.uml.svg ../pic/$dir.flow.svg ../../app/tutorial/uml
     fi
 done
