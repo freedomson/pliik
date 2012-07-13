@@ -80,6 +80,7 @@ define(
                  
                 logger.log("---Rendering View---",3);  
                 logger.log("view:"+view,3);
+                logger.log(view,3);             
                 
                 
                 logger.log("$.mobile.showPageLoadingMsg();",4);
@@ -89,6 +90,15 @@ define(
                 var router = this;
                 
                 
+                // Home view
+                // TODO: Move to observer for views
+                if (view == 'views/content/home') {
+
+                    $('#langmenu').hide('slow');
+
+                } 
+                       
+                
                 require([
                     
                     view,
@@ -96,7 +106,8 @@ define(
                     
                     ], function(view,viewlangmenu){
                         
-                        //... Set window title
+                       
+                       //... Set window title
                         router.setDocumentTitle(view);
                         
                         // Set default page background
@@ -108,14 +119,6 @@ define(
                         
                         //... Update Langmenu Links and load view
                         viewlangmenu.render();
-
-                       // Home view
-                       // TODO: Move to observer for views
-                       if (view.name == 'home') {
-
-                                $('#langmenu').hide('slow');
-                                
-                       }
  
                         
                         
