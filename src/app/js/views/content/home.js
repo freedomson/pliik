@@ -56,7 +56,7 @@ define([
                $("#page").html(jade.render(mainHomeTemplate));
 
                $("#page").append(this.buttons);     
-
+               
                // TODO: Extend from common page view
                // Put as class definition on common page view
                

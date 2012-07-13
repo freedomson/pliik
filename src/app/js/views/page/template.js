@@ -76,10 +76,6 @@ define([
                     // Language Menu is Rendered at Routes Interface
                     // views/page/langmenu.js
 
-                    // TODO: Move to observer patter
-                    $('#langmenu').hide();
-
-                  
 
                 }
 

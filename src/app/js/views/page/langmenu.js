@@ -125,10 +125,22 @@ define([
             
             },
             
-            render: function(){
+            
+            active : 0,
+            
+            render: function(view){
 
                              
-                // $('#langmenu').hide(); 
+                // TODO: Move to observer patter
+                if (this.active==1 && view.name=='home') {
+
+                    $('#langmenu').hide('slow');
+
+                } else if ( view.name=='home' ) {
+                    
+                    $('#langmenu').hide(''); 
+                    
+                }
 
                 logger.log("---Rendering LangMenu---",3);  
                 
@@ -136,6 +148,8 @@ define([
 
                 // TODO: Backbone Observer Pattern On This Please!
                 $('.pliik-menu-item-mobile').button(); 
+                
+                this.active = 1;
 
             }
         });

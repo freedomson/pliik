@@ -122,19 +122,21 @@ define([
              * Only bind element at rendertime
              * 
              */
+
+            
             bind : function(){
                 
                 $( "#logo" ).bind( "click", function(event, ui) {
 
-
-                    if ($('#langmenu').is(':visible'))
+  
+                    if ($('#langmenu').is(':hidden'))
                     {
                         // handle non visible state
-                        $('#langmenu').hide('slow');
+                        $('#langmenu').show('slow');
                         
                     }else{
                         
-                        $('#langmenu').show('slow');
+                        $('#langmenu').hide('slow');
                     
                     }
                 

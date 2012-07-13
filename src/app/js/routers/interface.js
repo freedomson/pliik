@@ -88,17 +88,8 @@ define(
                 $.mobile.showPageLoadingMsg();
                       
                 var router = this;
-                
-                
-                // Home view
-                // TODO: Move to observer for views
-                if (view == 'views/content/home') {
-
-                    $('#langmenu').hide('slow');
-
-                } 
-                       
-                
+               
+              
                 require([
                     
                     view,
@@ -118,7 +109,7 @@ define(
                         view.render();
                         
                         //... Update Langmenu Links and load view
-                        viewlangmenu.render();
+                        viewlangmenu.render(view);
  
                         
                         
