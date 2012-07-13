@@ -332,9 +332,11 @@ body {
 }
 .menu ul li a {
   .less-link(transparent,white,white,1.5em,30px,none);
+  font-weight: : bold !important;
 }
 .menu ul li a:hover {
   .less-link(white,white,white,1.5em,30px,none);
+  font-weight: : bold !important;
 }
 
 

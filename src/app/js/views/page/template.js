@@ -67,6 +67,8 @@ define([
                     //... Render Menu template
                     pageTopMenuView.render();     
                     
+                    $('.pliik-menu-item-mobile').button();
+                    
                     //... Render Footer template
                     // pageFooterView.render();
                      
