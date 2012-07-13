@@ -8,7 +8,9 @@ define([
     'Mustache',
     'jade',
     'Logger',
-    'lang'
+    'lang',
+    'i18n!nls/i18n',
+    'libs/pliik/util'
     ], function(
         $, 
         _, 
@@ -19,7 +21,9 @@ define([
         Mustache,
         jade,
         logger,
-        lang
+        lang,
+        translate,
+        Util
         ){
 
         var view = Backbone.View.extend({
@@ -32,13 +36,26 @@ define([
             
             renderTemplate : function(){
                 
-                util.updateCleanRoute();  
+                Util.updateCleanRoute();  
  
                 logger.log(util,4);
  
                 var menuitems = [];
 
-
+                // About Setup ~~~~~~~~~~~~~~~~~~~~~~~~~
+                   
+                menuitems.push(      
+                {
+                    id    : 'about',
+                    title : translate.page.about.title,
+                    route : Util.parseURL('/content/about'),
+                    jqm : {
+                        datamini : config.jquerymobile.datamini,
+                        datatheme: config.jquerymobile.datatheme
+                    }
+                });
+                
+                
                 _.each(config.i18n.active, function(item){
 
                 
@@ -50,8 +67,8 @@ define([
                             config.jquerymobile.datathemeactive
                             : config.jquerymobile.datatheme
                             
-                                    
                    
+                
                    // Item Setup ~~~~~~~~~~~~~~~~~~~~~~~~~
                    menuitems.push(
                                 {
@@ -68,6 +85,8 @@ define([
                                 });
 
                 }); 
+                
+
   
   
                 //... Render Top Menu
@@ -83,6 +102,8 @@ define([
                 var TplMustacheCompiled = Mustache.to_html(template, viewData);
                 
                 var TplJadeCompiled =  jade.render(TplMustacheCompiled);
+                
+                
                 
                 return TplJadeCompiled;
                 
@@ -103,6 +124,10 @@ define([
             },
             
             render: function(){
+
+                             
+                $('#langmenu').hide();
+                
 
                 logger.log("---Rendering LangMenu---",3);  
                 

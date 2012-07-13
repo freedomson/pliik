@@ -9,7 +9,8 @@ define([
     'Mustache',
     'Logger',
     'views/brand/logo',
-    'i18n!nls/i18n'
+    'i18n!nls/i18n',
+    'jade'
     ], function(
         $, 
         _, 
@@ -21,25 +22,28 @@ define([
         Mustache,
         logger,
         brandLogoView,
-        translate){
+        translate,
+        jade){
 
         var view = Backbone.View.extend({
 
-            el: $('#menu-container'),
+            el: $('#topmenu'),
             
             // template: jade.render(template),
-                  
+            
+           
             menuitems : [
               
             {
                 title : 'Pliik',
                 route : Util.parseURL(''),
                 id:'logo',
-                cssclass : 'logo',
+                cssclass : 'topmenu-link logo',
                 jqm : {
                     datamini : config.jquerymobile.datamini,
                     datatheme: config.jquerymobile.datathemeactivetopmenu
                 }
+                
             }/*,{
                 title : 'Signup',
                 route : Util.parseURL('/users/signup')
@@ -55,15 +59,6 @@ define([
                 title : 'User List',
                 route : Util.parseURL('/users')
             }*/
-            ,{
-                id    : 'about',
-                title : translate.page.about.title,
-                route : Util.parseURL('/content/about'),
-                jqm : {
-                    datamini : config.jquerymobile.datamini,
-                    datatheme: config.jquerymobile.datatheme
-                }
-            }
                 
             ],
             
@@ -106,8 +101,7 @@ define([
                 logger.log("---Util at TopMenu Before Render---",4);
                 logger.log(Util,4);
                 
-                var css = config.jquerymobile.cssname.button
-                
+
                 // logger.log("$('."+css+"').button();",4);
                 
                 var TplMustacheCompiled = Mustache.to_html(template, view);
@@ -119,7 +113,35 @@ define([
                 
                 brandLogoView.render();
                 
-            }
+                this.bind();
+                
+            },
+
+            /**
+             * 
+             * Only bind element at rendertime
+             * 
+             */
+            bind : function(){
+                
+                $( "#logo" ).bind( "click", function(event, ui) {
+
+
+                    if ($('#langmenu').is(':visible'))
+                    {
+                        // handle non visible state
+                        $('#langmenu').hide('slow');
+                        
+                    }else{
+                        
+                        $('#langmenu').show('slow');
+                    
+                    }
+                
+                });
+            }  
+            
+
         });
   
         return new view;

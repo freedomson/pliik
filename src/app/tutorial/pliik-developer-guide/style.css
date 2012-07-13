@@ -62,11 +62,7 @@ span.text {}
 .listing .text{
     color: white;
 }
-.ltx_lst_space{
-    
-    display: none;
-    
-}
+.ltx_lst_space{}
 
 .listing .italic{}
 

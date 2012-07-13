@@ -57,7 +57,7 @@ define(
             
             jquerymobile : {
                 
-                datatheme : 'a',
+                datatheme : 'b',
                 datathemeactive: 'a',
                 datathemeactivetopmenu: 'a',
                 datamini: 1,
