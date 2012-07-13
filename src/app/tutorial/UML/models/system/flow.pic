@@ -1,0 +1,31 @@
+# UML User Guide Figure 7-1.
+.PS
+
+copy "sequence.pic";
+
+boxwid = 1;
+movewid = 0.8;
+maxpswid = 7;
+maxpsht	= 7;	
+
+object(A,":index.html");
+
+object(B,":main.js");
+
+
+step();
+step();
+
+
+active(A);
+
+message(A,B,"Load main.js"); 
+
+active(B);
+
+complete(B);
+
+complete(A);
+
+
+.PE
