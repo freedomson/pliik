@@ -5,7 +5,7 @@ define([
     'less',
     'text!../../../css/style.css',
     'views/brand/logo',
-    'views/nav/topmenu',
+    'views/menu/topmenu',
     'views/page/footer',  
     'jade',
     'Mustache',
@@ -74,7 +74,7 @@ define([
                      
                     //... IMPORTANT
                     // Language Menu is Rendered at Routes Interface
-                    // views/page/langmenu.js
+                    // views/menu/langmenu.js
 
 
                 }

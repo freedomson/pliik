@@ -57,10 +57,13 @@ define(
             
             jquerymobile : {
                 
+                transitionspeed : 500,
+                
                 datatheme : 'b',
                 datathemeactive: 'a',
                 datathemeactivetopmenu: 'a',
                 datamini: 1,
+                
                 cssname : {
                     
                     button: 'pliik-menu-item-mobile'

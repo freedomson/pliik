@@ -2,7 +2,7 @@ define([
     'jQuery',
     'Underscore',
     'Backbone',
-    'text!templates/page/menu.jade',
+    'text!templates/nav/menu.jade',
     'config',
     'libs/pliik/util',
     'Mustache',
@@ -10,7 +10,8 @@ define([
     'Logger',
     'lang',
     'i18n!nls/i18n',
-    'libs/pliik/util'
+    'libs/pliik/util',
+    'views/menu/interface'
     ], function(
         $, 
         _, 
@@ -23,10 +24,11 @@ define([
         logger,
         lang,
         translate,
-        Util
+        Util,
+        ViewInterface
         ){
 
-        var view = Backbone.View.extend({
+        var view = ViewInterface.extend({
 
             el: $('#langmenu'),
             
@@ -53,7 +55,7 @@ define([
                         datamini : config.jquerymobile.datamini,
                         datatheme: config.jquerymobile.datatheme,
                         dataicon: 'info',
-                        dataiconpos : 'top'
+                        dataiconpos : 'left'
                     }
                 });
                 

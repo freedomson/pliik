@@ -317,10 +317,8 @@ body {
 
 
 .menu {
-  height: 30px; 
   color: #fff; 
   text-align: right;
-  display: table-row;
 }
 .menu ul {
   list-style: none;
@@ -381,6 +379,7 @@ h1{
   margin: 5%;
   width:80%;
   background-repeat : no-repeat;
+  float: left;
   /* .less-border-radius(2em,2em,2em,2em); */
 }
 

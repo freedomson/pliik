@@ -2,13 +2,14 @@ define([
     'jQuery',
     'Underscore',
     'Backbone',
-    'text!templates/page/menu.jade',
+    'text!templates/nav/menu.jade',
     'libs/pliik/module-loader',
     'config',
     'libs/pliik/util',
     'Mustache',
     'Logger',
     'views/brand/logo',
+    'views/menu/interface',
     'i18n!nls/i18n',
     'jade'
     ], function(
@@ -22,14 +23,21 @@ define([
         Mustache,
         logger,
         brandLogoView,
+        ViewInterface,
         translate,
         jade){
 
-        var view = Backbone.View.extend({
+        var view = ViewInterface.extend({
 
             el: $('#topmenu'),
             
             // template: jade.render(template),
+            
+            tplsetup : {
+              
+              cssclass : 'topmenu'
+                
+            },
             
            
             menuitems : [
@@ -93,7 +101,7 @@ define([
                 };
                 
                 
-                logger.log(translate,888888);
+                // logger.log(translate,888888);
                 
                 logger.log("---ViewData at TopMenu Before Render---",4);
                 logger.log(view,4);
@@ -129,16 +137,12 @@ define([
                 $( "#logo" ).bind( "click", function(event, ui) {
 
   
-                    if ($('#langmenu').is(':hidden'))
-                    {
-                        // handle non visible state
-                        $('#langmenu').show('slow');
-                        
-                    }else{
-                        
-                        $('#langmenu').hide('slow');
-                    
-                    }
+                $('#langmenu').animate({
+                    /* width: 'toggle', */
+                    height: 'toggle',
+                    opacity: 'toggle'
+                },
+                config.jquerymobile.transitionspeed);
                 
                 });
             }  
