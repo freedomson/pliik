@@ -55,9 +55,29 @@ define(
                 }
             },
             
+            /**
+             * Main PliiK Navigation System
+             * 
+             */
+            nav : {
+              
+                // Ex: config.nav.button.classname
+                button : {
+                    
+                    suffix: 'pliik-nav-button_',
+                    
+                    classname : 'pliik-nav-button'
+                    
+                }
+                
+            },
+            
+            /**
+             * jQuery integration system
+             */
             jquerymobile : {
                 
-                transitionspeed : 500,
+                transitionspeed : 'slow',
                 
                 datatheme : 'b',
                 datathemeactive: 'a',

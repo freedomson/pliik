@@ -17,11 +17,23 @@ define([
               
                 buttons : {
                     
-                    chat : {
+                    market : {
 
-                        title : "MyLoungePhone",
+                        id : 'btn_market',
+                        
+                        title : "Market",
                         
                         icon : 'market'
+
+                    },
+                    
+                    chat : {
+                        
+                        id : 'btn_chat',
+
+                        title : "Chat",
+                        
+                        icon : 'chat'
 
                     }
                     

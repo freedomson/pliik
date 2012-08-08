@@ -134,11 +134,7 @@ define([
 
                              
                 // TODO: Move to observer patter
-                if (this.active==1 && view.name=='home') {
-
-                    $('#langmenu').hide('slow');
-
-                } else if ( view.name=='home' ) {
+                if (this.active!==1 && view.name==='home') {
                     
                     $('#langmenu').hide(''); 
                     

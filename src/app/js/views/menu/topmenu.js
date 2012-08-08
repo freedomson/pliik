@@ -133,18 +133,19 @@ define([
 
             
             bind : function(){
-                
+
                 $( "#logo" ).bind( "click", function(event, ui) {
 
-  
-                $('#langmenu').animate({
+
+                    $('#langmenu').animate({
                     /* width: 'toggle', */
-                    height: 'toggle',
-                    opacity: 'toggle'
-                },
-                config.jquerymobile.transitionspeed);
+                        height: 'toggle',
+                        opacity: 'toggle'
+                    },
+                    config.jquerymobile.transitionspeed);
                 
                 });
+                
             }  
             
 
