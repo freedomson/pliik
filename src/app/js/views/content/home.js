@@ -5,7 +5,7 @@ define([
     'text!templates/content/home.jade',
     'Raphael',
     'jade',
-    'controller',
+    'views/nav/controller',
     'Logger'
     ], function($, _, Backbone, mainHomeTemplate, Raphael,jade,controller,logger){
 
