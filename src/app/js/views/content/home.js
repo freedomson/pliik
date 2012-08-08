@@ -5,9 +5,9 @@ define([
     'text!templates/content/home.jade',
     'Raphael',
     'jade',
-    'button',
+    'controller',
     'Logger'
-    ], function($, _, Backbone, mainHomeTemplate, Raphael,jade,button,logger){
+    ], function($, _, Backbone, mainHomeTemplate, Raphael,jade,controller,logger){
 
         var mainHomeView = Backbone.View.extend({
 
@@ -15,7 +15,7 @@ define([
             
             config : {
               
-                buttons : {
+                controllers : {
                     
                     market : {
 
@@ -49,15 +49,17 @@ define([
             },
             
 
-            buttons : [],
+            controllers : [],
             
             createButtons : function(){
                 
                 var that = this;
                 
-               _.each(this.config.buttons, function(item){
+               _.each(this.config.controllers, function(item){
                    
-                   that.buttons.push(button.render(item));
+                   var btn = new controller;
+                   
+                   that.controllers.push(btn.render(item));
                    
                });
                 
@@ -67,7 +69,7 @@ define([
         
                $("#page").html(jade.render(mainHomeTemplate));
 
-               $("#page").append(this.buttons);     
+               $("#page").append(this.controllers);     
                
                // TODO: Extend from common page view
                // Put as class definition on common page view

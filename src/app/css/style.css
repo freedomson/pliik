@@ -479,4 +479,5 @@ h1{
 
 .pliik-nav-button {
     float: left;
+    cursor: pointer;
 }

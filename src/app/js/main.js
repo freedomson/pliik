@@ -26,7 +26,8 @@ require.config({
         lang: 'libs/pliik/lang',
         Mustache : 'libs/vendor/mustache/mustache',
         Logger : 'libs/pliik/logger',
-        button : 'views/nav/button'
+        button : 'views/nav/button',
+        controller : 'views/nav/controller'        
 
     }    
 

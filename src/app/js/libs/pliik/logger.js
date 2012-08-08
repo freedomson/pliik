@@ -27,8 +27,11 @@ define(
                         
                           if (this.lastStep!=step) {
                               
+                            console.log('+----------------------------------------');   
+                            console.log('|--->>> Step:' + step ); 
+                            console.log('+----------------------------------------');   
                             
-                            console.log('---Step:'+step+'---'); 
+                            
                             console.log(step);
                             
                             this.logcounter = 0;
