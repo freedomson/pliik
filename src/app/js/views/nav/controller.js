@@ -25,11 +25,11 @@ define([
                 
                 this.ctl_nav1 = new button;
                 
-                this.ctl_nav1.render({width:50,height:50,id:'add'});
+                this.ctl_nav1.render({createEl:false,width:50,height:50,id:'add'});
                 
                 //this.ctl_center.paper.add(this.ctl_nav1);
                 
-                return this.ctl_center.buttonEl;
+                return this.ctl_center.parentEl;
 
 
             },
