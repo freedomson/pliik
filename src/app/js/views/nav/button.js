@@ -11,22 +11,17 @@ define([
     ], function($, _, Backbone, mainHomeTemplate, Raphael,
     jade,Mustache,logger,config){
 
-        var button = Backbone.View.extend({
+        var Button = Backbone.View.extend({
 
             counter : 0,
             
-            logcode: 6001,
+            logcode: 'Button',
             
             offsety : 10,
             
             config : {},
             
             buttonSet : {},
-            
-            icon : {},
-            
-            paper : {},
-            
             
             initialize : function() {
               
@@ -39,15 +34,6 @@ define([
                         x : '50%', // x coordinate of the centre                
                         y : '50%',// y coordinate of the centre
                         radius: '40' // radius
-                        
-                    },
-                    
-                    paper : {
-                        
-                        el : false  ,// DOM element or its ID which is going to be a parent for drawing surface
-                        width: 150,// width
-                        height: 150,// height
-                        callback : function(){}// callback
                         
                     },
 
@@ -71,53 +57,7 @@ define([
                 }
                               
             },
-            
-            /**
-             * ************************************
-             * Create button container
-             * ************************************
-             */
-            createParentEl : function() {
-
-              if ( this.config.paper.el === false ) {              
-
-                  this.config.paper.el = document.createElement('div');
-
-                  this.setPaperElID();
-
-                  this.setPaperElClass();
-              
-              }
-                  
-              return this.config.paper.el;
-              
-            },
-            
-            /**
-             * ************************************
-             * Set Paper El ID
-             * ************************************
-             */            
-            setPaperElID : function(){
-                
-                var paperElID = config.nav.button.suffix + this.counter++ + '__' + this.config.id;
-   
-                $(this.config.paper.el).attr('id',paperElID);
-   
-            },
-            
-            /**
-             * ************************************
-             * Set Paper El class
-             * ************************************
-             */            
-            setPaperElClass : function(classname){
-              
-                var btn_class = classname || config.nav.button.classname;
-                    
-                $(this.config.paper.el).attr('class',btn_class);
-   
-            },            
+                     
 
             /**
              * ************************************
@@ -128,15 +68,8 @@ define([
 
                 // Extend Config Object
                 $.extend(this.config, config);
-                // _.extend(this.config, config);
                 
-                logger.log('this.config',this.logcode);
-                logger.log(this.config,this.logcode);
-                    
-                // Create Button Container
-                this.createParentEl();
-
-                this.createPaper();
+                this.paper = this.config.paper;
                 
                 this.buttonSet = this.paper.set(
                     $.merge(
@@ -154,23 +87,7 @@ define([
                 return this.parentEl;
 
             },
-            
-            
-            /**
-             * ************************************
-             * Create Paper
-             * ************************************
-             */   
-            createPaper : function(){
-    
-                // Create the paper and assign to a created div el
-                this.paper = Raphael(
-                        this.config.paper.el,
-                        this.config.paper.width, 
-                        this.config.paper.height
-                );
-
-            },
+                        
             
             /**
              * ************************************
@@ -304,6 +221,6 @@ define([
             
         });
    
-        return button;
+        return Button;
   
     });

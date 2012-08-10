@@ -27,6 +27,7 @@ require.config({
         Mustache : 'libs/vendor/mustache/mustache',
         Logger : 'libs/pliik/logger',
         button : 'views/nav/button',
+        paper : 'views/nav/paper',        
         controller : 'views/nav/controller'        
 
     }    

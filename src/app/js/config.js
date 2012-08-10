@@ -59,12 +59,12 @@ define(
              * Main PliiK Navigation System
              * 
              */
-            nav : {
+            paper : {
               
                 // Ex: config.nav.button.classname
-                button : {
+                el : {
                     
-                    suffix: 'pliik-nav-button_',
+                    suffix: 'pliik-nav-button',
                     
                     classname : 'pliik-nav-button'
                     

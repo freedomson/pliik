@@ -8,102 +8,50 @@ define([
     'Mustache',
     'Logger',
     'config',
-    'button'
+    'button',
+    'paper'
     ], function($, _, Backbone, mainHomeTemplate, Raphael,
-    jade,Mustache,logger,config,button){
+    jade,Mustache,logger,config,button,paper){
 
-        var controller = Backbone.View.extend({
+        var Controller = Backbone.View.extend({
        
-            logcode : 6004,
+            logcode : 'Controller',
 
             render: function(config){
                 
                 // +--------------------------------------------- 
+                // | Create Paper
+                // +---------------------------------------------
+
+                this.paperInstance = new paper;
+                this.paper = this.paperInstance.createPaper({paper:{id:'center'}});
+                
+
+                // +--------------------------------------------- 
                 // | Create main control button
                 // +---------------------------------------------
                 
-                this.ctl_center = new button;
-                this.ctl_center.render(config);
+                this.btn_center = new button;
+                this.btn_center.render({paper:this.paper});
                 
-                logger.log('this.ctl_center+'+config.id,this.logcode);               
-                logger.log(this.ctl_center.config,this.logcode);
-                
+                logger.log('this.btn_center',this.logcode);               
+                logger.log(this.btn_center.config,this.logcode);
+                logger.log(this.btn_center,this.logcode);  
                 
                 // +--------------------------------------------- 
-                // | Create satelite control button 1
+                // | Create satellite control button
                 // +---------------------------------------------
                 
-                this.ctl_nav1 =  new button;
-                this.ctl_nav1.render(
-                    {
-                        
-                        id: 'btn_add__' + this.ctl_center.parentElID,
-                        
-                        paper : {
-                            el : this.ctl_center.config.paper.el,
-                            width: 50,
-                            height: 50                            
-                        },
-                        
-                        circle : {
-                        
-                            x : '50%', // x coordinate of the centre                
-                            y : '50%',// y coordinate of the centre
-                            radius: '30' // radius
-                        
-                        },                        
-                        
-                        title : "Add",
-                        icon : 'Add'
+                this.btn_sat1 = new button;
+                this.btn_sat1.render({paper:this.paper});
+                
+                logger.log('this.btn_sat1',this.logcode);               
+                logger.log(this.btn_sat1.config,this.logcode);
+                logger.log(this.btn_sat1,this.logcode);                  
+                
+                              
 
-
-                    }
-                );
-                
-                this.ctl_nav1.buttonSet.transform("t185,54.5r0t-100,0");
-                    
-                
-                logger.log('this.ctl_nav1+'+'btn_add__' + this.ctl_center.parentElID,this.logcode);               
-                logger.log(this.ctl_nav1,this.logcode);         
-                
-                /*
-                // +--------------------------------------------- 
-                // | Create satelite control button 2
-                // +---------------------------------------------
-                
-                this.ctl_nav2 =  new button;
-                this.ctl_nav2.render(
-                    {
-                        
-                        id: 'btn_remove__' + this.ctl_center.parentElID,
-                        
-                        paper : {
-                            el : this.ctl_center.config.paper.el,
-                            width: 50,
-                            height: 50                            
-                        },
-                        
-                        circle : {
-                        
-                            x : '50%', // x coordinate of the centre                
-                            y : '50%',// y coordinate of the centre
-                            radius: '10' // radius
-                        
-                        },     
-                        
-                        title : "Remove",
-                        icon : 'Remove'
-
-
-                    }
-                );
-                    
-                
-                logger.log('this.ctl_nav2+'+'btn_add__' + this.ctl_center.parentElID,this.logcode);               
-                logger.log(this.ctl_nav2,this.logcode);                   
-                */
-                
-                return this.ctl_center.config.paper.el;
+                return this.paperInstance.config.paper.el;
 
             },
 
@@ -111,6 +59,6 @@ define([
             
         });
   
-        return controller;
+        return Controller;
   
     });
