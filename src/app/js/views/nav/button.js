@@ -33,23 +33,28 @@ define([
                 // New objects are created from the prototype.
                 
                 this.config = {
-
-                    parentEl : false,
-
-                    x : 0,
-
-                    y : 0,
-
-                    height: 170,
-
-                    width: 170,
+                    
+                    circle : {
+                        
+                        x : '50%', // x coordinate of the centre                
+                        y : '50%',// y coordinate of the centre
+                        radius: '40' // radius
+                        
+                    },
+                    
+                    paper : {
+                        
+                        el : false  ,// DOM element or its ID which is going to be a parent for drawing surface
+                        width: 150,// width
+                        height: 150,// height
+                        callback : function(){}// callback
+                        
+                    },
 
                     color : {
 
                         active : 'yellowgreen',
-
                         selected : 'orange',
-
                         glow : 'black'
 
                     },
@@ -57,12 +62,9 @@ define([
                     iconsetup : {
 
                         glow : 'white',
-
                         color : 'black',
-
-                        scaleY: 1.8,
-
-                        scaleX: 1.8
+                        centerX : 0,
+                        centerY: 0
 
                     }
 
@@ -76,50 +78,44 @@ define([
              * ************************************
              */
             createParentEl : function() {
+
+              if ( this.config.paper.el === false ) {              
+
+                  this.config.paper.el = document.createElement('div');
+
+                  this.setPaperElID();
+
+                  this.setPaperElClass();
               
-              if ( this.config.parentEl === false ) {              
-
-                  this.parentEl = document.createElement('div');
-
-                  this.setParentElID();
-
-                  this.setParentElClass();
-              
-              } else {
-
-                  this.parentEl = this.config.parentEl;
-                  
-                  this.setParentElID(this.config.parentEl.id);
-                  
               }
                   
-              return this.parentEl;
+              return this.config.paper.el;
               
             },
             
             /**
              * ************************************
-             * Set button ID
+             * Set Paper El ID
              * ************************************
              */            
-            setParentElID : function(id){
+            setPaperElID : function(){
                 
-                this.parentElID = id || config.nav.button.suffix + this.counter++ + '__' + this.config.id;
+                var paperElID = config.nav.button.suffix + this.counter++ + '__' + this.config.id;
    
-                $(this.parentEl).attr('id',this.parentElID);
+                $(this.config.paper.el).attr('id',paperElID);
    
             },
             
             /**
              * ************************************
-             * Set button class
+             * Set Paper El class
              * ************************************
              */            
-            setParentElClass : function(classname){
+            setPaperElClass : function(classname){
               
                 var btn_class = classname || config.nav.button.classname;
                     
-                $(this.parentEl).attr('class',btn_class);
+                $(this.config.paper.el).attr('class',btn_class);
    
             },            
 
@@ -131,8 +127,8 @@ define([
             render: function(config){                              
 
                 // Extend Config Object
-                // $.extend(this.config, config);
-                _.extend(this.config, config);
+                $.extend(this.config, config);
+                // _.extend(this.config, config);
                 
                 logger.log('this.config',this.logcode);
                 logger.log(this.config,this.logcode);
@@ -166,29 +162,14 @@ define([
              * ************************************
              */   
             createPaper : function(){
-                
-                // if ( this.config.createEl ) {
-                    
-                    // Create the paper and assign to a created div el
-                    this.paper = Raphael(
-                            this.parentEl,
-                            this.config.width, 
-                            this.config.height
-                    );
-                /*        
-                } else {
-                    
-                    // Usually used for el creation via via paper.add
-                    
-                     this.paper = Raphael(
-                            this.config.x, // x 
-                            this.config.y, // y
-                            this.config.width, // width
-                            this.config.height // height
-                    );
-                    
-                }*/
-                    
+    
+                // Create the paper and assign to a created div el
+                this.paper = Raphael(
+                        this.config.paper.el,
+                        this.config.paper.width, 
+                        this.config.paper.height
+                );
+
             },
             
             /**
@@ -197,13 +178,13 @@ define([
              * ************************************
              */  
             drawButtonCircle : function(){
-                
+                  
                var that = this; 
                 
                this.circle = this.paper.circle(
-                    this.config.width*0.592, 
-                    this.config.width*0.408, 
-                    this.config.width*0.3
+                    this.config.paper.width/2, // x coordinate of the centre
+                    this.config.paper.height/2, // y coordinate of the centre
+                    this.config.circle.radius // radius
                     ).animate({
                         fill: this.config.color.active, 
                         stroke: "#444", 
@@ -244,11 +225,13 @@ define([
                     stroke: "none"
                 });
 
-                this.icon.transform("t185,54.5r0t-100,0");
-                this.icon.scale(
-                    this.config.iconsetup.scaleY,
-                    this.config.iconsetup.scaleX
-                );
+                var iconBox = this.icon.getBBox();
+                
+                this.config.iconsetup.centerX = this.config.paper.width/2-iconBox.width/2;
+                
+                this.config.iconsetup.centerY = this.config.paper.height/2-iconBox.height/2                
+
+                this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY);
                 
                 this.iconglow = this.icon.glow({color:this.config.iconsetup.glow});
                 
@@ -264,18 +247,11 @@ define([
              */            
             pressButton : function(){
                 
-                
                 this.circle.transform("t0,0rt-0,"+this.offsety);
                 
-                this.circle.animate({
-                                    fill: this.config.color.selected},250);
+                this.circle.animate({fill: this.config.color.selected},250);
 
-                this.icon.transform("t185,55r0t-100,"+this.offsety);
-                
-                this.icon.scale(
-                    this.config.iconsetup.scaleY,
-                    this.config.iconsetup.scaleX
-                );
+                this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY+"t-0,"+this.offsety);        
                 
                 this.iconglow.transform("t0,0r0t-0,"+this.offsety);
                 
@@ -291,18 +267,12 @@ define([
                 
                 this.circle.transform("t0,0rt-0,0");
                 
-                this.icon.transform("t185,55r0t-100,0");
-                
-                this.icon.scale(
-                    this.config.iconsetup.scaleY,
-                    this.config.iconsetup.scaleX
-                );
+                this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY);        
                 
                 this.iconglow.transform("t0,0r0t-0,0");
                 
                 this.circle.animate({fill: this.config.color.active},250);                
-   
-                
+  
             },            
             
             
@@ -313,37 +283,23 @@ define([
              */             
             bind : function(){
                 
-               logger.log('Binding',this.logcode);
-               logger.log($( this.parentEl ),this.logcode);
-               
-               var that = this;
-               
-               this.buttonSet.mousedown(
-                function(){
-                 that.pressButton();
-                }
-                );
-                    
-               this.buttonSet.mouseup(
-                function(){
-                 that.releaseButton();
-                }
-                );                    
-                
-                /*
-                $( this.parentEl ).bind( "mousedown", function(event, ui) {
+                logger.log('Binding',this.logcode);
+                logger.log($( this.parentEl ),this.logcode);
 
-                    that.pressButton();
-                
-                });
-                
-                $( this.parentEl ).bind( "mouseup", function(event, ui) {
+                var that = this;
 
-                    that.releaseButton();
-                
-                });           
-                */
-                
+                 this.buttonSet.mousedown(
+                      function(){
+                       that.pressButton();
+                      }
+                  );
+
+                 this.buttonSet.mouseup(
+                      function(){
+                       that.releaseButton();
+                      }
+                  );                    
+
             }
             
         });
