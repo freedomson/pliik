@@ -19,49 +19,56 @@ define([
             
             offsety : 10,
             
-            config : {
-                
-                createEl : true,
-                
-                parentEl : false,
-                
-                x : 0,
-                
-                y : 0,
-                
-                height: 170,
-                
-                width: 170,
-                
-                color : {
-                    
-                    active : 'yellowgreen',
-                    
-                    selected : 'orange',
-                    
-                    glow : 'black'
-                    
-                },
-                
-                iconsetup : {
-                    
-                    glow : 'white',
-                    
-                    color : 'black',
-                    
-                    scaleY: 1.8,
-
-                    scaleX: 1.8
-                    
-                }
-                
-            },
+            config : {},
             
             buttonSet : {},
             
             icon : {},
             
             paper : {},
+            
+            
+            initialize : function() {
+              
+                // New objects are created from the prototype.
+                
+                this.config = {
+
+                    parentEl : false,
+
+                    x : 0,
+
+                    y : 0,
+
+                    height: 170,
+
+                    width: 170,
+
+                    color : {
+
+                        active : 'yellowgreen',
+
+                        selected : 'orange',
+
+                        glow : 'black'
+
+                    },
+
+                    iconsetup : {
+
+                        glow : 'white',
+
+                        color : 'black',
+
+                        scaleY: 1.8,
+
+                        scaleX: 1.8
+
+                    }
+
+                }
+                              
+            },
             
             /**
              * ************************************
@@ -70,11 +77,21 @@ define([
              */
             createParentEl : function() {
               
-              this.parentEl = document.createElement('div');
+              if ( this.config.parentEl === false ) {              
+
+                  this.parentEl = document.createElement('div');
+
+                  this.setParentElID();
+
+                  this.setParentElClass();
               
-              this.setParentElID(this.config.id);
-              
-              this.setParentElClass();
+              } else {
+
+                  this.parentEl = this.config.parentEl;
+                  
+                  this.setParentElID(this.config.parentEl.id);
+                  
+              }
                   
               return this.parentEl;
               
@@ -87,7 +104,7 @@ define([
              */            
             setParentElID : function(id){
                 
-                this.parentElID = config.nav.button.suffix + this.counter++ + '__' + id;
+                this.parentElID = id || config.nav.button.suffix + this.counter++ + '__' + this.config.id;
    
                 $(this.parentEl).attr('id',this.parentElID);
    
@@ -112,9 +129,10 @@ define([
              * ************************************
              */
             render: function(config){                              
-                
+
                 // Extend Config Object
-                $.extend(this.config, config);
+                // $.extend(this.config, config);
+                _.extend(this.config, config);
                 
                 logger.log('this.config',this.logcode);
                 logger.log(this.config,this.logcode);
@@ -149,7 +167,7 @@ define([
              */   
             createPaper : function(){
                 
-                if ( this.config.createEl ) {
+                // if ( this.config.createEl ) {
                     
                     // Create the paper and assign to a created div el
                     this.paper = Raphael(
@@ -157,7 +175,7 @@ define([
                             this.config.width, 
                             this.config.height
                     );
-                        
+                /*        
                 } else {
                     
                     // Usually used for el creation via via paper.add
@@ -169,7 +187,7 @@ define([
                             this.config.height // height
                     );
                     
-                }
+                }*/
                     
             },
             
@@ -296,7 +314,6 @@ define([
             bind : function(){
                 
                logger.log('Binding',this.logcode);
-               
                logger.log($( this.parentEl ),this.logcode);
                
                var that = this;
@@ -330,7 +347,7 @@ define([
             }
             
         });
-  
+   
         return button;
   
     });

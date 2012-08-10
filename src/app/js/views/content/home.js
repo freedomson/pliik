@@ -13,30 +13,24 @@ define([
 
             name : 'home',
             
+            logcode : 6002,
+            
+            controls : [],
+            
             config : {
-              
+                
                 controllers : {
-                    
                     market : {
-
                         id : 'btn_market',
-                        
                         title : "Market",
-                        
                         icon : 'market'
-
                     },
                     
                     chat : {
-                        
                         id : 'btn_chat',
-
                         title : "Chat",
-                        
                         icon : 'chat'
-
                     }
-                    
                 }
                 
             },
@@ -57,9 +51,9 @@ define([
                 
                _.each(this.config.controllers, function(item){
                    
-                   var btn = new controller;
-                   
-                   that.controllers.push(btn.render(item));
+                   var ctl = new controller;
+
+                   that.controls.push(ctl.render(item));
                    
                });
                 
@@ -69,7 +63,10 @@ define([
         
                $("#page").html(jade.render(mainHomeTemplate));
 
-               $("#page").append(this.controllers);     
+               $("#page").append(this.controls);     
+               
+               logger.log('this.controls',this.logcode);               
+               logger.log(this.controls,this.logcode);
                
                // TODO: Extend from common page view
                // Put as class definition on common page view

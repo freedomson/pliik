@@ -14,23 +14,63 @@ define([
 
         var controller = Backbone.View.extend({
        
-            ctl_center : {},
+            logcode : 6004,
 
             render: function(config){
                 
+                // +--------------------------------------------- 
+                // | Create main control button
+                // +---------------------------------------------
                 
                 this.ctl_center = new button;
-                
                 this.ctl_center.render(config);
                 
-                this.ctl_nav1 = new button;
+                logger.log('this.ctl_center+'+config.id,this.logcode);               
+                logger.log(this.ctl_center,this.logcode);
                 
-                this.ctl_nav1.render({createEl:false,width:50,height:50,id:'add'});
                 
-                //this.ctl_center.paper.add(this.ctl_nav1);
+                // +--------------------------------------------- 
+                // | Create satelite control button 1
+                // +---------------------------------------------
+                
+                this.ctl_nav1 =  new button;
+                this.ctl_nav1.render(
+                    {
+                        title : "Add",
+                        icon : 'Add',
+                        id: 'btn_add__' + this.ctl_center.parentElID,
+                        parentEl : this.ctl_center.parentEl,
+                        width: 50,
+                        height: 50
+                    }
+                );
+                    
+                
+                logger.log('this.ctl_nav1+'+'btn_add__' + this.ctl_center.parentElID,this.logcode);               
+                logger.log(this.ctl_nav1,this.logcode);         
+                
+                // +--------------------------------------------- 
+                // | Create satelite control button 2
+                // +---------------------------------------------
+                
+                this.ctl_nav2 =  new button;
+                this.ctl_nav2.render(
+                    {
+                        title : "Remove",
+                        icon : 'Remove',
+                        id: 'btn_remove__' + this.ctl_center.parentElID,
+                        parentEl : this.ctl_center.parentEl,
+                        width: 50,
+                        height: 50
+                    }
+                );
+                    
+                
+                logger.log('this.ctl_nav2+'+'btn_add__' + this.ctl_center.parentElID,this.logcode);               
+                logger.log(this.ctl_nav2,this.logcode);                   
+                
                 
                 return this.ctl_center.parentEl;
-
 
             },
 
