@@ -36,23 +36,7 @@ define([
                         width: this.width,// width
                         height: this.height,// height
                     }
-                });
-                
-                // +--------------------------------------------- 
-                // | Create main control button CENTER
-                // +---------------------------------------------
-                
-               
-                this.btn_center = new button;
-                this.btn_center.render({
-                    circle : {
-
-                        x : this.paper.width/2, // x coordinate of the centre                
-                        y : this.paper.height/2,// y coordinate of the centre
-                        radius: this.paper.width/4 // radius
-
-                    },
-                    paper:this.paper});
+                });                
                 
                 // +--------------------------------------------- 
                 // | Create satellite control button TOP
@@ -63,7 +47,7 @@ define([
                     circle : {
 
                         x : this.paper.width/2, // x coordinate of the centre                
-                        y : this.paper.height/this.padding,// y coordinate of the centre
+                        y : this.paper.height/2,// y coordinate of the centre
                         radius: this.paper.width/10 // radius
 
                     },
@@ -78,7 +62,7 @@ define([
                     circle : {
 
                         x : this.paper.width/2, // x coordinate of the centre           
-                        y : this.paper.height-this.paper.height/this.padding,// y coordinate of the centre
+                        y : this.paper.height/2,// y coordinate of the centre
                         radius: this.paper.width/10 // radius
 
                     },
@@ -92,7 +76,7 @@ define([
                 this.btn_sat3.render({
                     circle : {
 
-                        x : this.paper.width/this.padding, // x coordinate of the centre           
+                        x : this.paper.width/2, // x coordinate of the centre           
                         y : this.paper.height/2,// y coordinate of the centre
                         radius: this.paper.width/10 // radius
 
@@ -107,19 +91,35 @@ define([
                 this.btn_sat4.render({
                     circle : {
 
-                        x : this.paper.width - this.paper.width/this.padding, // x coordinate of the centre           
+                        x : this.paper.width/2, // x coordinate of the centre           
                         y : this.paper.height/2,// y coordinate of the centre
                         radius: this.paper.width/10 // radius
 
                     },
                     paper:this.paper});                    
                                                     
+                // +--------------------------------------------- 
+                // | Create main control button CENTER
+                // +---------------------------------------------
                 
-                       
+               
+                this.btn_center = new button;
+                this.btn_center.render({
+                    circle : {
+
+                        x : this.paper.width/2, // x coordinate of the centre                
+                        y : this.paper.height/2,// y coordinate of the centre
+                        radius: this.paper.width/4 // radius
+
+                    },
+                    paper:this.paper});  
+                                         
                 // +--------------------------------------------- 
                 // | Satellite SET
                 // +---------------------------------------------
-
+                    
+                
+                /*
                 var satArray = [];
                 satArray.push(this.btn_sat1.buttonSet.items[0]);
                 satArray.push(this.btn_sat2.buttonSet.items[0]);
@@ -129,36 +129,118 @@ define([
                 this.satSet = this.paper.set(satArray);
 
                 this.satSet.forEach(
-                    function(el){
-                        
-                        el.hide();
-                        
+                    function(el){                        
+                                        
+                        // el.hide();
                         return true;
+                        
                     }
                 );
-                    
-                var that = this;
+                */
                 
-                this.btn_center.buttonSet.mousedown(
-                      function(){
-                          
-                        that.satSet.forEach(
-                            function(el){
+                
+                                         
+                // +--------------------------------------------- 
+                // | Add Events 2 Control
+                // +---------------------------------------------  
+                              
+                this.bind();
+                    
 
-
-                                return true;
-
-                            }
-                        );
-                       
-                      }
-                  ,this);                
-
+                // +--------------------------------------------- 
+                // | Return element
+                // +---------------------------------------------  
+                
                 return this.paperInstance.config.paper.el;
 
             },
 
-            bind : function(){}
+            
+            /**
+             * ************************************
+             * Bind Button
+             * ************************************
+             */             
+            bind : function(){
+                
+                var that = this;
+
+                 this.btn_center.buttonSet.mousedown(
+                      function(){
+                       that.pressControl();
+                      }
+                  );
+                  
+                 this.btn_center.buttonSet.dblclick(
+                      function(){
+                       that.pressControl();
+                      }
+                  );                  
+
+                 this.btn_center.buttonSet.mouseup(
+                      function(){
+                       that.releaseControl();
+                      }
+                  );                    
+
+            },
+            
+            pressControl : function() {
+
+
+                // TOP
+                this.btn_sat1.buttonSet.animate({
+                    cx: this.paper.width/2,
+                    cy: this.paper.height/this.padding,                    
+                }, 1000, "backOut");
+
+                // BOTTOM
+                this.btn_sat2.buttonSet.animate({
+                    cx: this.paper.width/2,
+                    cy: this.paper.height-this.paper.height/this.padding,                    
+                }, 1000, "backOut");     
+
+                // LEFT
+                this.btn_sat3.buttonSet.animate({
+                    cx: this.paper.width/this.padding,
+                    cy: this.paper.width/2,                    
+                }, 1000, "backOut");  
+
+                // RIGHT
+                this.btn_sat4.buttonSet.animate({
+                    cx: this.paper.width - this.paper.width/this.padding,
+                    cy: this.paper.height/2,                    
+                }, 1000, "backOut");                                                                                             
+
+            },
+            
+            releaseControl : function() {
+              
+                // TOP
+                this.btn_sat1.buttonSet.animate({
+                    cx: this.paper.width/2,
+                    cy: this.paper.height/2,                    
+                }, 1000, "backOut");
+
+                // BOTTOM
+                this.btn_sat2.buttonSet.animate({
+                    cx: this.paper.width/2,
+                    cy: this.paper.height/2,                    
+                }, 1000, "backOut");     
+
+                // LEFT
+                this.btn_sat3.buttonSet.animate({
+                    cx: this.paper.width/2,
+                    cy: this.paper.width/2,                    
+                }, 1000, "backOut");  
+
+                // RIGHT
+                this.btn_sat4.buttonSet.animate({
+                    cx: this.paper.width/2,
+                    cy: this.paper.height/2,                    
+                }, 1000, "backOut");     
+                  
+            }    
             
         });
   
