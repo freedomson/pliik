@@ -105,8 +105,10 @@ define([
                     this.config.circle.radius // radius
                     ).attr({
                         fill: this.config.color.active,
-                        stroke: "#fff",
-                        "stroke-width":5
+                        stroke: "#FFF",
+                        "stroke-width":5,
+                        "stroke-opacity": 0.5,
+                        "offsety": 5
                     });/*.animate({
                         fill: this.config.color.active, 
                         stroke: "#fff", 
