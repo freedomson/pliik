@@ -17,11 +17,15 @@ define([
        
             logcode : 'Controller',
 
-            padding : 10,
+            padding : 8,
             
-            width : 150,
+            width : 180,
             
-            height : 150,
+            height : 180,
+            
+            easing : '<>',
+            
+            speed : 500,
 
             render: function(config){
                 
@@ -192,25 +196,25 @@ define([
                 this.btn_sat1.buttonSet.animate({
                     cx: this.paper.width/2,
                     cy: this.paper.height/this.padding,                    
-                }, 1000, "backOut");
+                }, this.speed, this.easing);
 
                 // BOTTOM
                 this.btn_sat2.buttonSet.animate({
                     cx: this.paper.width/2,
                     cy: this.paper.height-this.paper.height/this.padding,                    
-                }, 1000, "backOut");     
+                }, this.speed, this.easing);     
 
                 // LEFT
                 this.btn_sat3.buttonSet.animate({
                     cx: this.paper.width/this.padding,
                     cy: this.paper.width/2,                    
-                }, 1000, "backOut");  
+                }, this.speed, this.easing);  
 
                 // RIGHT
                 this.btn_sat4.buttonSet.animate({
                     cx: this.paper.width - this.paper.width/this.padding,
                     cy: this.paper.height/2,                    
-                }, 1000, "backOut");                                                                                             
+                }, this.speed, this.easing);                                                                                             
 
             },
             
@@ -220,25 +224,25 @@ define([
                 this.btn_sat1.buttonSet.animate({
                     cx: this.paper.width/2,
                     cy: this.paper.height/2,                    
-                }, 1000, "backOut");
+                }, this.speed, this.easing);
 
                 // BOTTOM
                 this.btn_sat2.buttonSet.animate({
                     cx: this.paper.width/2,
                     cy: this.paper.height/2,                    
-                }, 1000, "backOut");     
+                }, this.speed, this.easing);     
 
                 // LEFT
                 this.btn_sat3.buttonSet.animate({
                     cx: this.paper.width/2,
                     cy: this.paper.width/2,                    
-                }, 1000, "backOut");  
+                }, this.speed, this.easing);  
 
                 // RIGHT
                 this.btn_sat4.buttonSet.animate({
                     cx: this.paper.width/2,
                     cy: this.paper.height/2,                    
-                }, 1000, "backOut");     
+                }, this.speed, this.easing);     
                   
             }    
             

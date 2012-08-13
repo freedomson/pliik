@@ -74,7 +74,10 @@ define([
                 this.paper = this.config.paper;
                 
                 this.buttonSet = this.paper.set(
-                    this.drawButtonCircle()
+                    [
+                        this.drawButtonCircle(),
+                        this.drawButtonIcon()
+                    ]
                 );
 
                 logger.log('PLIIK.log[6001][3].transform("t100,100r45t-100,0");',this.logcode);
@@ -94,29 +97,33 @@ define([
              * ************************************
              */  
             drawButtonCircle : function(){
-                  
+
 
                this.circle = this.paper.circle(
                     this.config.circle.x, // x coordinate of the centre
                     this.config.circle.y, // y coordinate of the centre
                     this.config.circle.radius // radius
-                    ).animate({
+                    ).attr({
+                        fill: this.config.color.active,
+                        stroke: "#fff",
+                        "stroke-width":5
+                    });/*.animate({
                         fill: this.config.color.active, 
-                        // stroke: "#444", 
+                        stroke: "#fff", 
                         // "stroke-width": 20, 
                         // "stroke-opacity": 0.8,
                         // offsetx:0,
                         // offsety: this.offsety
                     }, 
                     1000,function(){
-/*
+
                         this.glow({
                             color: that.config.color.glow,
                             offsetx:0,
                             offsety:that.offsety
                         });
-*/
-                    });
+
+                    });*/
                     
                 return this.circle;
                     
@@ -139,18 +146,18 @@ define([
                     fill: this.config.iconsetup.color, 
                     stroke: "none"
                 });
-
+                
                 var iconBox = this.icon.getBBox();
                 
                 this.config.iconsetup.centerX = this.config.circle.x-iconBox.width/2;
                 
                 this.config.iconsetup.centerY = this.config.circle.y-iconBox.height/2                
 
-                this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY);
+                this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY + "s1.0");
                 
                 // this.iconglow = this.icon.glow({color:this.config.iconsetup.glow});
                 
-                this.icon.hide();
+                // this.icon.hide();
                 
                 return this.icon;
                 
