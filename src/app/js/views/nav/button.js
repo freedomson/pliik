@@ -209,7 +209,13 @@ define([
                       function(){
                        that.pressButton();
                       }
-                  );
+                  );           
+                  
+                 this.buttonSet.dblclick(
+                      function(){
+                       that.pressButton();
+                      }
+                  );                            
 
                  this.buttonSet.mouseup(
                       function(){
