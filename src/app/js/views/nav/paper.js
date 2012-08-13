@@ -45,7 +45,7 @@ define([
             createPaper : function(config){
     
                 // Extend Config Object
-                $.extend(this.config, config);
+                $.extend(true, this.config, config);
                 
                 this.createPaperParentEl();
                 

@@ -26,13 +26,15 @@ define([
             initialize : function() {
               
                 // New objects are created from the prototype.
+                this.buttonSet = {};
+
                 
                 this.config = {
                     
                     circle : {
                         
-                        x : '50%', // x coordinate of the centre                
-                        y : '50%',// y coordinate of the centre
+                        x : '50', // x coordinate of the centre                
+                        y : '50',// y coordinate of the centre
                         radius: '40' // radius
                         
                     },
@@ -67,24 +69,21 @@ define([
             render: function(config){                              
 
                 // Extend Config Object
-                $.extend(this.config, config);
+                $.extend(true, this.config, config);
                 
                 this.paper = this.config.paper;
                 
                 this.buttonSet = this.paper.set(
-                    $.merge(
-                        [this.drawButtonCircle()],
-                        this.drawButtonIcon()
-                    )
+                    this.drawButtonCircle()
                 );
 
                 logger.log('PLIIK.log[6001][3].transform("t100,100r45t-100,0");',this.logcode);
-                logger.log(this.icon,this.logcode);
+                // logger.log(this.icon,this.logcode);
                 logger.log(this.circle,this.logcode);
                 
                 this.bind();
                 
-                return this.parentEl;
+                return this.buttonSet;
 
             },
                         
@@ -96,28 +95,27 @@ define([
              */  
             drawButtonCircle : function(){
                   
-               var that = this; 
-                
+
                this.circle = this.paper.circle(
-                    this.config.paper.width/2, // x coordinate of the centre
-                    this.config.paper.height/2, // y coordinate of the centre
+                    this.config.circle.x, // x coordinate of the centre
+                    this.config.circle.y, // y coordinate of the centre
                     this.config.circle.radius // radius
                     ).animate({
                         fill: this.config.color.active, 
-                        stroke: "#444", 
-                        "stroke-width": 20, 
-                        "stroke-opacity": 0.8,
-                        offsetx:0,
-                        offsety: this.offsety
+                        // stroke: "#444", 
+                        // "stroke-width": 20, 
+                        // "stroke-opacity": 0.8,
+                        // offsetx:0,
+                        // offsety: this.offsety
                     }, 
                     1000,function(){
-
+/*
                         this.glow({
                             color: that.config.color.glow,
                             offsetx:0,
                             offsety:that.offsety
                         });
-
+*/
                     });
                     
                 return this.circle;
@@ -144,15 +142,17 @@ define([
 
                 var iconBox = this.icon.getBBox();
                 
-                this.config.iconsetup.centerX = this.config.paper.width/2-iconBox.width/2;
+                this.config.iconsetup.centerX = this.config.circle.x-iconBox.width/2;
                 
-                this.config.iconsetup.centerY = this.config.paper.height/2-iconBox.height/2                
+                this.config.iconsetup.centerY = this.config.circle.y-iconBox.height/2                
 
                 this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY);
                 
-                this.iconglow = this.icon.glow({color:this.config.iconsetup.glow});
+                // this.iconglow = this.icon.glow({color:this.config.iconsetup.glow});
                 
-                return [this.icon,this.iconglow];
+                this.icon.hide();
+                
+                return this.icon;
                 
             },
             
@@ -164,13 +164,13 @@ define([
              */            
             pressButton : function(){
                 
-                this.circle.transform("t0,0rt-0,"+this.offsety);
+                // this.circle.transform("t0,0rt-0,"+this.offsety);
                 
                 this.circle.animate({fill: this.config.color.selected},250);
 
-                this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY+"t-0,"+this.offsety);        
+                // this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY+"t-0,"+this.offsety);        
                 
-                this.iconglow.transform("t0,0r0t-0,"+this.offsety);
+                // this.iconglow.transform("t0,0r0t-0,"+this.offsety);
                 
             },
             
@@ -182,11 +182,11 @@ define([
              */             
             releaseButton : function(){
                 
-                this.circle.transform("t0,0rt-0,0");
+                // this.circle.transform("t0,0rt-0,0");
                 
-                this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY);        
+                // this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY);        
                 
-                this.iconglow.transform("t0,0r0t-0,0");
+                // this.iconglow.transform("t0,0r0t-0,0");
                 
                 this.circle.animate({fill: this.config.color.active},250);                
   
@@ -201,7 +201,7 @@ define([
             bind : function(){
                 
                 logger.log('Binding',this.logcode);
-                logger.log($( this.parentEl ),this.logcode);
+                // logger.log($( this.parentEl ),this.logcode);
 
                 var that = this;
 
