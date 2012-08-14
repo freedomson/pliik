@@ -139,7 +139,8 @@ define([
                     },
                     iconsetup :{
                         
-                        path: config.icon
+                        path: config.icon,
+                        glow : true
                         
                     },
                     paper:this.paper});  
@@ -281,12 +282,7 @@ define([
                 this.btn_sat1.icon.animate(
                     {
                         transform: this.btn_sat1.icontransform + "t0,0"              
-                    }, this.speed, this.easing);  
-                    
-                this.btn_sat1.iconglow.animate(
-                    {
-                        transform: "t0,0"              
-                    }, this.speed, this.easing);             
+                    }, this.speed, this.easing);           
 
                 // BOTTOM
                 // -------------------------------------------------------------                    
@@ -299,12 +295,7 @@ define([
                 this.btn_sat2.icon.animate(
                     {
                         transform: this.btn_sat2.icontransform + "t0,0"              
-                    }, this.speed, this.easing);  
-                    
-                this.btn_sat2.iconglow.animate(
-                    {
-                        transform: "t0,0"              
-                    }, this.speed, this.easing);                    
+                    }, this.speed, this.easing);                 
 
                 // LEFT
                 // -------------------------------------------------------------
@@ -316,12 +307,7 @@ define([
                 this.btn_sat3.icon.animate(
                     {
                         transform: this.btn_sat3.icontransform + "t0,0"              
-                    }, this.speed, this.easing);  
-                    
-                this.btn_sat3.iconglow.animate(
-                    {
-                        transform: "t0,0"              
-                    }, this.speed, this.easing);                     
+                    }, this.speed, this.easing);                 
 
                 // RIGHT
                 // -------------------------------------------------------------
@@ -333,12 +319,7 @@ define([
                 this.btn_sat4.icon.animate(
                     {
                         transform: this.btn_sat4.icontransform + "t0,0"              
-                    }, this.speed, this.easing);  
-                    
-                this.btn_sat4.iconglow.animate(
-                    {
-                        transform: "t0,0"              
-                    }, this.speed, this.easing);                      
+                    }, this.speed, this.easing);                  
                   
             }    
             

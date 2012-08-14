@@ -57,6 +57,7 @@ define([
                     iconsetup : {
 
                         path : 'Gear',
+                        glow : false,
                         glow_color : 'white',
                         color : '#47D4FF',
                         centerX : 0,
@@ -90,13 +91,20 @@ define([
                     
                         this.drawButtonCircle(),
                         
-                        this.drawButtonIcon(this.config.iconsetup.path),
-                        
-                        this.drawButtonIconGlow()
+                        this.drawButtonIcon(this.config.iconsetup.path)
      
                     ]
 
                 );
+
+                // Only draw icon glow if requested 
+                
+                if ( this.config.iconsetup.glow ) {
+                    
+                    this.drawButtonIconGlow();
+                    
+                }
+
 
                 logger.log('PLIIK.log[6001][3].transform("t100,100r45t-100,0");',this.logcode);
                 // logger.log(this.icon,this.logcode);
@@ -248,10 +256,11 @@ define([
              * ************************************
              */            
             pressButton : function(){
-                
-                this.circle.animate({transform:"r360"},this.config.animation.speed);
-                
-                this.circle.animate({fill: this.config.color.selected},this.config.animation.speed);
+  
+                this.circle.animate({
+                transform:"r360",
+                fill: this.config.color.selected},
+                    this.config.animation.speed);
 
                 // this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY+"t-0,"+this.offsety);        
                 
@@ -266,14 +275,15 @@ define([
              * ************************************
              */             
             releaseButton : function(){
-                
-                this.circle.animate({transform:"r-360"},this.config.animation.speed_slow);
-                
+
                 // this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY);        
                 
                 // this.iconglow.transform("t0,0r0t-0,0");
                 
-                this.circle.animate({fill: this.config.color.active},this.config.animation.speed);                
+                this.circle.animate({
+                    transform:"r-360",
+                    fill: this.config.color.active},
+                        this.config.animation.speed);                
   
             },            
             
