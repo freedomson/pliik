@@ -84,10 +84,17 @@ define([
                 this.paper = this.config.paper;
 
                 this.buttonSet = this.paper.set(
+                
                     [
+                    
                         this.drawButtonCircle(),
-                        this.drawButtonIcon(this.config.iconsetup.path)
+                        
+                        this.drawButtonIcon(this.config.iconsetup.path),
+                        
+                        this.drawButtonIconGlow()
+     
                     ]
+
                 );
 
                 logger.log('PLIIK.log[6001][3].transform("t100,100r45t-100,0");',this.logcode);
@@ -197,15 +204,25 @@ define([
 
                 this.icon.transform( "t" + this.config.iconsetup.centerX + ","+ this.config.iconsetup.centerY + "s1.8");
                 
-                this.iconglow = this.icon.glow({color:this.config.iconsetup.glow_color});
-                
-                // this.icon.hide();
-                
                 return this.icon;
                 
             },
             
 
+            /**
+             * ************************************
+             * Draw Button Icon Glow
+             * ************************************
+             */  
+            drawButtonIconGlow : function(){
+                
+
+                this.iconglow = this.icon.glow({color:this.config.iconsetup.glow_color});
+                
+                return this.iconglow;
+                
+            },
+            
             /**
              * ************************************
              * Press Button

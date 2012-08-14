@@ -94,7 +94,9 @@ define(
             
             animation : {
                 
-                speed : 500
+                speed : 500,
+                
+                speed_slow : 250
                 
             }
         }
