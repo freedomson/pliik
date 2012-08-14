@@ -19,9 +19,9 @@ define([
 
             padding : 8,
             
-            width : 180,
+            width : 200,
             
-            height : 180,
+            height : 200,
             
             easing : '<>',
             
@@ -114,7 +114,7 @@ define([
 
                         x : this.paper.width/2, // x coordinate of the centre                
                         y : this.paper.height/2,// y coordinate of the centre
-                        radius: this.paper.width/4 // radius
+                        radius: this.paper.width/5 // radius
 
                     },
                     iconsetup :{
