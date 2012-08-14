@@ -46,7 +46,7 @@ define([
                     );
 
                 var logoColors = [
-                    "red","green","blue"
+                    "#47D4FF","#3369FF","blue"
                 ]                                    
                 
                 for(var i=0,icolor=0; i<letters.length; i++, icolor++) {

@@ -90,6 +90,12 @@ define(
                     
                 }
                 
+            },
+            
+            animation : {
+                
+                speed : 500
+                
             }
         }
                   

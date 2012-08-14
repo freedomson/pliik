@@ -25,7 +25,7 @@ define([
             
             easing : '<>',
             
-            speed : 500,
+            speed : config.animation.speed,
 
             render: function(config){
                 
@@ -35,7 +35,8 @@ define([
 
                 this.paperInstance = new paper;
                 this.paper = this.paperInstance.createPaper(
-                {paper:{
+                {
+                    paper:{
                         id:'center',
                         width: this.width,// width
                         height: this.height,// height
@@ -45,7 +46,7 @@ define([
                 // +--------------------------------------------- 
                 // | Create satellite control button TOP
                 // +---------------------------------------------
-                
+
                 this.btn_sat1 = new button;
                 this.btn_sat1.render({
                     circle : {
@@ -115,6 +116,11 @@ define([
                         y : this.paper.height/2,// y coordinate of the centre
                         radius: this.paper.width/4 // radius
 
+                    },
+                    iconsetup :{
+                        
+                        path: config.icon
+                        
                     },
                     paper:this.paper});  
                                          

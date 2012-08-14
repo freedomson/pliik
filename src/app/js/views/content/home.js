@@ -23,13 +23,13 @@ define([
                     market : {
                         id : 'btn_market',
                         title : "Market",
-                        icon : 'market'
+                        icon : 'Shop'
                     },
                     
                     chat : {
                         id : 'btn_chat',
                         title : "Chat",
-                        icon : 'chat'
+                        icon : 'People'
                     }
                 }
                 
