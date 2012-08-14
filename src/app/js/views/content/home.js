@@ -21,9 +21,9 @@ define([
                 
                 controllers : {
                     market : {
-                        id : 'btn_favorites',
-                        title : "Favorites",
-                        icon : 'StarBold'
+                        id : 'btn_folder',
+                        title : "Folder",
+                        icon : 'Folder'
                     },
                     
                     chat : {
