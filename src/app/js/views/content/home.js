@@ -23,7 +23,7 @@ define([
                     market : {
                         id : 'btn_favorites',
                         title : "Favorites",
-                        icon : 'Star'
+                        icon : 'StarBold'
                     },
                     
                     chat : {
